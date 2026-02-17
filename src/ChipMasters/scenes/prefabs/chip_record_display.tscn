@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmux50ccmtbki"]
+
+[ext_resource type="FontFile" uid="uid://cj2g0j2wiw7r0" path="res://assets/_/fonts/metrics.ttf" id="1_de2v7"]
+[ext_resource type="Script" path="res://Menu/Displays/ChipRecords/NChipRecordDisplay.cs" id="1_wvagj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c0mmn"]
+font = ExtResource("1_de2v7")
+
+[node name="ChipRecordDisplay" type="Label"]
+anchors_preset = -1
+anchor_right = 0.222222
+anchor_bottom = 0.058642
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Time: ChipCount (Change)"
+mouse_filter = 1
+text = "The font must be monospaced(constant character width), otherwise things don't line up neatly into three columns.
+GGG                                            
+lll
+ooo
+111
+222
+000L
+   L"
+label_settings = SubResource("LabelSettings_c0mmn")
+script = ExtResource("1_wvagj")
+metadata/_edit_use_anchors_ = true

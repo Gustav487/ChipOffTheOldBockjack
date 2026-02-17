@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+	<assembly>
+		<name>GSR.EnDecic.Jsonic</name>
+	</assembly>
+	<members>
+		<member name="T:GSR.EnDecic.Jsonic.JsonStreamCoder">
+			<summary>
+			<see cref="T:GSR.EnDecic.IStreamCoder`1"/> for coding of <see cref="T:GSR.Jsonic.JsonElement"/>s.
+			</summary>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeBoolean(System.Boolean,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeByte(System.Byte,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeInt16(System.Int16,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeInt32(System.Int32,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeInt64(System.Int64,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeSingle(System.Single,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeDouble(System.Double,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeDecimal(System.Decimal,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeString(System.String,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeList(System.Collections.Generic.IList{GSR.Jsonic.JsonElement},GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeMap(System.Collections.Generic.IDictionary{GSR.Jsonic.JsonElement,GSR.Jsonic.JsonElement},GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeNullableReference``1(``0,GSR.EnDecic.IEncoder{``0},GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.EncodeNullableValue``1(System.Nullable{``0},GSR.EnDecic.IEncoder{``0},GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeBoolean(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeByte(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeInt16(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeInt32(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeInt64(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeSingle(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeDouble(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeDecimal(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeString(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeList(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeMap(GSR.Jsonic.JsonElement,GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeNullableReference``1(GSR.Jsonic.JsonElement,GSR.EnDecic.IDecoder{``0},GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.EnDecic.Jsonic.JsonStreamCoder.DecodeNullableValue``1(GSR.Jsonic.JsonElement,GSR.EnDecic.IDecoder{``0},GSR.EnDecic.CoderSettings)">
+			<inheritdoc/>
+		</member>
+	</members>
+</doc>

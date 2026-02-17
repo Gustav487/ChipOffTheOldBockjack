@@ -1,0 +1,301 @@
+[gd_scene load_steps=23 format=3 uid="uid://bhpip1xy7w1w"]
+
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Textures/NTextureDisplay.cs" id="1_aqy5k"]
+[ext_resource type="Script" path="res://Menu/NChangeSceneButton.cs" id="1_j6l3i"]
+[ext_resource type="Script" path="res://Menu/NCreditsMenu.cs" id="3_sbtt1"]
+[ext_resource type="Script" path="res://Audio/NMusicChangeDirective.cs" id="4_rft2r"]
+[ext_resource type="AudioStream" uid="uid://7tb8lyf5vf82" path="res://assets/audio/chip_masters.wav" id="5_4t6nb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s84rr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_344hy"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vamr1"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbto2"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="Animation" id="Animation_l0csm"]
+resource_name = "Thanks"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Thanks for playing:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yuyqg"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Group4Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 1.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5m4ql"]
+resource_name = "fade_in_dev"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Dev:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bcpy3"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Group4Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8c27r"]
+resource_name = "fade_out_dev"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Dev:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v74v6"]
+_data = {
+"Thanks": SubResource("Animation_l0csm"),
+"fade_in": SubResource("Animation_yuyqg"),
+"fade_in_dev": SubResource("Animation_5m4ql"),
+"fade_out": SubResource("Animation_bcpy3"),
+"fade_out_dev": SubResource("Animation_8c27r")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_cedwy"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_vow1e"]
+font_size = 46
+
+[sub_resource type="LabelSettings" id="LabelSettings_7fad0"]
+font_size = 49
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ouob"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_62plr"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_dvl4k"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_e32iw"]
+font_size = 24
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aqy5k")
+_assetPath = "textures/guis/menu_bg"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0190972
+anchor_top = 0.0231482
+anchor_right = 0.124132
+anchor_bottom = 0.112654
+offset_top = -3.05176e-05
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s84rr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_344hy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vamr1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wbto2")
+text = "Back"
+script = ExtResource("1_j6l3i")
+_scenePath = "res://scenes/main_menu.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 15.0
+offset_right = 275.0
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." node_paths=PackedStringArray("_GroupLabel", "_Name", "_RolesLabel", "_TaskLabel", "_Roles", "_Tasks", "_Thanks")]
+libraries = {
+"": SubResource("AnimationLibrary_v74v6")
+}
+script = ExtResource("3_sbtt1")
+_CreditsPath = "assets/credits/credits.json"
+_GroupLabel = NodePath("Group4Label")
+_Name = NodePath("Dev/Name")
+_RolesLabel = NodePath("Dev/RolesLabel")
+_TaskLabel = NodePath("Dev/TaskLabel")
+_Roles = NodePath("Dev/Roles")
+_Tasks = NodePath("Dev/ScrollContainer/Tasks")
+_Thanks = NodePath("Thanks for playing")
+
+[node name="Group4Label" type="Label" parent="AnimationPlayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 218.0
+offset_top = 182.0
+offset_right = 910.0
+offset_bottom = 465.0
+size_flags_horizontal = 0
+text = "Chip Off The Old BlockJack 
+By Group 4"
+label_settings = SubResource("LabelSettings_cedwy")
+horizontal_alignment = 1
+
+[node name="Thanks for playing" type="Label" parent="AnimationPlayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 366.0
+offset_top = 192.0
+offset_right = 799.0
+offset_bottom = 268.0
+text = "Thanks for Playing!"
+label_settings = SubResource("LabelSettings_vow1e")
+
+[node name="Dev" type="Control" parent="AnimationPlayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchor_left = 0.044
+anchor_top = 0.133
+anchor_right = 0.953
+anchor_bottom = 0.886
+offset_left = 0.311996
+offset_top = -0.183998
+offset_right = 0.143921
+offset_bottom = -0.128052
+
+[node name="Name" type="Label" parent="AnimationPlayer/Dev"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 4.0
+offset_right = 588.0
+offset_bottom = 77.0
+label_settings = SubResource("LabelSettings_7fad0")
+
+[node name="RolesLabel" type="Label" parent="AnimationPlayer/Dev"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 80.0
+offset_right = 155.0
+offset_bottom = 134.0
+text = "Roles:"
+label_settings = SubResource("LabelSettings_1ouob")
+
+[node name="TaskLabel" type="Label" parent="AnimationPlayer/Dev"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 80.0
+offset_right = 515.0
+offset_bottom = 138.0
+text = "Tasks:"
+label_settings = SubResource("LabelSettings_62plr")
+
+[node name="Roles" type="Label" parent="AnimationPlayer/Dev"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 120.0
+offset_right = 459.0
+offset_bottom = 508.0
+label_settings = SubResource("LabelSettings_dvl4k")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AnimationPlayer/Dev"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 120.0
+offset_right = 988.0
+offset_bottom = 500.0
+
+[node name="Tasks" type="Label" parent="AnimationPlayer/Dev/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_e32iw")
+autowrap_mode = 2
+
+[node name="MusicChangeDirective" type="Node" parent="."]
+script = ExtResource("4_rft2r")
+_musicToPlay = ExtResource("5_4t6nb")

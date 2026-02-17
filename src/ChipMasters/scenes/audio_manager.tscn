@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnkvok508g8c6"]
+
+[ext_resource type="Script" path="res://Audio/NAudioManager.cs" id="1_x26fu"]
+[ext_resource type="AudioStream" uid="uid://7tb8lyf5vf82" path="res://assets/audio/chip_masters.wav" id="2_vfkjn"]
+
+[node name="NAudioManager" type="Node" node_paths=PackedStringArray("_musicPlayer")]
+script = ExtResource("1_x26fu")
+_musicPlayer = NodePath("MusicPlayer")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vfkjn")
+volume_db = -3.0
+bus = &"Music"

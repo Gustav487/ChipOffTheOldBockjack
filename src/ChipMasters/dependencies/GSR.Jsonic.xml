@@ -1,0 +1,1180 @@
+<?xml version="1.0"?>
+<doc>
+	<assembly>
+		<name>GSR.Jsonic</name>
+	</assembly>
+	<members>
+		<member name="T:GSR.Jsonic.AJsonValue">
+			<summary>
+			Simple <see cref="T:GSR.Jsonic.IJsonValue"/> abstract base class that implements <see cref="M:GSR.Jsonic.AJsonValue.ToString"/>.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.AJsonValue.ToString">
+			<summary>
+			Write the json value with defualt <see cref="T:GSR.Jsonic.Formatting.JsonFormatting"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.AJsonValue.ToString(GSR.Jsonic.Formatting.JsonFormatting)">
+			<inheritdoc/>
+		</member>
+		<member name="T:GSR.Jsonic.Formatting.JsonArrayFormatting">
+			<summary>
+			Formatting defining how to format a <see cref="T:GSR.Jsonic.JsonArray"/>.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.Formatting.JsonArrayFormatting.#ctor(System.Int32,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+			<inheritdoc/>
+		</member>
+		<member name="T:GSR.Jsonic.Formatting.JsonCollectionFormatting">
+			<summary>
+			Formatting defining how to format a <see cref="T:GSR.Jsonic.JsonArray"/> or <see cref="T:GSR.Jsonic.JsonObject"/> in commong.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonCollectionFormatting.EmptyCollectionNewLining">
+			<summary>
+			Number of newlines to place in an empty collection.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonCollectionFormatting.NewLineProceedingFirstElement">
+			<summary>
+			Should there be a newline before the first element of the collection
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonCollectionFormatting.NewLineBetweenElements">
+			<summary>
+			Should there be a newline between each element of the collection
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonCollectionFormatting.NewLineSucceedingLastElement">
+			<summary>
+			Should there be a newline following the last element of the collection
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonCollectionFormatting.Indentation">
+			<summary>
+			Whitespace to add after every single newline for indentation, will be added once per collection body to indicate depth.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonCollectionFormatting.PostCommaSpacing">
+			<summary>
+			Whitespace to add after every single element separating comma that's not followed by a newline.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.Formatting.JsonCollectionFormatting.#ctor(System.Int32,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+			<inheritdoc/>
+		</member>
+		<member name="T:GSR.Jsonic.Formatting.JsonFormatting">
+			<summary>
+			Definition of various options to determine the style of output json. Such as indentation, or what characters should be escapes, or if numbers should be exponentially notation.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.Formatting.JsonFormatting.COMPRESSED">
+			<summary>
+			Formatting without any non-coding white space. Keeps numbers and strings in form they were parsed from.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonFormatting.NewLineType">
+			<summary>
+			Type of newlines to use.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonFormatting.ArrayFormatting">
+			<summary>
+			How <see cref="T:GSR.Jsonic.JsonArray"/>s should be formatted.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonFormatting.NumberFormatting">
+			<summary>
+			How <see cref="T:GSR.Jsonic.JsonNumber"/>s should be formatted.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonFormatting.ObjectFormatting">
+			<summary>
+			How <see cref="T:GSR.Jsonic.JsonObject"/>s should be formatted.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonFormatting.StringFormatting">
+			<summary>
+			How <see cref="T:GSR.Jsonic.JsonString"/>s should be formatted.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.Formatting.JsonFormatting.#ctor">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.Formatting.JsonFormatting.#ctor(GSR.Jsonic.Formatting.NewLineType,GSR.Jsonic.Formatting.JsonArrayFormatting,GSR.Jsonic.Formatting.JsonNumberFormatting,GSR.Jsonic.Formatting.JsonObjectFormatting,GSR.Jsonic.Formatting.JsonStringFormatting)">
+			<summary>
+			Construct the object - nulls indicate use of the default values
+			</summary>
+			<param name="newLineType"></param>
+			<param name="arrayFormatting"></param>
+			<param name="numberFormatting"></param>
+			<param name="objectFormatting"></param>
+			<param name="stringFormatting"></param>
+		</member>
+		<member name="T:GSR.Jsonic.Formatting.JsonNumberFormatting">
+			<summary>
+			Formatting defining how to format a <see cref="T:GSR.Jsonic.JsonNumber"/>.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonNumberFormatting.Preserve">
+			<summary>
+			Write to string exactly as how it was parsed. Overrides all the other settings.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonNumberFormatting.PlaceExponent">
+			<summary>
+			Should the number be written as containing an exponent denoting the power of 10 to multiply the significand by.
+			
+			For instance:
+			9e0 = 9 * 10^1 = 9,
+			1.2e2 = 1.2 * 10^2 = 120
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonNumberFormatting.CapitalizeExponent">
+			<summary>
+			Should the exponent be denoted with a capital 'E'. If false lowercase 'e' will be used.
+			
+			Unless <see cref="P:GSR.Jsonic.Formatting.JsonNumberFormatting.DecimalPositioning"/> indicates otherwise, significand will contain no decimal point.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonNumberFormatting.ExplicitlySignExponent">
+			<summary>
+			Should a '+' prepend the exponent when the exponent is of positive sign.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonNumberFormatting.AllowInsignificantDigits">
+			<summary>
+			Should insignificant trailing 0s be allowed after the decimal? 
+			
+			See also: <seealso cref="P:GSR.Jsonic.Formatting.JsonNumberFormatting.DecimalPositioning"/>.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonNumberFormatting.DecimalPositioning">
+			<summary>
+			At what position should the decimal point be placed.
+			
+			Ignored unless <see cref="P:GSR.Jsonic.Formatting.JsonNumberFormatting.PlaceExponent"/> or <see cref="P:GSR.Jsonic.Formatting.JsonNumberFormatting.AllowInsignificantDigits"/> are true.
+			
+			<para>
+			When <see cref="P:GSR.Jsonic.Formatting.JsonNumberFormatting.PlaceExponent"/> is true:
+			0 indicates no decimal.
+			A negative value indicates the preferred number of digits that will be to the right of the decimal, positioning will be fulfilled as far as possible, any further significant digits will be placed on the left.
+			A positive value indicates the preferred number of digits that will be to the left of the decimal, positioning will be fulfilled as far as possible, any further significant digits will be placed on the right.
+			</para>
+			
+			<para>
+			When <see cref="P:GSR.Jsonic.Formatting.JsonNumberFormatting.AllowInsignificantDigits"/> is true:
+			
+			Trailing 0's will be added after the decimal point in volume sufficient to reach a number of digits equal to the preferred number, as such is only meanigful with a negative value and insufficient significant digits.
+			</para>
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.Formatting.JsonNumberFormatting.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+			<inheritdoc/>
+		</member>
+		<member name="T:GSR.Jsonic.Formatting.JsonObjectFormatting">
+			<summary>
+			Formatting defining how to format a <see cref="T:GSR.Jsonic.JsonObject"/>.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonObjectFormatting.PostKeyWhitespace">
+			<summary>
+			Whitespace to add after the key in a key value pair.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonObjectFormatting.PreValueWhitespace">
+			<summary>
+			Whitespace to add before the value in a key value pair.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.Formatting.JsonObjectFormatting.#ctor(System.Int32,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.String,System.String)">
+			<inheritdoc/>
+		</member>
+		<member name="T:GSR.Jsonic.Formatting.JsonStringFormatting">
+			<summary>
+			Formatting defining how to format a <see cref="T:GSR.Jsonic.JsonString"/>.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonStringFormatting.Preserve">
+			<summary>
+			Write to string exactly as how it was parsed. Overrides all the other settings. Ignored if string wasn't parsed.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.Formatting.JsonStringFormatting.EscapeSolidi">
+			<summary>
+			Should forward slashes be escaped: '\/'.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.Formatting.JsonStringFormatting.#ctor(System.Boolean,System.Boolean)">
+			<inheritdoc/>
+		</member>
+		<member name="T:GSR.Jsonic.Formatting.NewLineType">
+			<summary>
+			Flag style enum representation of valid types of newlines.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.Formatting.NewLineType.NONE">
+			<summary>
+			No newline.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.Formatting.NewLineType.CR">
+			<summary>
+			Newlnes as only a carriage return.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.Formatting.NewLineType.LF">
+			<summary>
+			Newlines as only a linefeed.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.Formatting.NewLineType.CRLF">
+			<summary>
+			Newlines as a carriage return and then a linefeed.
+			</summary>
+		</member>
+		<member name="T:GSR.Jsonic.IJsonValue">
+			<summary>
+			Common contract of all GSR.Jsonic json value representations
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.IJsonValue.ToString(GSR.Jsonic.Formatting.JsonFormatting)">
+			<summary>
+			Write the object to json format with the following <paramref name="formatting"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="T:GSR.Jsonic.JsonArray">
+			<summary>
+			Representation of a json array.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.JsonArray.Count">
+			<summary>
+			Number of elements in the array.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.JsonArray.IsReadOnly">
+			<inheritdoc/>
+		</member>
+		<member name="P:GSR.Jsonic.JsonArray.Item(System.Int32)">
+			<summary>
+			Get or set the value at the given index.
+			</summary>
+			<param name="index"></param>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.#ctor">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.#ctor(GSR.Jsonic.JsonElement[])">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.#ctor(System.Collections.Generic.IEnumerable{GSR.Jsonic.JsonElement})">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.Add(GSR.Jsonic.JsonElement)">
+			<summary>
+			Add a new <paramref name="element"/> to the end of the array.
+			</summary>
+			<param name="element">this</param>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.Clear">
+			<summary>
+			Remove all the elements from the array.
+			</summary>
+			<returns>this</returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.InsertAt(System.Int32,GSR.Jsonic.JsonElement)">
+			<summary>
+			Insert the <paramref name="element"/> at the specified index.
+			</summary>
+			<param name="index"></param>
+			<param name="element"></param>
+			<returns>this</returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.Insert(System.Int32,GSR.Jsonic.JsonElement)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.RemoveAt(System.Int32)">
+			<summary>
+			Remove the element at the specified index.
+			</summary>
+			<param name="index"></param>
+			<returns>this</returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.IndexOf(GSR.Jsonic.JsonElement)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.Contains(GSR.Jsonic.JsonElement)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.CopyTo(GSR.Jsonic.JsonElement[],System.Int32)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.Remove(GSR.Jsonic.JsonElement)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.GetEnumerator">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.ToString(GSR.Jsonic.Formatting.JsonFormatting)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.GetHashCode">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.Equals(System.Object)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.op_Equality(GSR.Jsonic.JsonArray,GSR.Jsonic.JsonArray)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.op_Inequality(GSR.Jsonic.JsonArray,GSR.Jsonic.JsonArray)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.ParseJson(System.String,System.String@)">
+			<summary>
+			Parse the element at the beginning of a string.
+			</summary>
+			<param name="json">The input string.</param>
+			<param name="remainder">The unmodified section of string trailing the leading value.</param>
+			<returns>A JsonArray containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">A value couldn't be recognized at the string's beginning, or an error occured while parsing the predicted value.</exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonArray.ParseJson(System.String)">
+			<summary>
+			Reads all of a string as a single Json value with no superfluous non-whitespace characters.
+			</summary>
+			<param name="json">The input string.</param>
+			<returns>A JsonArray containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">If parsing of a value wasn't possible, or there were trailing characters.</exception>
+		</member>
+		<member name="T:GSR.Jsonic.JsonBoolean">
+			<summary>
+			Representation of a json number. No constuctor provided, use: <see cref="F:GSR.Jsonic.JsonBoolean.TRUE"/> or <see cref="F:GSR.Jsonic.JsonBoolean.FALSE"/>.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.JsonBoolean.TRUE">
+			<summary>
+			Static true <see cref="T:GSR.Jsonic.JsonBoolean"/> instance reference.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.JsonBoolean.FALSE">
+			<summary>
+			Static false <see cref="T:GSR.Jsonic.JsonBoolean"/> instance reference.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.JsonBoolean.Value">
+			<summary>
+			Boolean value of the <see cref="T:GSR.Jsonic.JsonBoolean"/>.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.JsonBoolean.ToString(GSR.Jsonic.Formatting.JsonFormatting)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonBoolean.GetHashCode">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonBoolean.Equals(System.Object)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonBoolean.op_Equality(GSR.Jsonic.JsonBoolean,GSR.Jsonic.JsonBoolean)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonBoolean.op_Inequality(GSR.Jsonic.JsonBoolean,GSR.Jsonic.JsonBoolean)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonBoolean.op_Implicit(System.Boolean)~GSR.Jsonic.JsonBoolean">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonBoolean.op_Implicit(GSR.Jsonic.JsonBoolean)~System.Boolean">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonBoolean.ParseJson(System.String,System.String@)">
+			<summary>
+			Parse the element at the beginning of a string.
+			</summary>
+			<param name="json">The input string.</param>
+			<param name="remainder">The unmodified section of string trailing the leading value.</param>
+			<returns>A JsonBoolean containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">A value couldn't be recognized at the string's beginning, or an error occured while parsing the predicted value.</exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonBoolean.ParseJson(System.String)">
+			<summary>
+			Reads all of a string as a single Json value with no superfluous non-whitespace characters.
+			</summary>
+			<param name="json">The input string.</param>
+			<returns>A JsonBoolean containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">If parsing of a value wasn't possible, or there were trailing characters.</exception>
+		</member>
+		<member name="T:GSR.Jsonic.InvalidJsonCastException">
+			<summary>
+			<see cref="T:System.Exception"/> indicating that a <see cref="T:GSR.Jsonic.JsonElement"/> conversion couldn't be complete as the underlying value was a different type.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.InvalidJsonCastException.#ctor(GSR.Jsonic.JsonType,GSR.Jsonic.JsonType)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.InvalidJsonCastException.#ctor">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.InvalidJsonCastException.#ctor(System.String)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.InvalidJsonCastException.#ctor(System.String,System.Exception)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.InvalidJsonCastException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+			<inheritdoc/>
+		</member>
+		<member name="T:GSR.Jsonic.JsonElement">
+			<summary>
+			Common representation of one of the json values.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.JsonElement.Value">
+			<summary>
+			Underlying value of the <see cref="T:GSR.Jsonic.JsonElement"/>.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.JsonElement.Type">
+			<summary>
+			Type of the <see cref="P:GSR.Jsonic.JsonElement.Value"/> of the <see cref="T:GSR.Jsonic.JsonElement"/>.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.#ctor">
+			<summary>
+			Create a null containing <see cref="T:GSR.Jsonic.JsonElement"/>
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.#ctor(GSR.Jsonic.JsonNull)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.#ctor(GSR.Jsonic.JsonArray)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.#ctor(GSR.Jsonic.JsonBoolean)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.#ctor(GSR.Jsonic.JsonNumber)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.#ctor(GSR.Jsonic.JsonObject)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.#ctor(GSR.Jsonic.JsonString)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.AsNull">
+			<summary>
+			Get the underlying <see cref="P:GSR.Jsonic.JsonElement.Value"/> as a <see cref="T:GSR.Jsonic.JsonNull"/>.
+			</summary>
+			<returns></returns>
+			<exception cref="T:GSR.Jsonic.InvalidJsonCastException"></exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.AsArray">
+			<summary>
+			Get the underlying <see cref="P:GSR.Jsonic.JsonElement.Value"/> as a <see cref="T:GSR.Jsonic.JsonArray"/>.
+			</summary>
+			<returns></returns>
+			<exception cref="T:GSR.Jsonic.InvalidJsonCastException"></exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.AsBoolean">
+			<summary>
+			Get the underlying <see cref="P:GSR.Jsonic.JsonElement.Value"/> as a <see cref="T:GSR.Jsonic.JsonBoolean"/>.
+			</summary>
+			<returns></returns>
+			<exception cref="T:GSR.Jsonic.InvalidJsonCastException"></exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.AsNumber">
+			<summary>
+			Get the underlying <see cref="P:GSR.Jsonic.JsonElement.Value"/> as a <see cref="T:GSR.Jsonic.JsonNumber"/>.
+			</summary>
+			<returns></returns>
+			<exception cref="T:GSR.Jsonic.InvalidJsonCastException"></exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.AsObject">
+			<summary>
+			Get the underlying <see cref="P:GSR.Jsonic.JsonElement.Value"/> as a <see cref="T:GSR.Jsonic.JsonObject"/>.
+			</summary>
+			<returns></returns>
+			<exception cref="T:GSR.Jsonic.InvalidJsonCastException"></exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.AsString">
+			<summary>
+			Get the underlying <see cref="P:GSR.Jsonic.JsonElement.Value"/> as a <see cref="T:GSR.Jsonic.JsonString"/>.
+			</summary>
+			<returns></returns>
+			<exception cref="T:GSR.Jsonic.InvalidJsonCastException"></exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.ToString(GSR.Jsonic.Formatting.JsonFormatting)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.GetHashCode">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.Equals(System.Object)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Equality(GSR.Jsonic.JsonElement,GSR.Jsonic.JsonElement)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Inequality(GSR.Jsonic.JsonElement,GSR.Jsonic.JsonElement)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.Boolean)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.SByte)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.Byte)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.Int16)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.UInt16)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.Int32)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.UInt32)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.Int64)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.UInt64)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.Single)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.Double)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.Decimal)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(System.String)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonNull)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonArray)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonBoolean)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonNumber)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonObject)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonString)~GSR.Jsonic.JsonElement">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.Boolean">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.SByte">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.Byte">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.Int16">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.UInt16">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.Int32">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.UInt32">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.Int64">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.UInt64">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.Single">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.Double">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.Decimal">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Implicit(GSR.Jsonic.JsonElement)~System.String">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Explicit(GSR.Jsonic.JsonElement)~GSR.Jsonic.JsonNull">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Explicit(GSR.Jsonic.JsonElement)~GSR.Jsonic.JsonArray">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Explicit(GSR.Jsonic.JsonElement)~GSR.Jsonic.JsonBoolean">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Explicit(GSR.Jsonic.JsonElement)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Explicit(GSR.Jsonic.JsonElement)~GSR.Jsonic.JsonObject">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.op_Explicit(GSR.Jsonic.JsonElement)~GSR.Jsonic.JsonString">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.ParseJson(System.String,System.String@)">
+			<summary>
+			Parse the element at the beginning of a string.
+			</summary>
+			<param name="json">The input string.</param>
+			<param name="remainder">The unmodified section of string trailing the leading value.</param>
+			<returns>A JsonElement containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">A value couldn't be recognized at the string's beginning, or an error occured while parsing the predicted value.</exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonElement.ParseJson(System.String)">
+			<summary>
+			Reads all of a string as a single Json value with no superfluous non-whitespace characters.
+			</summary>
+			<param name="json">The input string.</param>
+			<returns>A JsonElement containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">If parsing of a value wasn't possible, or there were trailing characters.</exception>
+		</member>
+		<member name="T:GSR.Jsonic.JsonNull">
+			<summary>
+			Uninstantiable class for representing a null json value, for the 'instance' use <see cref="F:GSR.Jsonic.JsonNull.NULL"/>.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.JsonNull.NULL">
+			<summary>
+			The single constant <see cref="T:GSR.Jsonic.JsonNull"/> 'instance'.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNull.ToString(GSR.Jsonic.Formatting.JsonFormatting)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNull.ParseJson(System.String,System.String@)">
+			<summary>
+			Parse the element at the beginning of a string.
+			</summary>
+			<param name="json">The input string.</param>
+			<param name="remainder">The unmodified section of string trailing the leading value.</param>
+			<returns>A JsonNull containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">A value couldn't be recognized at the string's beginning, or an error occured while parsing the predicted value.</exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNull.ParseJson(System.String)">
+			<summary>
+			Reads all of a string as a single Json value with no superfluous non-whitespace characters.
+			</summary>
+			<param name="json">The input string.</param>
+			<returns>A JsonNull containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">If parsing of a value wasn't possible, or there were trailing characters.</exception>
+		</member>
+		<member name="T:GSR.Jsonic.JsonNumber">
+			<summary>
+			Representation of a json number.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.JsonNumber.Significand">
+			<summary>
+			Significant figures of the number.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.JsonNumber.Exponent">
+			<summary>
+			Number of decimal places to shift the <see cref="P:GSR.Jsonic.JsonNumber.Significand"/>'s decimal to get the number.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.SByte)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.Byte)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.Int16)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.UInt16)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.Int32)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.UInt32)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.Int64)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.UInt64)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.Single)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.Double)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.Decimal)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.#ctor(System.String)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsSignedByte">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.SByte"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsByte">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.Byte"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsShort">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.Int16"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsUnsignedShort">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.UInt16"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsInt">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.Int32"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsUnsignedInt">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.UInt32"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsLong">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.Int64"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsUnsignedLong">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.UInt64"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsFloat">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.Single"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsDouble">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.Double"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.AsDecimal">
+			<summary>
+			Attempt to convert the value to a <see cref="T:System.Decimal"/>.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.ToString(GSR.Jsonic.Formatting.JsonFormatting)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.PositionDecimalLeft(System.Text.StringBuilder,System.Int32)">
+			<summary>
+			Places the a decimal point in the significand, putting <paramref name="decimalPositioning"/> values to the left. 
+			Decimal point might be imagined, factional part is insignificant.
+			</summary>
+			<param name="unsignedSignificand"></param>
+			<param name="decimalPositioning"></param>
+			<returns>The power that the expondent has been shifted by</returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.PositionDecimalRight(System.Text.StringBuilder,System.Int32,System.Boolean)">
+			<summary>
+			Places the a decimal point in the significand, putting <paramref name="decimalPositioning"/> values to the right. 
+			Decimal point might be imagined, factional part is insignificant.
+			</summary>
+			<param name="unsignedSignificand"></param>
+			<param name="decimalPositioning"></param>
+			<param name="allowInsignificantDigits"></param>
+			<returns>The power that the expondent has been shifted by</returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.UnexponentializeNegativeExponent(System.Text.StringBuilder,System.Int32,System.Int32)">
+			<summary>
+			Convert a signficand and exponent, where the exponent is negative, to a single number.
+			</summary>
+			<param name="unsignedSignificand"></param>
+			<param name="exponent"></param>
+			<param name="decimalPositioning"></param>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.SatisfyInsignificantZeros(System.Text.StringBuilder,System.Int32,System.Int32)">
+			<summary>
+			Add insignificant 0s if required to meet a deired number of digits to the right of the decimal.
+			</summary>
+			<param name="significand"></param>
+			<param name="decimalPositioning"></param>
+			<param name="rightHandLength"></param>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.GetHashCode">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.Equals(System.Object)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Equality(GSR.Jsonic.JsonNumber,GSR.Jsonic.JsonNumber)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Inequality(GSR.Jsonic.JsonNumber,GSR.Jsonic.JsonNumber)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.SByte)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.Byte)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.Int16)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.UInt16)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.Int32)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.UInt32)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.Int64)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.UInt64)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.Single)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.Double)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(System.Decimal)~GSR.Jsonic.JsonNumber">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.SByte">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.Byte">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.Int16">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.UInt16">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.Int32">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.UInt32">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.Int64">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.UInt64">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.Single">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.Double">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.op_Implicit(GSR.Jsonic.JsonNumber)~System.Decimal">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.ParseJson(System.String,System.String@)">
+			<summary>
+			Parse the number at the beginning of a string.
+			</summary>
+			<param name="json">The input string.</param>
+			<param name="remainder">The unmodified section of string trailing the leading value.</param>
+			<returns>A JsonNumber containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">A value couldn't be recognized at the string's beginning, or an error occured while parsing the predicted value.</exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonNumber.ParseJson(System.String)">
+			<summary>
+			Reads all of a string as a single Json value with no superfluous non-whitespace characters.
+			</summary>
+			<param name="json">The input string.</param>
+			<returns>A JsonNumber containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">If parsing of a value wasn't possible, or there were trailing characters.</exception>
+		</member>
+		<member name="T:GSR.Jsonic.JsonObject">
+			<summary>
+			Representation of a json object.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.JsonObject.Count">
+			<summary>
+			Get the current number of key value pairs in the object
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.JsonObject.IsReadOnly">
+			<inheritdoc/>
+		</member>
+		<member name="P:GSR.Jsonic.JsonObject.Keys">
+			<inheritdoc/>
+		</member>
+		<member name="P:GSR.Jsonic.JsonObject.Values">
+			<inheritdoc/>
+		</member>
+		<member name="P:GSR.Jsonic.JsonObject.Item(GSR.Jsonic.JsonString)">
+			<summary>
+			Get or set the value associated with the <paramref name="key"/>.
+			</summary>
+			<param name="key"></param>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.#ctor">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.#ctor(System.Collections.Generic.KeyValuePair{GSR.Jsonic.JsonString,GSR.Jsonic.JsonElement}[])">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{GSR.Jsonic.JsonString,GSR.Jsonic.JsonElement}})">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.Add(GSR.Jsonic.JsonString)">
+			<summary>
+			Associates the <paramref name="key"/> with null.
+			</summary>
+			<param name="key"></param>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.Add(GSR.Jsonic.JsonString,GSR.Jsonic.JsonElement)">
+			<summary>
+			Add a new <paramref name="key"/> <paramref name="value"/> pair to the object.
+			</summary>
+			<param name="key"></param>
+			<param name="value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.Add(System.Collections.Generic.KeyValuePair{GSR.Jsonic.JsonString,GSR.Jsonic.JsonElement})">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.Clear">
+			<summary>
+			Remove all the elements from the array.
+			</summary>
+			<returns>this</returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.ContainsKey(GSR.Jsonic.JsonString)">
+			<summary>
+			Check if the object has a propety with the<paramref name="key"/>.
+			</summary>
+			<param name="key"></param>
+			<returns></returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.Contains(System.Collections.Generic.KeyValuePair{GSR.Jsonic.JsonString,GSR.Jsonic.JsonElement})">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.Remove(GSR.Jsonic.JsonString)">
+			<summary>
+			Does nothing if not contained, else remove value paired with the key.
+			</summary>
+			<param name="key"></param>
+			<returns>this</returns>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.Remove(System.Collections.Generic.KeyValuePair{GSR.Jsonic.JsonString,GSR.Jsonic.JsonElement})">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.TryGetValue(GSR.Jsonic.JsonString,GSR.Jsonic.JsonElement@)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.CopyTo(System.Collections.Generic.KeyValuePair{GSR.Jsonic.JsonString,GSR.Jsonic.JsonElement}[],System.Int32)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.GetEnumerator">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.ToString(GSR.Jsonic.Formatting.JsonFormatting)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.Equals(System.Object)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.GetHashCode">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.op_Equality(GSR.Jsonic.JsonObject,GSR.Jsonic.JsonObject)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.op_Inequality(GSR.Jsonic.JsonObject,GSR.Jsonic.JsonObject)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.ParseJson(System.String,System.String@)">
+			<summary>
+			Parse the element at the beginning of a string.
+			</summary>
+			<param name="json">The input string.</param>
+			<param name="remainder">The unmodified section of string trailing the leading value.</param>
+			<returns>A JsonObject containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">A value couldn't be recognized at the string's beginning, or an error occured while parsing the predicted value.</exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonObject.ParseJson(System.String)">
+			<summary>
+			Reads all of a string as a single Json value with no superfluous non-whitespace characters.
+			</summary>
+			<param name="json">The input string.</param>
+			<returns>A JsonObject containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">If parsing of a value wasn't possible, or there were trailing characters.</exception>
+		</member>
+		<member name="T:GSR.Jsonic.JsonString">
+			<summary>
+			Representation of a json string.
+			</summary>
+		</member>
+		<member name="P:GSR.Jsonic.JsonString.Value">
+			<summary>
+			The value of the string, without any escaping.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.#ctor">
+			<summary>
+			Create a new <see cref="T:GSR.Jsonic.JsonString"/>
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.#ctor(System.String)">
+			<summary>
+			Constructs a JsonString with a given value.
+			</summary>
+			<param name="value">The value to be represented by the <see cref="T:GSR.Jsonic.JsonString"/>, understood as having no escape codes.</param>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">String wasn't in valid Json string format.</exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.ToString(GSR.Jsonic.Formatting.JsonFormatting)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.GetHashCode">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.Equals(System.Object)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.op_Equality(GSR.Jsonic.JsonString,GSR.Jsonic.JsonString)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.op_Inequality(GSR.Jsonic.JsonString,GSR.Jsonic.JsonString)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.op_Implicit(System.String)~GSR.Jsonic.JsonString">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.op_Implicit(GSR.Jsonic.JsonString)~System.String">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.ParseJson(System.String,System.String@)">
+			<summary>
+			Parse the element at the beginning of a string.
+			</summary>
+			<param name="json">The input string.</param>
+			<param name="remainder">The unmodified section of string trailing the leading value.</param>
+			<returns>A JsonString containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">A value couldn't be recognized at the string's beginning, or an error occured while parsing the predicted value.</exception>
+		</member>
+		<member name="M:GSR.Jsonic.JsonString.ParseJson(System.String)">
+			<summary>
+			Reads all of a string as a single Json value with no superfluous non-whitespace characters.
+			</summary>
+			<param name="json">The input string.</param>
+			<returns>A JsonString containing the parsed Json value.</returns>
+			<exception cref="T:GSR.Jsonic.MalformedJsonException">If parsing of a value wasn't possible, or there were trailing characters.</exception>
+		</member>
+		<member name="T:GSR.Jsonic.JsonType">
+			<summary>
+			Enum for identifying the type of value a json value is.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.JsonType.Array">
+			<summary>
+			A json array.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.JsonType.Boolean">
+			<summary>
+			A json boolean.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.JsonType.Null">
+			<summary>
+			The null value.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.JsonType.Number">
+			<summary>
+			A json number.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.JsonType.Object">
+			<summary>
+			A json object.
+			</summary>
+		</member>
+		<member name="F:GSR.Jsonic.JsonType.String">
+			<summary>
+			A json string.
+			</summary>
+		</member>
+		<member name="T:GSR.Jsonic.MalformedJsonException">
+			<summary>
+			<see cref="T:System.Exception"/> indicating the input couldn't be understood as json.
+			</summary>
+		</member>
+		<member name="M:GSR.Jsonic.MalformedJsonException.#ctor">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.MalformedJsonException.#ctor(System.String)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.MalformedJsonException.#ctor(System.String,System.Exception)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.MalformedJsonException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+			<inheritdoc/>
+		</member>
+		<member name="M:GSR.Jsonic.Util.Entabbed(System.String,GSR.Jsonic.Formatting.NewLineType,System.String)">
+			<summary>
+			Increase tab depth by adding a new tab after every newline.
+			</summary>
+			<param name="s"></param>
+			<param name="newLineType"></param>
+			<param name="entabbing"></param>
+			<returns></returns>
+		</member>
+	</members>
+</doc>

@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Chip Off The Old Blockjack"
+run/main_scene="res://scenes/game_load_screen.tscn"
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/icon="res://assets/_/textures/game_icon.png"
+
+[audio]
+
+volume/SFX=30.0
+volume/Music=30.0
+
+[autoload]
+
+ApplicationManager="*res://NApplicationManager.cs"
+ApplicationDataManager="*res://IO/NApplicationDataManager.cs"
+AudioManager="*res://scenes/audio_manager.tscn"
+ButtonClickManager="*res://scenes/button_click_manager.tscn"
+NAudioSettingsManager="*res://Audio/NAudioSettingsManager.cs"
+NBrightnessSettingsManager="*res://Display/NBrightnessSettingsManager.cs"
+AchievementUnlockedPopup="*res://scenes/achievement_unlocked_popup.tscn"
+
+[display]
+
+window/size/initial_position_type=2
+window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="ChipMasters"
+
+[global_group]
+
+i_buttons=""
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

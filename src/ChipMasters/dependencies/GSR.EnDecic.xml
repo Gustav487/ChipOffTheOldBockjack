@@ -1,0 +1,1673 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GSR.EnDecic</name>
+    </assembly>
+    <members>
+        <member name="T:GSR.EnDecic.CoderSettings">
+            <summary>
+            Flag style enum for options to affecting what data a coder emits or expects.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.CoderSettings.SIGNIFICANT_ONLY">
+            <summary>
+            Only encode or expect significant data. Leaving off any inferrable data.
+            
+            For example the keys in a map, when the map will always have certain keys that only help with human readability
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.CoderSettings.NO_OPTIONALS">
+            <summary>
+            Encode or expect no optional data to be present.
+            
+            NOTE: optional data is not the same as insignificant data.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.CoderSettings.ALL_OPTIONALS">
+            <summary>
+            Encode or expect all optional data to be present.
+            
+            NOTE: optional data is not the same as insignificant data.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.CoderSettings.MAXIMAL_EXTRACTION">
+            <summary>
+            Decode or apply as much data as is possible. If a field can't be decoded, skip it and proceed before throwing exception.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.CoderSettings.TOLERANT">
+            <summary>
+            Tolerate data to the format when a unique representation can be found.
+            
+            For instance using the Json encoding of a non string object as a key in a Json object.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.CoderSettings.DEFAULT">
+            <summary>
+            All options disabled.
+            </summary>
+        </member>
+        <member name="T:GSR.EnDecic.EnApDecs.ApplicativizedEnApDec`2">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnApDec`1"/> 
+            </summary>
+            <typeparam name="TOrigin"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.ApplicativizedEnApDec`2.#ctor(GSR.EnDecic.IEnDec{`0},System.Func{`1,`0},System.Action{`0,`1})">
+            <summary>
+            
+            </summary>
+            <param name="enDec"></param>
+            <param name="encoder">Function for extracting <typeparamref name="TOrigin"/> data from a <typeparamref name="TTarget"/> so that it may be encoded.</param>
+            <param name="applicator">Function for applying <typeparamref name="TOrigin"/> data to a <typeparamref name="TTarget"/>.</param>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.ApplicativizedEnApDec`2.Apply``1(GSR.EnDecic.IStreamDecoder{``0},``0,`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.ApplicativizedEnApDec`2.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnApDecs.EnApDecUtil">
+            <summary>
+            Extension methods to help readably work with <see cref="T:GSR.EnDecic.IEnApDec`1"/>s.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.EnApDecUtil.Unapplicativized``1(GSR.EnDecic.IEnApDec{``0},System.Func{``0})">
+            <summary>
+            Converts a <see cref="T:GSR.EnDecic.IEnApDec`1"/> to an <see cref="T:GSR.EnDecic.IEnDec`1"/> that decodes by applying to an instance supplied by <paramref name="applicantSupplier"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enApDec"></param>
+            <param name="applicantSupplier"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.EnApDecUtil.PropertyMutator``2(GSR.EnDecic.IEnApDec{``1},System.Func{``0,``1})">
+            <summary>
+            Create an <see cref="T:GSR.EnDecic.IEnApDec`1"/> that mutates the value of a <typeparamref name="TProp"/> property on an instance of <typeparamref name="TTarget"/>.
+            </summary>
+            <typeparam name="TTarget"></typeparam>
+            <typeparam name="TProp"></typeparam>
+            <param name="propertyMutatorEnApDec"></param>
+            <param name="propertyGetter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDec`2">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnApDec`1"/> that functions through a keyed sequence of sub <see cref="T:GSR.EnDecic.IEnApDec`1"/>s.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TApplicant"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDec`2.#ctor(GSR.EnDecic.IEnDec{`0},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,GSR.EnDecic.IEnApDec{`1}}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDec`2.Apply``1(GSR.EnDecic.IStreamDecoder{``0},``0,`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDec`2.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDecBuilder`2">
+            <summary>
+            Immutable builder for an <see cref="T:GSR.EnDecic.IEnApDec`1"/> that functions through coding a sequence of keyed properties of <typeparamref name="TApplicant"/>.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TApplicant">The type coded by the resulting <see cref="T:GSR.EnDecic.IEnApDec`1"/></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDecBuilder`2.#ctor(GSR.EnDecic.IEnDec{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDecBuilder`2.Add``1(`0,GSR.EnDecic.IEnApDec{`1})">
+            <summary>
+            Add a predefined partial <see cref="T:GSR.EnDecic.IEnApDec`1"/>.
+            </summary>
+            <typeparam name="U"></typeparam>
+            <param name="key"></param>
+            <param name="enApDec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDecBuilder`2.Add``1(`0,GSR.EnDecic.IEnApDec{``0},System.Func{`1,``0})">
+            <summary>
+            Add on a partial mutator.
+            </summary>
+            <typeparam name="U"></typeparam>
+            <param name="key"></param>
+            <param name="enApDec"></param>
+            <param name="applicantGetter"></param>
+            <returns>A new builder instance for the newly defined <see cref="T:GSR.EnDecic.IEnApDec`1"/></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDecBuilder`2.Add``1(`0,GSR.EnDecic.IEnDec{``0},System.Func{`1,``0},System.Action{`1,``0})">
+            <summary>
+            Add on a partial mutator.
+            </summary>
+            <typeparam name="U"></typeparam>
+            <param name="key"></param>
+            <param name="enDec"></param>
+            <param name="getter"></param>
+            <param name="setter"></param>
+            <returns>A new builder instance for the newly defined <see cref="T:GSR.EnDecic.IEnApDec`1"/></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDecBuilder`2.Build">
+            <summary>
+            Create a new isntance of the <see cref="T:GSR.EnDecic.IEnApDec`1"/> represented by this builder.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnApDecs.PropertyAdjusterEnApDec`2">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnApDec`1"/> for encoding and setting the value of a <typeparamref name="TProp"/> property on instances of <typeparamref name="TTarget"/>.
+            </summary>
+            <typeparam name="TTarget">Recipient's data type.</typeparam>
+            <typeparam name="TProp">Property's data type.</typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.PropertyAdjusterEnApDec`2.#ctor(GSR.EnDecic.IEnDec{`1},System.Func{`0,`1},System.Action{`0,`1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.PropertyAdjusterEnApDec`2.Apply``1(GSR.EnDecic.IStreamDecoder{``0},``0,`0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.PropertyAdjusterEnApDec`2.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnApDecs.PropertyMutatorEnApDec`2">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnApDec`1"/> for a encoding and mutating the value of a <typeparamref name="TProp"/> property on instances of type <typeparamref name="TTarget"/>.
+            </summary>
+            <typeparam name="TTarget">Recipient's data type.</typeparam>
+            <typeparam name="TProp">Property's data type.</typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.PropertyMutatorEnApDec`2.#ctor(GSR.EnDecic.IEnApDec{`1},System.Func{`0,`1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.PropertyMutatorEnApDec`2.Apply``1(GSR.EnDecic.IStreamDecoder{``0},``0,`0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnApDecs.PropertyMutatorEnApDec`2.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.ARangedLengthEnDec`1">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> partial implementation for coding <typeparamref name="T"/> typed data with it's length constrained within a <see cref="T:GSR.Utilic.Ranges.IRange`1"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.ARangedLengthEnDec`1.#ctor(GSR.EnDecic.IEnDec{`0},GSR.Utilic.Ranges.IRange{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="enDec">The base <typeparamref name="T"/> endec to be constrained.</param>
+            <param name="range">The range defining valid lengths.</param>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.ARangedLengthEnDec`1.Length(`0)">
+            <summary>
+            Function for getting the length of a given instance of <typeparamref name="T"/>.
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.ARangedLengthEnDec`1.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.ARangedLengthEnDec`1.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.BooleanEnDec">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding an <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.BooleanEnDec.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.BooleanEnDec.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Boolean,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.ByteEnDec">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding an <see cref="T:System.Byte"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.ByteEnDec.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.ByteEnDec.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Byte,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.DecimalEnDec">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding an <see cref="T:System.Decimal"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.DecimalEnDec.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.DecimalEnDec.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Decimal,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.DoubleEnDec">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding an <see cref="T:System.Double"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.DoubleEnDec.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.DoubleEnDec.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Double,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.EnDecUtil">
+            <summary>
+            Collection of reuseable <see cref="T:GSR.EnDecic.IEnDec`1"/> instances, static creation methods, 
+            and extension methods to help readably work with <see cref="T:GSR.EnDecic.IEnDec`1"/>s.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.EnDecs.EnDecUtil.BOOLEAN">
+            <summary>
+            Constant <see cref="T:System.Boolean"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.EnDecs.EnDecUtil.BYTE">
+            <summary>
+            Constant <see cref="T:System.Byte"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.EnDecs.EnDecUtil.INT_16">
+            <summary>
+            Constant <see cref="T:System.Int16"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.EnDecs.EnDecUtil.INT_32">
+            <summary>
+            Constant <see cref="T:System.Int32"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.EnDecs.EnDecUtil.INT_64">
+            <summary>
+            Constant <see cref="T:System.Int64"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.EnDecs.EnDecUtil.SINGLE">
+            <summary>
+            Constant <see cref="T:System.Single"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.EnDecs.EnDecUtil.DOUBLE">
+            <summary>
+            Constant <see cref="T:System.Double"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.EnDecs.EnDecUtil.DECIMAL">
+            <summary>
+            Constant <see cref="T:System.Decimal"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+        </member>
+        <member name="F:GSR.EnDecic.EnDecs.EnDecUtil.STRING">
+            <summary>
+            Constant <see cref="T:System.String"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.List``1(GSR.EnDecic.IEnDec{``0})">
+            <summary>
+            Create a new list <see cref="T:GSR.EnDecic.IEnDec`1"/> with elements of type <typeparamref name="T"/> that are coded by <paramref name="elementEnDec"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="elementEnDec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.Map``2(GSR.EnDecic.IEnDec{``0},GSR.EnDecic.IEnDec{``1})">
+            <summary>
+            Create a new <see cref="T:System.Collections.Generic.IDictionary`2"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> 
+            with keys of type <typeparamref name="K"/> that are coded by <paramref name="keyEnDec"/>, 
+            and values of type <typeparamref name="V"/> that are coded by <paramref name="keyEnDec"/>.
+            </summary>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+            <param name="keyEnDec"></param>
+            <param name="valueEnDec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.NullableR``1(GSR.EnDecic.IEnDec{``0})">
+            <summary>
+            Extend reference type <paramref name="baseEnDec"/> to allow for null values.
+            See also <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.NullableV``1(GSR.EnDecic.IEnDec{``0})"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="baseEnDec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.NullableV``1(GSR.EnDecic.IEnDec{``0})">
+            <summary>
+            Extend value type <paramref name="baseEnDec"/> to allow for null values.
+            See also <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.NullableV``1(GSR.EnDecic.IEnDec{``0})"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="baseEnDec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.KeyedEnApDecBuilder``2(GSR.EnDecic.IEnDec{``0})">
+            <summary>
+            Create a new instance of a <see cref="T:GSR.EnDecic.EnApDecs.FixedKeysComposedEnApDecBuilder`2"/>.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TApplicant"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.KeyedEnDecBuilder``2(GSR.EnDecic.IEnDec{``0})">
+            <summary>
+            Create a new instance of a <see cref="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`2"/>.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="keyEnDec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.ListOf``1(GSR.EnDecic.IEnDec{``0})">
+            <summary>
+            Create a new list <see cref="T:GSR.EnDecic.IEnDec`1"/> with elements of type <typeparamref name="T"/> that are coded by <paramref name="elementEnDec"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="elementEnDec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.MapOf``2(GSR.EnDecic.IEnDec{``1},GSR.EnDecic.IEnDec{``0})">
+            <summary>
+            Create a new <see cref="T:System.Collections.Generic.IDictionary`2"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> 
+            with keys of type <typeparamref name="K"/> that are coded by <paramref name="keyEnDec"/>, 
+            and values of type <typeparamref name="V"/> that are coded by <paramref name="keyEnDec"/>.
+            </summary>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+            <param name="valueEnDec"></param>
+            <param name="keyEnDec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.NullableOfR``1(GSR.EnDecic.IEnDec{``0})">
+            <summary>
+            Extend reference type <paramref name="baseEnDec"/> to allow for null values.
+            See also: <seealso cref="M:GSR.EnDecic.EnDecs.EnDecUtil.NullableOfV``1(GSR.EnDecic.IEnDec{``0})"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="baseEnDec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.NullableOfV``1(GSR.EnDecic.IEnDec{``0})">
+            <summary>
+            Extend value type <paramref name="baseEnDec"/> to allow for null values.
+            See also: <seealso cref="M:GSR.EnDecic.EnDecs.EnDecUtil.NullableOfR``1(GSR.EnDecic.IEnDec{``0})"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="baseEnDec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.FixedKeyMapOf``2(GSR.EnDecic.IEnDec{``1},GSR.EnDecic.IEnDec{``0},``0[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+            <param name="valueEnDec"></param>
+            <param name="keyEnDec"></param>
+            <param name="fixedKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)">
+            <summary>
+            Constrain <paramref name="baseEnDec"/> to only code within the interval between <paramref name="boundOne"/> and <paramref name="boundTwo"/>, inclusive by default.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="baseEnDec"></param>
+            <param name="boundOne"></param>
+            <param name="boundTwo"></param>
+            <param name="includeOne"></param>
+            <param name="includeTwo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},GSR.Utilic.Ranges.IRange{``0})">
+            <summary>
+            Constrain <paramref name="baseEnDec"/> to only code values within the <see cref="T:GSR.Utilic.Ranges.IRange`1"/> <paramref name="range"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="baseEnDec"></param>
+            <param name="range"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.RangedLength(GSR.EnDecic.IEnDec{System.String},System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Constrain <paramref name="baseEnDec"/> to only code within the interval between <paramref name="boundOne"/> and <paramref name="boundTwo"/>, inclusive by default.
+            </summary>
+            <param name="baseEnDec"></param>
+            <param name="boundOne"></param>
+            <param name="boundTwo"></param>
+            <param name="includeOne"></param>
+            <param name="includeTwo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.RangedLength``2(GSR.EnDecic.IEnDec{``0},System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Constrain <paramref name="baseEnDec"/> to only code within the interval between <paramref name="boundOne"/> and <paramref name="boundTwo"/>, inclusive by default.
+            </summary>
+            <typeparam name="C"></typeparam>
+            <typeparam name="T"></typeparam>
+            <param name="baseEnDec"></param>
+            <param name="boundOne"></param>
+            <param name="boundTwo"></param>
+            <param name="includeOne"></param>
+            <param name="includeTwo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.RangedLength(GSR.EnDecic.IEnDec{System.String},GSR.Utilic.Ranges.IRange{System.Int32})">
+            <summary>
+            Constrain <paramref name="baseEnDec"/> to only code values within the <see cref="T:GSR.Utilic.Ranges.IRange`1"/> <paramref name="range"/>.
+            </summary>
+            <param name="baseEnDec"></param>
+            <param name="range"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.RangedLength``2(GSR.EnDecic.IEnDec{``0},GSR.Utilic.Ranges.IRange{System.Int32})">
+            <summary>
+            Constrain <paramref name="baseEnDec"/> to only code values within the <see cref="T:GSR.Utilic.Ranges.IRange`1"/> <paramref name="range"/>.
+            </summary>
+            <typeparam name="C"></typeparam>
+            <typeparam name="T"></typeparam>
+            <param name="baseEnDec"></param>
+            <param name="range"></param>
+            <returns></returns>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.Regexed(GSR.EnDecic.IEnDec{System.String},System.String)">
+            <summary>
+            Constrain a string <see cref="T:GSR.EnDecic.IEnDec`1"/> do only code strings abiding by a regular expression given by <paramref name="regex"/>.
+            </summary>
+            <param name="enDec"></param>
+            <param name="regex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.Map``2(GSR.EnDecic.IEnDec{``1},System.Func{``0,``1},System.Func{``1,``0})">
+            <summary>
+            Adjust the target type of an <see cref="T:GSR.EnDecic.IEnDec`1"/> by supplying a encoding function <paramref name="encoder"/> and decoding function <paramref name="decoder"/> that convert between origin and target types.
+            </summary>
+            <typeparam name="TTarget">The targetted type, that is, the type of the resulting <see cref="T:GSR.EnDecic.IEnDec`1"/>.</typeparam>
+            <typeparam name="TOrigin">The origin type, that is, the type of the mapped <see cref="T:GSR.EnDecic.IEnDec`1"/></typeparam>
+            <param name="originEnDec"></param>
+            <param name="encoder">Function defining how to extract data of type <typeparamref name="TOrigin"/> from an object of type <typeparamref name="TTarget"/>.</param>
+            <param name="decoder">The function for defining how to convert data of type <typeparamref name="TOrigin"/> to an object of type <typeparamref name="TTarget"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.Applicativize``2(GSR.EnDecic.IEnDec{``1},System.Func{``0,``1},System.Action{``1,``0})">
+            <summary>
+            Adjust the target type of an <see cref="T:GSR.EnDecic.IEnDec`1"/> by supplying a encoding function <paramref name="encoder"/> and application function <paramref name="applicator"/> that convert between origin and target types.
+            </summary>
+            <typeparam name="TTarget">The targetted type, that is, the type of the resulting <see cref="T:GSR.EnDecic.IEnApDec`1"/>.</typeparam>
+            <typeparam name="TOrigin">The origin type, that is, the type of the mapped <see cref="T:GSR.EnDecic.IEnDec`1"/></typeparam>
+            <param name="originEnDec"></param>
+            <param name="encoder">Function defining how to extract data of type <typeparamref name="TOrigin"/> from an object of type <typeparamref name="TTarget"/>.</param>
+            <param name="applicator">The function for defining how to apply data of type <typeparamref name="TOrigin"/> to an object of type <typeparamref name="TTarget"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.EnDecUtil.PropertyAdjuster``2(GSR.EnDecic.IEnDec{``1},System.Func{``0,``1},System.Action{``0,``1})">
+            <summary>
+            Create an <see cref="T:GSR.EnDecic.IEnApDec`1"/> that gets an sets a <typeparamref name="TProp"/> property on an instance of <typeparamref name="TTarget"/>.
+            </summary>
+            <typeparam name="TTarget"></typeparam>
+            <typeparam name="TProp"></typeparam>
+            <param name="propertyEndec"></param>
+            <param name="propertyGetter"></param>
+            <param name="propertySetter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`3">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> that functions through a keyed sequence of sub <see cref="T:GSR.EnDecic.IEnDec`1"/>s and a constructor like function.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`3.#ctor(GSR.EnDecic.IEnDec{`0},System.Func{`2,`1},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`3.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`3.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`4">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> that functions through a keyed sequence of sub <see cref="T:GSR.EnDecic.IEnDec`1"/>s and a constructor like function.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`4.#ctor(GSR.EnDecic.IEnDec{`0},System.Func{`2,`3,`1},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`4.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`4.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`5">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> that functions through a keyed sequence of sub <see cref="T:GSR.EnDecic.IEnDec`1"/>s and a constructor like function.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`5.#ctor(GSR.EnDecic.IEnDec{`0},System.Func{`2,`3,`4,`1},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`5.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`5.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`6">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> that functions through a keyed sequence of sub <see cref="T:GSR.EnDecic.IEnDec`1"/>s and a constructor like function.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`6.#ctor(GSR.EnDecic.IEnDec{`0},System.Func{`2,`3,`4,`5,`1},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`5})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`6.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`6.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`7">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> that functions through a keyed sequence of sub <see cref="T:GSR.EnDecic.IEnDec`1"/>s and a constructor like function.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`7.#ctor(GSR.EnDecic.IEnDec{`0},System.Func{`2,`3,`4,`5,`6,`1},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`5},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`6})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`7.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`7.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`8">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> that functions through a keyed sequence of sub <see cref="T:GSR.EnDecic.IEnDec`1"/>s and a constructor like function.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`8.#ctor(GSR.EnDecic.IEnDec{`0},System.Func{`2,`3,`4,`5,`6,`7,`1},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`5},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`6},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`7})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`8.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`8.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`9">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> that functions through a keyed sequence of sub <see cref="T:GSR.EnDecic.IEnDec`1"/>s and a constructor like function.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`9.#ctor(GSR.EnDecic.IEnDec{`0},System.Func{`2,`3,`4,`5,`6,`7,`8,`1},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`5},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`6},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`7},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`8})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`9.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`9.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`10">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> that functions through a keyed sequence of sub <see cref="T:GSR.EnDecic.IEnDec`1"/>s and a constructor like function.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`10.#ctor(GSR.EnDecic.IEnDec{`0},System.Func{`2,`3,`4,`5,`6,`7,`8,`9,`1},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`5},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`6},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`7},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`8},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`9})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`10.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`10.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`2">
+            <summary>
+            Start of a chain of immutable builder's used to create <see cref="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`3"/> or higher.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`2.#ctor(GSR.EnDecic.IEnDec{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`2.Add``1(`0,GSR.EnDecic.IEnDec{``0},System.Func{`1,``0})">
+            <summary>
+            Define another property on <typeparamref name="TResult"/> to code.
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <param name="key"></param>
+            <param name="enDec"></param>
+            <param name="getter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`3">
+            <summary>
+            Immutable builder to create <see cref="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`3"/> or higher.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`3.#ctor(GSR.EnDecic.IEnDec{`0},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`3.Add``1(`0,GSR.EnDecic.IEnDec{``0},System.Func{`1,``0})">
+            <summary>
+            Define another property on <typeparamref name="TResult"/> to code.
+            </summary>
+            <typeparam name="T2"></typeparam>
+            <param name="key"></param>
+            <param name="enDec"></param>
+            <param name="getter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`3.Build(System.Func{`2,`1})">
+            <summary>
+            Build the resulting <typeparamref name="TResult"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+            <param name="ctor"></param>
+            <returns>Function for creating a new <typeparamref name="TResult"/> from decoded data.</returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`4">
+            <summary>
+            Immutable builder to create <see cref="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`4"/> or higher.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`4.#ctor(GSR.EnDecic.IEnDec{`0},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`4.Add``1(`0,GSR.EnDecic.IEnDec{``0},System.Func{`1,``0})">
+            <summary>
+            Define another property on <typeparamref name="TResult"/> to code.
+            </summary>
+            <typeparam name="T3"></typeparam>
+            <param name="key"></param>
+            <param name="enDec"></param>
+            <param name="getter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`4.Build(System.Func{`2,`3,`1})">
+            <summary>
+            Build the resulting <typeparamref name="TResult"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+            <param name="ctor"></param>
+            <returns>Function for creating a new <typeparamref name="TResult"/> from decoded data.</returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`5">
+            <summary>
+            Immutable builder to create <see cref="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`5"/> or higher.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`5.#ctor(GSR.EnDecic.IEnDec{`0},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`5.Add``1(`0,GSR.EnDecic.IEnDec{``0},System.Func{`1,``0})">
+            <summary>
+            Define another property on <typeparamref name="TResult"/> to code.
+            </summary>
+            <typeparam name="T4"></typeparam>
+            <param name="key"></param>
+            <param name="enDec"></param>
+            <param name="getter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`5.Build(System.Func{`2,`3,`4,`1})">
+            <summary>
+            Build the resulting <typeparamref name="TResult"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+            <param name="ctor"></param>
+            <returns>Function for creating a new <typeparamref name="TResult"/> from decoded data.</returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`6">
+            <summary>
+            Immutable builder to create <see cref="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`6"/> or higher.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`6.#ctor(GSR.EnDecic.IEnDec{`0},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`5})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`6.Add``1(`0,GSR.EnDecic.IEnDec{``0},System.Func{`1,``0})">
+            <summary>
+            Define another property on <typeparamref name="TResult"/> to code.
+            </summary>
+            <typeparam name="T5"></typeparam>
+            <param name="key"></param>
+            <param name="enDec"></param>
+            <param name="getter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`6.Build(System.Func{`2,`3,`4,`5,`1})">
+            <summary>
+            Build the resulting <typeparamref name="TResult"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+            <param name="ctor"></param>
+            <returns>Function for creating a new <typeparamref name="TResult"/> from decoded data.</returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`7">
+            <summary>
+            Immutable builder to create <see cref="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`7"/> or higher.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`7.#ctor(GSR.EnDecic.IEnDec{`0},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`5},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`6})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`7.Add``1(`0,GSR.EnDecic.IEnDec{``0},System.Func{`1,``0})">
+            <summary>
+            Define another property on <typeparamref name="TResult"/> to code.
+            </summary>
+            <typeparam name="T6"></typeparam>
+            <param name="key"></param>
+            <param name="enDec"></param>
+            <param name="getter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`7.Build(System.Func{`2,`3,`4,`5,`6,`1})">
+            <summary>
+            Build the resulting <typeparamref name="TResult"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+            <param name="ctor"></param>
+            <returns>Function for creating a new <typeparamref name="TResult"/> from decoded data.</returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`8">
+            <summary>
+            Immutable builder to create <see cref="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`8"/> or higher.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`8.#ctor(GSR.EnDecic.IEnDec{`0},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`5},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`6},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`7})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`8.Add``1(`0,GSR.EnDecic.IEnDec{``0},System.Func{`1,``0})">
+            <summary>
+            Define another property on <typeparamref name="TResult"/> to code.
+            </summary>
+            <typeparam name="T7"></typeparam>
+            <param name="key"></param>
+            <param name="enDec"></param>
+            <param name="getter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`8.Build(System.Func{`2,`3,`4,`5,`6,`7,`1})">
+            <summary>
+            Build the resulting <typeparamref name="TResult"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+            <param name="ctor"></param>
+            <returns>Function for creating a new <typeparamref name="TResult"/> from decoded data.</returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`9">
+            <summary>
+            Immutable builder to create <see cref="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`9"/> or higher.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`9.#ctor(GSR.EnDecic.IEnDec{`0},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`5},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`6},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`7},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`8})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`9.Add``1(`0,GSR.EnDecic.IEnDec{``0},System.Func{`1,``0})">
+            <summary>
+            Define another property on <typeparamref name="TResult"/> to code.
+            </summary>
+            <typeparam name="T8"></typeparam>
+            <param name="key"></param>
+            <param name="enDec"></param>
+            <param name="getter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`9.Build(System.Func{`2,`3,`4,`5,`6,`7,`8,`1})">
+            <summary>
+            Build the resulting <typeparamref name="TResult"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+            <param name="ctor"></param>
+            <returns>Function for creating a new <typeparamref name="TResult"/> from decoded data.</returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`10">
+            <summary>
+            Immutable builder to create <see cref="T:GSR.EnDecic.EnDecs.FixedKeysComposedEnDec`10"/> or higher.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`10.#ctor(GSR.EnDecic.IEnDec{`0},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`2},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`3},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`4},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`5},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`6},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`7},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`8},GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty{`0,`1,`9})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysComposedEnDecBuilder`10.Build(System.Func{`2,`3,`4,`5,`6,`7,`8,`9,`1})">
+            <summary>
+            Build the resulting <typeparamref name="TResult"/> <see cref="T:GSR.EnDecic.IEnDec`1"/>.
+            </summary>
+            <param name="ctor"></param>
+            <returns>Function for creating a new <typeparamref name="TResult"/> from decoded data.</returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.FixedKeysMapEnDec`2">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> that codes a <see cref="T:System.Collections.Generic.IDictionary`2"/> with a known set of keys.
+            </summary>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysMapEnDec`2.#ctor(GSR.EnDecic.IEnDec{`0},GSR.EnDecic.IEnDec{`1},System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            </summary>
+            <param name="keyEnDec"></param>
+            <param name="valueEnDec"></param>
+            <param name="keys"></param>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysMapEnDec`2.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.FixedKeysMapEnDec`2.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Collections.Generic.IDictionary{`0,`1},GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.Int16EnDec">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding an <see cref="T:System.Int16"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.Int16EnDec.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.Int16EnDec.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Int16,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.Int32EnDec">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding an <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.Int32EnDec.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.Int32EnDec.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Int32,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.Int64EnDec">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding a <see cref="T:System.Int64"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.Int64EnDec.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.Int64EnDec.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Int64,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty`3">
+            <summary>
+            Representation of the data needed to code a <typeparamref name="TProp"/> property on a <typeparamref name="TSource"/>.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TProp"></typeparam>
+        </member>
+        <member name="P:GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty`3.Key">
+            <summary>
+            Key for identifying the property.
+            </summary>
+        </member>
+        <member name="P:GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty`3.PropertyEnDec">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> for coding the property.
+            </summary>
+        </member>
+        <member name="P:GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty`3.PropertGetter">
+            <summary>
+            Function for getting the value of the property from a <typeparamref name="TSource"/> instance.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty`3.#ctor">
+            <summary>
+            Invalid, only use the parameterized constructor.
+            </summary>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty`3.#ctor(`0,GSR.EnDecic.IEnDec{`2},System.Func{`1,`2})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty`3.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`1,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode the specified property on <paramref name="data"/>>.
+            </summary>
+            <typeparam name="U"></typeparam>
+            <param name="streamEncoder"></param>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.KeyedComposedEnDecProperty`3.Decode``1(GSR.EnDecic.IStreamDecoder{``0},System.Collections.Generic.IDictionary{`0,``0},GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode the property from the raw <paramref name="data"/>.
+            </summary>
+            <typeparam name="U"></typeparam>
+            <param name="streamDecoder"></param>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.ListEnDec`1">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding a <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.ListEnDec`1.#ctor(GSR.EnDecic.IEnDec{`0})">
+            <summary>
+            
+            </summary>
+            <param name="elementEnDec">Endec for coding element of the list</param>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.ListEnDec`1.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.ListEnDec`1.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Collections.Generic.IList{`0},GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.MapEnDec`2">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding a <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.MapEnDec`2.#ctor(GSR.EnDecic.IEnDec{`0},GSR.EnDecic.IEnDec{`1})">
+            <summary>
+            
+            </summary>
+            <param name="keyEnDec">Endec for coding key instances.</param>
+            <param name="valueEnDec">Endec for coding value instances</param>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.MapEnDec`2.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.MapEnDec`2.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Collections.Generic.IDictionary{`0,`1},GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.MappedEnDec`2">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation that converts an <see cref="T:GSR.EnDecic.IEnDec`1"/> of origin type <typeparamref name="TOrigin"/> to target type <typeparamref name="TTarget"/>.
+            </summary>
+            <typeparam name="TTarget"></typeparam>
+            <typeparam name="TOrigin"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.MappedEnDec`2.#ctor(GSR.EnDecic.IEnDec{`1},System.Func{`0,`1},System.Func{`1,`0})">
+            <summary>
+            
+            </summary>
+            <param name="from">Endec of origin type <typeparamref name="TOrigin"/></param>
+            <param name="encoder">Function to convert target type <typeparamref name="TTarget"/> back to origin type <typeparamref name="TOrigin"/>.</param>
+            <param name="decoder">Function to convert origin type <typeparamref name="TOrigin"/> into target type <typeparamref name="TTarget"/>.</param>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.MappedEnDec`2.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.MappedEnDec`2.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.NullableReferenceEnDec`1">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding as the nullable reference type <typeparamref name="T"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.NullableReferenceEnDec`1.#ctor(GSR.EnDecic.IEnDec{`0})">
+            <summary>
+            
+            </summary>
+            <param name="enDec">Non-nullable base endec to use for non null values/codings.</param>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.NullableReferenceEnDec`1.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.NullableReferenceEnDec`1.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.NullableValueEnDec`1">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding as nullable the value type <typeparamref name="T"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.NullableValueEnDec`1.#ctor(GSR.EnDecic.IEnDec{`0})">
+            <summary>
+            
+            </summary>
+            <param name="enDec">Non-nullable base endec to use for non null values/codings.</param>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.NullableValueEnDec`1.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.NullableValueEnDec`1.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Nullable{`0},GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.RangedEnDec`1">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation that is constrained within the bounds of an <see cref="T:GSR.Utilic.Ranges.IRange`1"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.RangedEnDec`1.#ctor(GSR.EnDecic.IEnDec{`0},GSR.Utilic.Ranges.IRange{`0})">
+            <summary>
+            
+            </summary>
+            <param name="enDec">The base endec to be contrained to the <paramref name="range"/>.</param>
+            <param name="range">The range to constrain the <paramref name="enDec"/> within.</param>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.RangedEnDec`1.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.RangedEnDec`1.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.RangedLengthCollectionEnDec`2">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> for coding <see cref="T:System.Collections.Generic.ICollection`1"/>s that have a length within a given <see cref="T:GSR.Utilic.Ranges.IRange`1"/>.
+            </summary>
+            <typeparam name="C"></typeparam>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.RangedLengthCollectionEnDec`2.#ctor(GSR.EnDecic.IEnDec{`0},GSR.Utilic.Ranges.IRange{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.RangedLengthCollectionEnDec`2.Length(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.RangedLengthStringEnDec">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> for coding <see cref="T:System.String"/>s that have a length within a given <see cref="T:GSR.Utilic.Ranges.IRange`1"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.RangedLengthStringEnDec.#ctor(GSR.EnDecic.IEnDec{System.String},GSR.Utilic.Ranges.IRange{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.RangedLengthStringEnDec.Length(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.RegexStringEnDec">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation that codes strings that match a given regular expression.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.RegexStringEnDec.#ctor(GSR.EnDecic.IEnDec{System.String},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="enDec">The base endec to be contrained to the <paramref name="regex"/>.</param>
+            <param name="regex">Regular expression that strings must abid to be coded - anchors will be automatically added.</param>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.RegexStringEnDec.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.RegexStringEnDec.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.String,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.SingleEnDec">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding a <see cref="T:System.Single"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.SingleEnDec.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.SingleEnDec.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.Single,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.StringEnDec">
+            <summary>
+            Primative <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation for coding a <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.StringEnDec.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.StringEnDec.Encode``1(GSR.EnDecic.IStreamEncoder{``0},System.String,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.EnDecs.UnapplicativizedEnDec`1">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEnDec`1"/> implementation that functions by <see cref="T:GSR.EnDecic.IEnApDec`1"/> that applies to a instance provided by a supplier.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.UnapplicativizedEnDec`1.#ctor(GSR.EnDecic.IEnApDec{`0},System.Func{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.UnapplicativizedEnDec`1.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.EnDecic.EnDecs.UnapplicativizedEnDec`1.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`0,GSR.EnDecic.CoderSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.EnDecic.IApplicativeDecoder`1">
+            <summary>
+            Contract for an object that decodes some stream and uses it to update an instance of mutable type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.IApplicativeDecoder`1.Apply``1(GSR.EnDecic.IStreamDecoder{``0},``0,`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Apply stream <paramref name="stream"/> to <paramref name="instance"/>.
+            </summary>
+            <typeparam name="U">Input stream type.</typeparam>
+            <param name="streamDecoder"></param>
+            <param name="stream"></param>
+            <param name="instance"></param>
+            <param name="settings"></param>
+            <returns><paramref name="instance"/></returns>
+        </member>
+        <member name="T:GSR.EnDecic.IDecoder`1">
+            <summary>
+            Contract for an object that decodes an input stream to am instance of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.IDecoder`1.Decode``1(GSR.EnDecic.IStreamDecoder{``0},``0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode stream <paramref name="stream"/> as an instance of <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="U">Input stream type.</typeparam>
+            <param name="streamDecoder"></param>
+            <param name="stream"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.EnDecic.IEnApDec`1">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEncoder`1"/> <see cref="T:GSR.EnDecic.IApplicativeDecoder`1"/> pair, used for encoding, and mutate instaces of mutable type <typeparamref name="T"/> to/from an stream.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:GSR.EnDecic.IEncoder`1">
+            <summary>
+            Contract for an object that converts an instance of type <typeparamref name="T"/> into an output stream.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.IEncoder`1.Encode``1(GSR.EnDecic.IStreamEncoder{``0},`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode <paramref name="data"/> as a stream of type <typeparamref name="U"/>.
+            </summary>
+            <typeparam name="U">Output stream format.</typeparam>
+            <param name="streamEncoder"></param>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.EnDecic.IEnDec`1">
+            <summary>
+            <see cref="T:GSR.EnDecic.IEncoder`1"/> <see cref="T:GSR.EnDecic.IDecoder`1"/> pair, used for encoding, and decoding instaces of type <typeparamref name="T"/> to/from a stream.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:GSR.EnDecic.IStreamCoder`1">
+            <summary>
+            Defines encoding and decoding to/from a specific format.
+            </summary>
+            <typeparam name="T">The format type.</typeparam>
+        </member>
+        <member name="T:GSR.EnDecic.IStreamDecoder`1">
+            <summary>
+            Contract for a object that decodes primative C# objects from a stream of format <typeparamref name="T"/>, 
+            
+            See also <see cref="T:GSR.EnDecic.IDecoder`1"/> for format independent decoding.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeBoolean(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode from the input <paramref name="stream"/> a single <see cref="T:System.Boolean"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.BOOLEAN"/> for a constant reference to a boolean <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            </summary>
+            <param name="stream">Input stream of format <typeparamref name="T"/></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeByte(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode from the input <paramref name="stream"/> a single <see cref="T:System.Byte"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.BYTE"/> for a constant reference to a byte <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Byte"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="stream">Input stream of format <typeparamref name="T"/></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeInt16(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode from the input <paramref name="stream"/> a single <see cref="T:System.Int16"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.INT_16"/> for a constant reference to a 16-bit signed integer <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Int16"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="stream">Input stream of format <typeparamref name="T"/></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeInt32(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode from the input <paramref name="stream"/> a single <see cref="T:System.Int32"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.INT_32"/> for a constant reference to a 32-bit signed integer <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Int32"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="stream">Input stream of format <typeparamref name="T"/></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeInt64(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode from the input <paramref name="stream"/> a single <see cref="T:System.Int64"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.INT_64"/> for a constant reference to a 64-bit signed integer <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Int64"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="stream">Input stream of format <typeparamref name="T"/></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeSingle(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode from the input <paramref name="stream"/> a single <see cref="T:System.Single"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.SINGLE"/> for a constant reference to a single-precision floating-binary-point number <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Single"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="stream">Input stream of format <typeparamref name="T"/></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeDouble(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode from the input <paramref name="stream"/> a single <see cref="T:System.Double"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.DOUBLE"/> for a constant reference to a double-precision floating-binary-point number <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Double"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="stream">Input stream of format <typeparamref name="T"/></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeDecimal(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode from the input <paramref name="stream"/> a single <see cref="T:System.Decimal"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.DECIMAL"/> for a constant reference to a floating-decimal-point number <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Decimal"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="stream">Input stream of format <typeparamref name="T"/></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeString(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode from the input <paramref name="stream"/> a single <see cref="T:System.String"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.STRING"/> for a constant reference to a character string <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            </summary>
+            <param name="stream">Input stream of format <typeparamref name="T"/></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeList(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode a list, elements are left as <typeparamref name="T"/> to allow individual sub processing.
+            Note: Order should be preserved as much as is possible.
+            </summary>
+            <param name="stream"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeMap(`0,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Decode a map/dictionary associative array, elements are left as <typeparamref name="T"/> to allow individual sub processing.
+            Note: Order should be preserved as much as is possible.
+            </summary>
+            <param name="stream"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeNullableReference``1(`0,GSR.EnDecic.IDecoder{``0},GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format an element of nullable type <typeparamref name="U"/> using <paramref name="elementDecoder"/> when <paramref name="stream"/> isn't encoding null.
+            </summary>
+            <typeparam name="U"></typeparam>
+            <param name="stream"></param>
+            <param name="elementDecoder"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamDecoder`1.DecodeNullableValue``1(`0,GSR.EnDecic.IDecoder{``0},GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format an value type element of the type <typeparamref name="U"/> using <paramref name="elementDecoder"/> when <paramref name="stream"/> isn't encoding null.
+            </summary>
+            <typeparam name="U"></typeparam>
+            <param name="stream"></param>
+            <param name="elementDecoder"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.EnDecic.IStreamEncoder`1">
+            <summary>
+            Contract for a object that encodes primative C# objects to a stream of format <typeparamref name="T"/>, 
+             
+            See also <see cref="T:GSR.EnDecic.IEncoder`1"/> for format independent encoding.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeBoolean(System.Boolean,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format a single <see cref="T:System.Boolean"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.BOOLEAN"/> for a constant reference to a boolean <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeByte(System.Byte,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format a single <see cref="T:System.Byte"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.BYTE"/> for a constant reference to a byte <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Byte"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeInt16(System.Int16,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format a single <see cref="T:System.Int16"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.INT_16"/> for a constant reference to a 16-bit signed integer <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Int16"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeInt32(System.Int32,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format a single <see cref="T:System.Int32"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.INT_32"/> for a constant reference to a 32-bit signed integer <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Int32"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeInt64(System.Int64,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format a single <see cref="T:System.Int64"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.INT_64"/> for a constant reference to a 64-bit signed integer <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Int64"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeSingle(System.Single,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format a single <see cref="T:System.Single"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.SINGLE"/> for a constant reference to a single-precision floating-binary-point number <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Single"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeDouble(System.Double,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format a single <see cref="T:System.Double"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.DOUBLE"/> for a constant reference to a double-precision floating-binary-point number <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Double"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeDecimal(System.Decimal,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format a single <see cref="T:System.Decimal"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.DECIMAL"/> for a constant reference to a floating-decimal-point number <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            See <see cref="M:GSR.EnDecic.EnDecs.EnDecUtil.Ranged``1(GSR.EnDecic.IEnDec{``0},``0,``0,System.Boolean,System.Boolean)"/> for an extension method for constraining a <see cref="T:System.Decimal"/> <see cref="T:GSR.EnDecic.IEnDec`1"/> within a range.
+            </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeString(System.String,GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format a single <see cref="T:System.String"/>. 
+            
+            See <see cref="F:GSR.EnDecic.EnDecs.EnDecUtil.STRING"/> for a constant reference to a character string <see cref="T:GSR.EnDecic.IEnDec`1"/> instance.
+            </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeList(System.Collections.Generic.IList{`0},GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode a list, elements are required as <typeparamref name="T"/> to allow individual sub processing.
+            Note: Order should be preserved as much as is possible./// </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeMap(System.Collections.Generic.IDictionary{`0,`0},GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode a map/dictionary associative array, elements are required as <typeparamref name="T"/> to allow individual sub processing.
+            Note: Order should be preserved as much as is possible.
+            </summary>
+            <param name="data"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeNullableReference``1(``0,GSR.EnDecic.IEncoder{``0},GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format an element of nullable type <typeparamref name="U"/> using <paramref name="elementEncoder"/> when <paramref name="data"/> is not null.
+            </summary>
+            <typeparam name="U"></typeparam>
+            <param name="data"></param>
+            <param name="elementEncoder"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.IStreamEncoder`1.EncodeNullableValue``1(System.Nullable{``0},GSR.EnDecic.IEncoder{``0},GSR.EnDecic.CoderSettings)">
+            <summary>
+            Encode to the destined format a value type element of the type <typeparamref name="U"/> using <paramref name="elementEncoder"/> when <paramref name="data"/> is not null.
+            </summary>
+            <typeparam name="U"></typeparam>
+            <param name="data"></param>
+            <param name="elementEncoder"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.EnDecic.Util">
+            <summary>
+            Various extension methods for core endecic types.
+            </summary>
+        </member>
+        <member name="M:GSR.EnDecic.Util.Encode``2(GSR.EnDecic.IEncoder{``0},GSR.EnDecic.IStreamEncoder{``1},``0)">
+            <summary>
+            Encode <paramref name="data"/> as a stream of type <typeparamref name="U"/> with the default <see cref="T:GSR.EnDecic.CoderSettings"/>.
+            </summary>
+            <typeparam name="T">Input data type</typeparam>
+            <typeparam name="U">Output stream type.</typeparam>
+            <param name="encoder"></param>
+            <param name="streamEncoder"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.Util.Decode``2(GSR.EnDecic.IDecoder{``0},GSR.EnDecic.IStreamDecoder{``1},``1)">
+            <summary>
+            Decode stream <paramref name="stream"/> as an instance of <typeparamref name="T"/> with the default <see cref="T:GSR.EnDecic.CoderSettings"/>.
+            </summary>
+            <typeparam name="T">Output data type.</typeparam>
+            <typeparam name="U">Input stream type.</typeparam>
+            <param name="decoder"></param>
+            <param name="streamDecoder"></param>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.Util.Apply``2(GSR.EnDecic.IApplicativeDecoder{``0},GSR.EnDecic.IStreamDecoder{``1},``1,``0)">
+            <summary>
+            Apply stream <paramref name="stream"/> to <paramref name="instance"/> with the default <see cref="T:GSR.EnDecic.CoderSettings"/>.
+            </summary>
+            <typeparam name="T">Output data type.</typeparam>
+            <typeparam name="U">Input stream type.</typeparam>
+            <param name="applicativeDecoder"></param>
+            <param name="streamDecoder"></param>
+            <param name="stream"></param>
+            <param name="instance"></param>
+            <returns><paramref name="instance"/></returns>
+        </member>
+        <member name="M:GSR.EnDecic.Util.DecodeFixedKeysMap``2(GSR.EnDecic.IStreamDecoder{``1},``1,GSR.EnDecic.CoderSettings,GSR.EnDecic.IEnDec{``0},System.Collections.Generic.IList{``0})">
+            <summary>
+            Decode a map where the keys are already known and constant.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="U"></typeparam>
+            <param name="streamDecoder"></param>
+            <param name="stream"></param>
+            <param name="settings"></param>
+            <param name="keyEnDec"></param>
+            <param name="keys"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:GSR.EnDecic.Util.IsSignificantOnly(GSR.EnDecic.CoderSettings)">
+            <summary>
+            Is the <see cref="F:GSR.EnDecic.CoderSettings.SIGNIFICANT_ONLY"/> flag set.
+            </summary>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.Util.IsTolerant(GSR.EnDecic.CoderSettings)">
+            <summary>
+            Is the <see cref="F:GSR.EnDecic.CoderSettings.TOLERANT"/> flag set.
+            </summary>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.EnDecic.Util.IsMaximalDecode(GSR.EnDecic.CoderSettings)">
+            <summary>
+            Is the <see cref="F:GSR.EnDecic.CoderSettings.MAXIMAL_EXTRACTION"/> flag set.
+            </summary>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,357 @@
+[gd_scene load_steps=16 format=3 uid="uid://dmj43llabe2ui"]
+
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Textures/NTextureDisplay.cs" id="1_f1uon"]
+[ext_resource type="Script" path="res://Menu/NChangeSceneButton.cs" id="1_ls4ly"]
+[ext_resource type="Texture2D" uid="uid://jbust8doe5sj" path="res://assets/_/textures/cards/card_front.png" id="3_0vbeq"]
+[ext_resource type="Texture2D" uid="uid://cky61mntp4j38" path="res://assets/_/textures/cards/ace_of_spades.png" id="4_iqcky"]
+[ext_resource type="Texture2D" uid="uid://cy2vuekf26jqk" path="res://assets/_/textures/cards/two_of_hearts.png" id="5_uqj7c"]
+[ext_resource type="Texture2D" uid="uid://d1mbvpaqgdah7" path="res://assets/_/textures/cards/ten_of_clubs.png" id="6_2gkrf"]
+[ext_resource type="Texture2D" uid="uid://b4udr2oo4plbr" path="res://assets/_/textures/cards/jack_of_diamonds.png" id="7_oo162"]
+[ext_resource type="Texture2D" uid="uid://5j4uwb45y440" path="res://assets/_/textures/cards/queen_of_spades.png" id="8_8vvrr"]
+[ext_resource type="Texture2D" uid="uid://dtyjp0ptvsymk" path="res://assets/_/textures/cards/king_of_hearts.png" id="9_p7xr3"]
+[ext_resource type="Script" path="res://Audio/NMusicChangeDirective.cs" id="10_8q6nw"]
+[ext_resource type="AudioStream" uid="uid://7tb8lyf5vf82" path="res://assets/audio/chip_masters.wav" id="11_mmnnv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6dbk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6841f"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04b8c"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1fot"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[node name="RulesMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f1uon")
+_assetPath = "textures/guis/menu_bg"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0190972
+anchor_top = 0.0231482
+anchor_right = 0.124132
+anchor_bottom = 0.112654
+offset_top = -3.33786e-05
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s6dbk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6841f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_04b8c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g1fot")
+text = "Back"
+script = ExtResource("1_ls4ly")
+_scenePath = "res://scenes/main_menu.tscn"
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 10.0
+offset_right = 275.0
+offset_bottom = 77.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Rules"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Standard Blackjack" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ObjectiveLabel" type="Label" parent="TabContainer/Standard Blackjack"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 417.0
+offset_bottom = 85.0
+text = "Objective
+- Get closer to 21 than the dealer without going over.
+- Going over 21 results in a bust and you lose."
+
+[node name="BettingLabel" type="Label" parent="TabContainer/Standard Blackjack"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 95.0
+offset_right = 319.0
+offset_bottom = 248.0
+text = "Betting
+- Bets are placed before a match begins.
+- Win = Gain your bet value
+  - Blackjack = 200% bet value
+- Lose = Lose your bet value
+- Tie = No loss, no gain"
+
+[node name="GameplayLabel" type="Label" parent="TabContainer/Standard Blackjack"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 260.0
+offset_right = 1142.0
+offset_bottom = 387.0
+text = "Gameplay
+1. You and the dealer both receive two cards, with your cards facing up. The dealer only flips over one card.
+2. You can either \"Stand\" or \"Hit\". Standing will end your turn with no changes to your hand. Hitting will give you one additional card. You may hit as many times as you'd like.
+3. The dealer plays after you and will \"Stand\" if their hand equals 17 or more."
+autowrap_mode = 3
+
+[node name="WinningLosingLabel" type="Label" parent="TabContainer/Standard Blackjack"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 400.0
+offset_right = 900.0
+offset_bottom = 501.0
+text = "Winning & Losing
+- You win if you have a higher total than the dealer, the dealer busts, or you get a Blackjack (21 with first two cards).
+- You lose if the dealer has a higher total, you bust, or the dealer gets a Blackjack.
+- A tie occurs when you and the dealer have the same total or both get a Blackjack."
+
+[node name="Turned 31" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ObjectiveLabel" type="Label" parent="TabContainer/Turned 31"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 417.0
+offset_bottom = 85.0
+text = "Objective
+- Try to get a Blackjack by reaching a score of exactly 31.
+- Going over 31 results in a bust and you lose."
+
+[node name="BettingLabel" type="Label" parent="TabContainer/Turned 31"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 95.0
+offset_right = 319.0
+offset_bottom = 248.0
+text = "Betting
+- Bets are placed before a match begins.
+- Win = Gain your bet value
+  - Blackjack = 200% bet value
+- Lose = Lose your bet value
+- Tie = No loss, no gain"
+
+[node name="GameplayLabel" type="Label" parent="TabContainer/Turned 31"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 260.0
+offset_right = 1142.0
+offset_bottom = 368.0
+text = "Gameplay
+1. The game starts similarly to Standard Blackjack, both you and the dealer receive two cards, the dealer flips over only one card.
+2. You then alternate turns with the dealer until a win or a bust occurs, or everyone stands.
+3. Reaching a score of 31 results in a Blackjack and an automatic win."
+autowrap_mode = 3
+
+[node name="WinningLosingLabel" type="Label" parent="TabContainer/Turned 31"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 375.0
+offset_right = 900.0
+offset_bottom = 476.0
+text = "Winning & Losing
+- You win if you get a Blackjack (score of 31), the dealer busts, or you have a higher total at the end of the game.
+- You lose if you go over 31, the dealer gets a Blackjack, or you have a lower total at the end of the game.
+- A tie occurs when you and the dealer have the same total at the end of the game."
+
+[node name="CardValuesLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 770.0
+offset_top = 130.0
+offset_right = 930.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "Card Values"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AceCard" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 650.0
+offset_top = 190.0
+offset_right = 730.0
+offset_bottom = 302.0
+texture = ExtResource("3_0vbeq")
+
+[node name="TextureRect" type="TextureRect" parent="AceCard"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 112.0
+texture = ExtResource("4_iqcky")
+
+[node name="TwoCard" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 780.0
+offset_top = 190.0
+offset_right = 860.0
+offset_bottom = 302.0
+rotation = -0.113446
+pivot_offset = Vector2(40, 112)
+texture = ExtResource("3_0vbeq")
+
+[node name="TextureRect" type="TextureRect" parent="TwoCard"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 112.0
+texture = ExtResource("5_uqj7c")
+
+[node name="TenCard" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 815.0
+offset_top = 190.0
+offset_right = 895.0
+offset_bottom = 302.0
+rotation = 0.113446
+pivot_offset = Vector2(40, 112)
+texture = ExtResource("3_0vbeq")
+
+[node name="TextureRect" type="TextureRect" parent="TenCard"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 112.0
+texture = ExtResource("6_2gkrf")
+
+[node name="JackCard" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 950.0
+offset_top = 190.0
+offset_right = 1030.0
+offset_bottom = 302.0
+rotation = -0.18326
+pivot_offset = Vector2(40, 112)
+texture = ExtResource("3_0vbeq")
+
+[node name="TextureRect" type="TextureRect" parent="JackCard"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 112.0
+texture = ExtResource("7_oo162")
+
+[node name="QueenCard" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 990.0
+offset_top = 185.0
+offset_right = 1070.0
+offset_bottom = 297.0
+texture = ExtResource("3_0vbeq")
+
+[node name="TextureRect" type="TextureRect" parent="QueenCard"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 112.0
+texture = ExtResource("8_8vvrr")
+
+[node name="KingCard" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 1030.0
+offset_top = 190.0
+offset_right = 1110.0
+offset_bottom = 302.0
+rotation = 0.18326
+pivot_offset = Vector2(40, 112)
+texture = ExtResource("3_0vbeq")
+
+[node name="TextureRect" type="TextureRect" parent="KingCard"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 112.0
+texture = ExtResource("9_p7xr3")
+
+[node name="AceText" type="Label" parent="."]
+layout_mode = 2
+offset_left = 610.0
+offset_top = 310.0
+offset_right = 771.0
+offset_bottom = 349.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "Ace: 1 or 11"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FaceValueText" type="Label" parent="."]
+layout_mode = 2
+offset_left = 760.0
+offset_top = 310.0
+offset_right = 921.0
+offset_bottom = 349.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "2 - 10: Face Value"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FaceCardText" type="Label" parent="."]
+layout_mode = 2
+offset_left = 950.0
+offset_top = 310.0
+offset_right = 1111.0
+offset_bottom = 349.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "J, Q, K: 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicChangeDirective" type="Node" parent="."]
+script = ExtResource("10_8q6nw")
+_musicToPlay = ExtResource("11_mmnnv")

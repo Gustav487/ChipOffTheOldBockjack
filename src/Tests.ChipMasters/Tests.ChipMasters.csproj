@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(BuildingInsideVisualStudio)' == 'true'">
+    <DefineConstants>$(DefineConstants);TESTING</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
+    <PackageReference Include="coverlet.collector" Version="3.1.2" />
+    <PackageReference Include="Godot.NET.Sdk" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChipMasters\ChipMasters.csproj" />
+    <ProjectReference Include="..\Fakes.ChipMasters\Fakes.ChipMasters.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GSR.EnDecic">
+      <HintPath>..\ChipMasters\dependencies\GSR.EnDecic.dll</HintPath>
+    </Reference>
+    <Reference Include="GSR.EnDecic.Jsonic">
+      <HintPath>..\ChipMasters\dependencies\GSR.EnDecic.Jsonic.dll</HintPath>
+    </Reference>
+    <Reference Include="GSR.Jsonic">
+      <HintPath>..\ChipMasters\dependencies\GSR.Jsonic.dll</HintPath>
+    </Reference>
+    <Reference Include="GSR.Utilic">
+      <HintPath>..\ChipMasters\dependencies\GSR.Utilic.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

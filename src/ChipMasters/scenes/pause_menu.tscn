@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://deg7b610fni5u"]
+
+[ext_resource type="Script" path="res://GodotWrappers/NControl.cs" id="1_57qc2"]
+[ext_resource type="Script" path="res://Menu/NChangeSceneButton.cs" id="1_d2mfu"]
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Textures/NTextureDisplay.cs" id="2_55lej"]
+[ext_resource type="Script" path="res://Menu/Interactables/Buttons/Sessions/NForfeitButton.cs" id="4_ysepv"]
+[ext_resource type="Script" path="res://Audio/NMusicChangeDirective.cs" id="5_t0tcn"]
+[ext_resource type="AudioStream" uid="uid://dvpome17pj5bx" path="res://assets/audio/gameplay.wav" id="6_ha7wo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h34fg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bnbn"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wws1"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efd4t"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_57qc2")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_55lej")
+_assetPath = "textures/guis/menu_bg"
+metadata/_edit_use_anchors_ = true
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.234568
+anchor_right = 0.607639
+anchor_bottom = 0.328704
+offset_top = -1.52588e-05
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h34fg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4bnbn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6wws1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_efd4t")
+text = "Resume"
+script = ExtResource("1_d2mfu")
+_scenePath = "res://scenes/gameplay_screen.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="SuspendButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.367284
+anchor_right = 0.607639
+anchor_bottom = 0.46142
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h34fg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4bnbn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6wws1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_efd4t")
+text = "Suspend
+"
+script = ExtResource("1_d2mfu")
+_scenePath = "res://scenes/main_menu.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="ForfeitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37934
+anchor_top = 0.510802
+anchor_right = 0.603299
+anchor_bottom = 0.589506
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h34fg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4bnbn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6wws1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_efd4t")
+text = "Forfeit"
+script = ExtResource("4_ysepv")
+_scenePath = "res://scenes/main_menu.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicChangeDirective" type="Node" parent="."]
+script = ExtResource("5_t0tcn")
+_musicToPlay = ExtResource("6_ha7wo")

@@ -1,0 +1,458 @@
+[gd_scene load_steps=37 format=3 uid="uid://d14kpodayists"]
+
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Textures/NTextureDisplay.cs" id="1_3xysv"]
+[ext_resource type="Script" path="res://Menu/NChangeSceneButton.cs" id="1_tickq"]
+[ext_resource type="Texture2D" uid="uid://cvh4l4e74dfav" path="res://assets/_/textures/buttons/Avatar.png" id="3_2txds"]
+[ext_resource type="Texture2D" uid="uid://cperf62flo71h" path="res://assets/_/textures/buttons/achievements.png" id="3_eaaff"]
+[ext_resource type="Script" path="res://Menu/Metrics/NMetricsMenu.cs" id="4_aylw2"]
+[ext_resource type="Script" path="res://Menu/Displays/AchievementTrackers/NAchievementsFractionDisplay.cs" id="5_t6yme"]
+[ext_resource type="FontFile" uid="uid://cj2g0j2wiw7r0" path="res://assets/_/fonts/metrics.ttf" id="6_4hsxf"]
+[ext_resource type="Script" path="res://GodotWrappers/NLabel.cs" id="6_p510p"]
+[ext_resource type="Script" path="res://Menu/Displays/Inventory/NInventoryFractionDisplay.cs" id="7_mn0dr"]
+[ext_resource type="Script" path="res://Menu/Displays/MatchRecords/NMatchHistoryDisplay.cs" id="8_cjtyc"]
+[ext_resource type="Script" path="res://Menu/Displays/WinRatios/NWinRatioDisplay.cs" id="9_elyns"]
+[ext_resource type="Script" path="res://Menu/Displays/ChipRecords/NChipHistoryDisplay.cs" id="10_3xg6l"]
+[ext_resource type="Script" path="res://Util/NIChipRecordDisplayPool.cs" id="11_8xtl4"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/chip_record_display.tscn" id="12_ncvve"]
+[ext_resource type="Script" path="res://Menu/Displays/Wallets/NWalletDisplay.cs" id="13_gyo12"]
+[ext_resource type="Script" path="res://Menu/Displays/Chips/NChipDisplay.cs" id="14_8v64m"]
+[ext_resource type="Script" path="res://Audio/NMusicChangeDirective.cs" id="15_df87u"]
+[ext_resource type="AudioStream" uid="uid://7tb8lyf5vf82" path="res://assets/audio/chip_masters.wav" id="16_bww6q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uog88"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4iikp"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsc21"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5nts"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jp62b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ec3bl"]
+bg_color = Color(0.877616, 0.877616, 0.877616, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c46rw"]
+bg_color = Color(0.800491, 0.800491, 0.800491, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhf6u"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85m7d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8phjy"]
+bg_color = Color(0.877616, 0.877616, 0.877616, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d554"]
+bg_color = Color(0.800491, 0.800491, 0.800491, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4p82"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ywfqx"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xfp2p"]
+font = ExtResource("6_4hsxf")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_saot1"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xjawg"]
+font = ExtResource("6_4hsxf")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_v4ky7"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n6xqy"]
+font = ExtResource("6_4hsxf")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_jelfm"]
+font = ExtResource("6_4hsxf")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dc76"]
+font = ExtResource("6_4hsxf")
+font_size = 18
+
+[node name="ProfileMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.466667, 0.698039, 1)
+script = ExtResource("1_3xysv")
+_assetPath = "textures/guis/menu_bg"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0190972
+anchor_top = 0.0231482
+anchor_right = 0.124132
+anchor_bottom = 0.112654
+offset_top = -3.05176e-05
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uog88")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4iikp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fsc21")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h5nts")
+text = "Back"
+script = ExtResource("1_tickq")
+_scenePath = "res://scenes/main_menu.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="AvatarButton" type="Button" parent="." groups=["i_buttons"]]
+offset_left = 1092.0
+offset_top = 10.0
+offset_right = 1142.0
+offset_bottom = 60.0
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.306923, 0.306923, 0.306923, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jp62b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ec3bl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c46rw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yhf6u")
+icon = ExtResource("3_2txds")
+script = ExtResource("1_tickq")
+_scenePath = "res://scenes/avatar_menu.tscn"
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 15.0
+offset_right = 275.0
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Profile"
+horizontal_alignment = 1
+
+[node name="AchievementsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.309896
+anchor_top = 0.268519
+anchor_right = 0.374896
+anchor_bottom = 0.402519
+offset_right = -24.88
+offset_bottom = -36.832
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.306923, 0.306923, 0.306923, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_85m7d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8phjy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0d554")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u4p82")
+icon = ExtResource("3_eaaff")
+script = ExtResource("1_tickq")
+_scenePath = "res://scenes/achievements_menu.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="Metrics" type="Node" parent="." node_paths=PackedStringArray("_winRatioDisplay", "_chipHistoryDisplay", "_matchHistoryDisplay", "_inventoryFractionDisplay", "_achievementsAchievedFractionDisplay")]
+script = ExtResource("4_aylw2")
+_winRatioDisplay = NodePath("LeftColumn/Match/Ratio/WinRatioDisplay")
+_chipHistoryDisplay = NodePath("RightColumn/Chips/History/ChipHistoryDisplay")
+_matchHistoryDisplay = NodePath("LeftColumn/Match/History/MatchHistoryDisplay")
+_inventoryFractionDisplay = NodePath("RightColumn/Inventory/InventoryFractionDisplay")
+_achievementsAchievedFractionDisplay = NodePath("LeftColumn/Achievements/AchievementsAchievedFractionDisplay")
+
+[node name="LeftColumn" type="Node" parent="Metrics"]
+
+[node name="Achievements" type="Node" parent="Metrics/LeftColumn"]
+
+[node name="Descriptor" type="Label" parent="Metrics/LeftColumn/Achievements"]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.25
+anchor_right = 0.45
+anchor_bottom = 0.3
+text = "Achievements Unlocked:"
+label_settings = SubResource("LabelSettings_ywfqx")
+metadata/_edit_use_anchors_ = true
+
+[node name="AchievementsAchievedFractionDisplay" type="Node" parent="Metrics/LeftColumn/Achievements" node_paths=PackedStringArray("_label")]
+script = ExtResource("5_t6yme")
+_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Metrics/LeftColumn/Achievements/AchievementsAchievedFractionDisplay"]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.3
+anchor_right = 0.05
+anchor_bottom = 0.3
+tooltip_text = "Achieved/Total"
+mouse_filter = 1
+text = "2100100100/2100100100"
+label_settings = SubResource("LabelSettings_xfp2p")
+script = ExtResource("6_p510p")
+metadata/_edit_use_anchors_ = true
+
+[node name="Match" type="Node" parent="Metrics/LeftColumn"]
+
+[node name="History" type="Node" parent="Metrics/LeftColumn/Match"]
+
+[node name="Descriptor" type="Label" parent="Metrics/LeftColumn/Match/History"]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.35
+anchor_right = 0.45
+anchor_bottom = 0.4
+text = "Recent Match Results:"
+label_settings = SubResource("LabelSettings_saot1")
+metadata/_edit_use_anchors_ = true
+
+[node name="MatchHistoryDisplay" type="Node" parent="Metrics/LeftColumn/Match/History" node_paths=PackedStringArray("_label")]
+script = ExtResource("8_cjtyc")
+_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Metrics/LeftColumn/Match/History/MatchHistoryDisplay"]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.4
+anchor_right = 0.05
+anchor_bottom = 0.4
+tooltip_text = "$Bet | PlayerScore vs DealerScore"
+mouse_filter = 1
+text = "Match1---------------------------------------------
+2100100100 | 2100100100 vs 2100100100
+2100100100 | Blackjack vs Blackjack
+Match4
+Match5
+Match6
+Match7
+8
+9
+10"
+label_settings = SubResource("LabelSettings_xjawg")
+script = ExtResource("6_p510p")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ratio" type="Node" parent="Metrics/LeftColumn/Match"]
+
+[node name="Descriptor" type="Label" parent="Metrics/LeftColumn/Match/Ratio"]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.85
+anchor_right = 0.45
+anchor_bottom = 0.9
+text = "Win Ratio:"
+label_settings = SubResource("LabelSettings_v4ky7")
+metadata/_edit_use_anchors_ = true
+
+[node name="WinRatioDisplay" type="Node" parent="Metrics/LeftColumn/Match/Ratio" node_paths=PackedStringArray("_label")]
+script = ExtResource("9_elyns")
+_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Metrics/LeftColumn/Match/Ratio/WinRatioDisplay"]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.9
+anchor_right = 0.05
+anchor_bottom = 0.9
+tooltip_text = "Wins:Ties:Losses"
+mouse_filter = 1
+text = "2100100100:2100100100:2100100100"
+label_settings = SubResource("LabelSettings_n6xqy")
+script = ExtResource("6_p510p")
+
+[node name="RightColumn" type="Node" parent="Metrics"]
+
+[node name="Inventory" type="Node" parent="Metrics/RightColumn"]
+
+[node name="Descriptor" type="Label" parent="Metrics/RightColumn/Inventory"]
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.3
+offset_bottom = 1.59999
+text = "Items Owned:"
+label_settings = SubResource("LabelSettings_ywfqx")
+metadata/_edit_use_anchors_ = true
+
+[node name="InventoryFractionDisplay" type="Node" parent="Metrics/RightColumn/Inventory" node_paths=PackedStringArray("_label")]
+script = ExtResource("7_mn0dr")
+_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Metrics/RightColumn/Inventory/InventoryFractionDisplay"]
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.3
+anchor_right = 0.55
+anchor_bottom = 0.3
+tooltip_text = "Owned/Total"
+mouse_filter = 1
+text = "2100100100/2100100100"
+label_settings = SubResource("LabelSettings_jelfm")
+script = ExtResource("6_p510p")
+metadata/_edit_use_anchors_ = true
+
+[node name="Chips" type="Node" parent="Metrics/RightColumn"]
+
+[node name="History" type="Node" parent="Metrics/RightColumn/Chips"]
+
+[node name="Descriptor" type="Label" parent="Metrics/RightColumn/Chips/History"]
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.35
+anchor_right = 0.95
+anchor_bottom = 0.4
+offset_bottom = 1.59998
+text = "Recent Chip Changes:"
+label_settings = SubResource("LabelSettings_saot1")
+metadata/_edit_use_anchors_ = true
+
+[node name="ChipHistoryDisplay" type="Node" parent="Metrics/RightColumn/Chips/History" node_paths=PackedStringArray("_displayPool", "_container")]
+script = ExtResource("10_3xg6l")
+_displayPool = NodePath("DisplayPool")
+_container = NodePath("HistoryContainer")
+
+[node name="DisplayPool" type="Node" parent="Metrics/RightColumn/Chips/History/ChipHistoryDisplay"]
+script = ExtResource("11_8xtl4")
+_prefab = ExtResource("12_ncvve")
+
+[node name="HistoryContainer" type="VBoxContainer" parent="Metrics/RightColumn/Chips/History/ChipHistoryDisplay"]
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.4
+anchor_right = 0.55
+anchor_bottom = 0.4
+size_flags_horizontal = 3
+script = ExtResource("11_8xtl4")
+_prefab = ExtResource("12_ncvve")
+metadata/_edit_use_anchors_ = true
+
+[node name="Total" type="Node" parent="Metrics/RightColumn/Chips"]
+
+[node name="Descriptor" type="Label" parent="Metrics/RightColumn/Chips/Total"]
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.85
+anchor_right = 0.95
+anchor_bottom = 0.9
+text = "Current Chips Held:"
+label_settings = SubResource("LabelSettings_v4ky7")
+metadata/_edit_use_anchors_ = true
+
+[node name="UserWalletDisplay" type="Node" parent="Metrics/RightColumn/Chips/Total" node_paths=PackedStringArray("_chipDisplay")]
+script = ExtResource("13_gyo12")
+_chipDisplay = NodePath("ChipDisplay")
+
+[node name="ChipDisplay" type="Label" parent="Metrics/RightColumn/Chips/Total/UserWalletDisplay"]
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.9
+anchor_right = 0.55
+anchor_bottom = 0.9
+tooltip_text = "ChipCount"
+mouse_filter = 1
+text = "2100100100"
+label_settings = SubResource("LabelSettings_4dc76")
+script = ExtResource("14_8v64m")
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicChangeDirective" type="Node" parent="."]
+script = ExtResource("15_df87u")
+_musicToPlay = ExtResource("16_bww6q")

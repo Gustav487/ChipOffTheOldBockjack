@@ -1,0 +1,321 @@
+[gd_scene load_steps=33 format=3 uid="uid://c5jsaxx46f7we"]
+
+[ext_resource type="Script" path="res://Menu/NChangeSceneButton.cs" id="1_yp4tt"]
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Textures/NTextureDisplay.cs" id="2_fwlh1"]
+[ext_resource type="PackedScene" uid="uid://cgkfkkc2gkqov" path="res://scenes/prefabs/chip_display.tscn" id="3_eikmy"]
+[ext_resource type="Script" path="res://Menu/StoreMenu/NStoreMenu.cs" id="4_jvocj"]
+[ext_resource type="Script" path="res://GodotWrappers/NBaseButton.cs" id="5_weycj"]
+[ext_resource type="Script" path="res://GodotWrappers/NLabel.cs" id="6_ggrof"]
+[ext_resource type="Script" path="res://GodotWrappers/NButton.cs" id="7_l0aiy"]
+[ext_resource type="Script" path="res://GodotWrappers/NControl.cs" id="8_gfdfo"]
+[ext_resource type="Script" path="res://Audio/NMusicChangeDirective.cs" id="9_80y3k"]
+[ext_resource type="AudioStream" uid="uid://7tb8lyf5vf82" path="res://assets/audio/chip_masters.wav" id="10_nxpux"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kmyoc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxbyc"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s3nx"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4vyv"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2k28w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7d3lw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5e2i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kqgw8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tqd5u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bv4u6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xr6uw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o784v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nvyy1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2f1d8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mlry0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oyv4y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwaqp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3dkcf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k6pwk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1a187"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jkcr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugghj"]
+
+[node name="StoreMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_fwlh1")
+_assetPath = "textures/guis/menu_bg"
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 15.0
+offset_right = 275.0
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "Store"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0190972
+anchor_top = 0.0231482
+anchor_right = 0.124132
+anchor_bottom = 0.112654
+offset_top = -3.05176e-05
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kmyoc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uxbyc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8s3nx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f4vyv")
+text = "Back"
+script = ExtResource("1_yp4tt")
+_scenePath = "res://scenes/main_menu.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="ChipDisplay" parent="." instance=ExtResource("3_eikmy")]
+layout_mode = 1
+anchor_left = 0.998264
+anchor_top = 0.0308642
+anchor_right = 0.998264
+anchor_bottom = 0.0308642
+offset_left = -170.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 1
+color = Color(0.670588, 0.670588, 0.670588, 0)
+
+[node name="ItemsTabContainer" type="TabContainer" parent="." node_paths=PackedStringArray("itemLabel", "purchaseButton", "sellButton", "previousItemButton", "nextItemButton", "selectButton", "itemPreview")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+script = ExtResource("4_jvocj")
+itemLabel = NodePath("../StoreItemContainer/ItemLabel")
+purchaseButton = NodePath("../StoreItemContainer/PurchaseButton")
+sellButton = NodePath("../StoreItemContainer/SellButton")
+previousItemButton = NodePath("../StoreItemContainer/PreviousItemButton")
+nextItemButton = NodePath("../StoreItemContainer/NextItemButton")
+selectButton = NodePath("../StoreItemContainer/SelectButton")
+itemPreview = NodePath("../StoreItemContainer/ItemImage")
+
+[node name="StoreItemContainer" type="Control" parent="."]
+custom_minimum_size = Vector2(1152, 557)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PreviousItemButton" type="Button" parent="StoreItemContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 46.0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.54099, 0.54099, 0.54099, 1)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2k28w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7d3lw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n5e2i")
+text = "<"
+script = ExtResource("5_weycj")
+
+[node name="NextItemButton" type="Button" parent="StoreItemContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.54099, 0.54099, 0.54099, 1)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kqgw8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tqd5u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bv4u6")
+text = ">"
+script = ExtResource("5_weycj")
+
+[node name="ItemLabel" type="Label" parent="StoreItemContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -106.0
+offset_right = 150.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "Item Label"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_ggrof")
+
+[node name="PurchaseButton" type="Button" parent="StoreItemContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 300.0
+grow_vertical = 0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.54099, 0.54099, 0.54099, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xr6uw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_o784v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nvyy1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2f1d8")
+text = "Buy for 0 Chips"
+script = ExtResource("7_l0aiy")
+
+[node name="SellButton" type="Button" parent="StoreItemContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -150.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.54099, 0.54099, 0.54099, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mlry0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_oyv4y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uwaqp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3dkcf")
+text = "Sell for 0 Chips"
+script = ExtResource("7_l0aiy")
+
+[node name="SelectButton" type="Button" parent="StoreItemContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -66.0
+offset_right = 150.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.54099, 0.54099, 0.54099, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k6pwk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1a187")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8jkcr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ugghj")
+text = "Apply"
+script = ExtResource("5_weycj")
+
+[node name="ItemImage" type="ColorRect" parent="StoreItemContainer"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -236.5
+offset_right = 356.0
+offset_bottom = 163.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_gfdfo")
+
+[node name="MusicChangeDirective" type="Node" parent="."]
+script = ExtResource("9_80y3k")
+_musicToPlay = ExtResource("10_nxpux")

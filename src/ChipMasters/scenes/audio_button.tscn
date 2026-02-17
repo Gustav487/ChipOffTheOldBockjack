@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ys2ckft8344t"]
+
+[ext_resource type="Script" path="res://Audio/NAudioButton.cs" id="1_686dr"]
+
+[node name="AudioButton" type="Node"]
+script = ExtResource("1_686dr")

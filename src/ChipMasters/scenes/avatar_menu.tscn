@@ -1,0 +1,303 @@
+[gd_scene load_steps=13 format=3 uid="uid://c0fgmyvtfk25w"]
+
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Textures/NTextureDisplay.cs" id="1_374fq"]
+[ext_resource type="Script" path="res://Menu/NChangeSceneButton.cs" id="2_q1la0"]
+[ext_resource type="Script" path="res://Menu/Avatars/NAvatarDisplay.cs" id="3_6v4qf"]
+[ext_resource type="Script" path="res://Menu/Avatars/NAvatarEditor.cs" id="4_3xerf"]
+[ext_resource type="Script" path="res://GodotWrappers/NLineEdit.cs" id="5_b03wf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uog88"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4iikp"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsc21"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5nts"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o23ho"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3t87"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1tbc"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[node name="AvatarMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [347.0]
+metadata/_edit_horizontal_guides_ = [176.0]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_374fq")
+_assetPath = "textures/guis/menu_bg"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0190972
+anchor_top = 0.0231482
+anchor_right = 0.124132
+anchor_bottom = 0.112654
+offset_top = -3.05176e-05
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uog88")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4iikp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fsc21")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h5nts")
+text = "Back"
+script = ExtResource("2_q1la0")
+_scenePath = "res://scenes/profile_menu.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 15.0
+offset_right = 275.0
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Avatar"
+horizontal_alignment = 1
+
+[node name="AvatarCustomization" type="Node" parent="."]
+
+[node name="AvatarDisplay" type="Control" parent="AvatarCustomization" node_paths=PackedStringArray("_backgroundTextureRect", "_skinTextureRect", "_hairTextureRect", "_eyesTextureRect", "_mouthTextureRect", "_nameDisplay")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 310.0
+offset_top = 120.0
+offset_right = 570.0
+offset_bottom = 380.0
+script = ExtResource("3_6v4qf")
+_backgroundTextureRect = NodePath("BackgroundTexture")
+_skinTextureRect = NodePath("SkinTexture")
+_hairTextureRect = NodePath("HairTexture")
+_eyesTextureRect = NodePath("EyesTexture")
+_mouthTextureRect = NodePath("MouthTexture")
+_nameDisplay = NodePath("../AvatarEditor/NameInput")
+
+[node name="BackgroundTexture" type="TextureRect" parent="AvatarCustomization/AvatarDisplay"]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 260.0
+
+[node name="SkinTexture" type="TextureRect" parent="AvatarCustomization/AvatarDisplay"]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 260.0
+
+[node name="HairTexture" type="TextureRect" parent="AvatarCustomization/AvatarDisplay"]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 260.0
+
+[node name="EyesTexture" type="TextureRect" parent="AvatarCustomization/AvatarDisplay"]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 260.0
+
+[node name="MouthTexture" type="TextureRect" parent="AvatarCustomization/AvatarDisplay"]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 260.0
+
+[node name="AvatarEditor" type="Control" parent="AvatarCustomization" node_paths=PackedStringArray("_backgroundCycleButton", "_skinCycleButton", "_hairCycleButton", "_eyesCycleButton", "_mouthCycleButton", "_randomizeButton", "_nameInput")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_3xerf")
+_backgroundCycleButton = NodePath("BackgroundButton")
+_skinCycleButton = NodePath("SkinButton")
+_hairCycleButton = NodePath("HairButton")
+_eyesCycleButton = NodePath("EyesButton")
+_mouthCycleButton = NodePath("MouthButton")
+_randomizeButton = NodePath("RandomButton")
+_nameInput = NodePath("NameInput")
+
+[node name="BackgroundButton" type="Button" parent="AvatarCustomization/AvatarEditor"]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 180.0
+offset_right = 975.0
+offset_bottom = 220.0
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_o23ho")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c3t87")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a1tbc")
+text = "Background
+"
+
+[node name="SkinButton" type="Button" parent="AvatarCustomization/AvatarEditor"]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 230.0
+offset_right = 975.0
+offset_bottom = 270.0
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_o23ho")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c3t87")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a1tbc")
+text = "Skin"
+
+[node name="HairButton" type="Button" parent="AvatarCustomization/AvatarEditor"]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 280.0
+offset_right = 975.0
+offset_bottom = 320.0
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_o23ho")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c3t87")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a1tbc")
+text = "Hair"
+
+[node name="EyesButton" type="Button" parent="AvatarCustomization/AvatarEditor"]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 330.0
+offset_right = 975.0
+offset_bottom = 370.0
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_o23ho")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c3t87")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a1tbc")
+text = "Eyes
+"
+
+[node name="MouthButton" type="Button" parent="AvatarCustomization/AvatarEditor"]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 380.0
+offset_right = 975.0
+offset_bottom = 420.0
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_o23ho")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c3t87")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a1tbc")
+text = "Mouth"
+
+[node name="RandomButton" type="Button" parent="AvatarCustomization/AvatarEditor"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 578.0
+offset_right = 140.0
+offset_bottom = 628.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_o23ho")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c3t87")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a1tbc")
+text = "Random"
+
+[node name="NameInput" type="LineEdit" parent="AvatarCustomization/AvatarEditor"]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 470.0
+offset_right = 567.0
+offset_bottom = 505.0
+placeholder_text = "Name"
+alignment = 1
+script = ExtResource("5_b03wf")

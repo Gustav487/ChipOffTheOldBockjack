@@ -1,0 +1,200 @@
+[gd_scene load_steps=15 format=3 uid="uid://djm8uadqsvkom"]
+
+[ext_resource type="Script" path="res://Menu/BetSelections/NBetSelectionMenu.cs" id="1_i617n"]
+[ext_resource type="Script" path="res://Menu/Interactables/Buttons/Closes/NCloseButton.cs" id="2_7ynqt"]
+[ext_resource type="Script" path="res://Menu/Displays/Chips/NAbbreviatedChipDisplay.cs" id="3_e7py6"]
+[ext_resource type="Script" path="res://Controls/NRegexTextEdit.cs" id="3_h53lm"]
+[ext_resource type="Script" path="res://GodotWrappers/NHSlider.cs" id="4_lt30e"]
+[ext_resource type="Script" path="res://GodotWrappers/NButton.cs" id="5_dk8hx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fq4b5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6tb2"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq06m"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2wc8"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jteho"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuujw"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmi6w"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6dni"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[node name="BetSelectionMenu" type="ColorRect" node_paths=PackedStringArray("_minDisplay", "_maxDisplay", "_betEdit", "_betSlider", "_submitButton")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.141176)
+script = ExtResource("1_i617n")
+_minDisplay = NodePath("ColorRect/MinDisplay")
+_maxDisplay = NodePath("ColorRect/MaxDisplay")
+_betEdit = NodePath("ColorRect/BetEdit")
+_betSlider = NodePath("ColorRect/BetSlider")
+_submitButton = NodePath("ColorRect/SubmitButton")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25434
+anchor_top = 0.405864
+anchor_right = 0.758681
+anchor_bottom = 0.594136
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.403922, 0.403922, 0.403922, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CancelButton" type="Button" parent="ColorRect" node_paths=PackedStringArray("_closes")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.944923
+anchor_right = 1.0
+anchor_bottom = 0.262295
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fq4b5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u6tb2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pq06m")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m2wc8")
+text = "X"
+script = ExtResource("2_7ynqt")
+_closes = NodePath("../..")
+metadata/_edit_use_anchors_ = true
+
+[node name="MinDisplay" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0172117
+anchor_top = 0.409836
+anchor_right = 0.0172117
+anchor_bottom = 0.41
+offset_right = 37.0
+offset_bottom = 22.98
+grow_horizontal = 2
+grow_vertical = 2
+text = "100k"
+script = ExtResource("3_e7py6")
+metadata/_edit_use_anchors_ = true
+
+[node name="MaxDisplay" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.912219
+anchor_top = 0.393442
+anchor_right = 0.912219
+anchor_bottom = 0.393442
+offset_right = 43.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "999m"
+script = ExtResource("3_e7py6")
+metadata/_edit_use_anchors_ = true
+
+[node name="BetEdit" type="TextEdit" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.358003
+anchor_top = 0.057377
+anchor_right = 0.64716
+anchor_bottom = 0.319672
+offset_right = -6.99948
+offset_bottom = -5.34058e-05
+text = "0"
+script = ExtResource("3_h53lm")
+_regex = "[0-9]*"
+_allMatches = true
+metadata/_edit_use_anchors_ = true
+
+[node name="BetSlider" type="HSlider" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.108434
+anchor_top = 0.45082
+anchor_right = 0.869191
+anchor_bottom = 0.581967
+mouse_default_cursor_shape = 6
+script = ExtResource("4_lt30e")
+metadata/_edit_use_anchors_ = true
+
+[node name="SubmitButton" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.376936
+anchor_top = 0.647541
+anchor_right = 0.654045
+anchor_bottom = 0.934426
+offset_left = -11.0001
+offset_top = -0.000160217
+offset_right = -10.9997
+offset_bottom = -3.0002
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jteho")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fuujw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nmi6w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s6dni")
+text = "Bet"
+script = ExtResource("5_dk8hx")
+metadata/_edit_use_anchors_ = true

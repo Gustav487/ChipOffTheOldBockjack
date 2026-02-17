@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdimn80uif1ka"]
+
+[ext_resource type="Script" path="res://Menu/Displays/Chips/NInfoOnHoverChipDisplay.cs" id="1_5sns7"]
+[ext_resource type="Script" path="res://Menu/Displays/Chips/NAbbreviatedChipDisplay.cs" id="2_7kivk"]
+[ext_resource type="Script" path="res://Menu/Displays/Chips/NChipDisplay.cs" id="3_3decn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_km35y"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_s3c3m"]
+
+[node name="ChipDisplay" type="Control" node_paths=PackedStringArray("_main", "_chipInfo", "_info")]
+layout_mode = 3
+anchor_right = 0.12066
+anchor_bottom = 0.0493827
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5sns7")
+_main = NodePath("Main")
+_chipInfo = NodePath("Info/Info")
+_info = NodePath("Info")
+metadata/_edit_use_anchors_ = true
+
+[node name="Main" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "214b"
+label_settings = SubResource("LabelSettings_km35y")
+script = ExtResource("2_7kivk")
+
+[node name="Info" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.84375
+anchor_right = 0.683453
+anchor_bottom = 1.5625
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.215902, 0.215902, 0.215902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Info" type="Label" parent="Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2140000000"
+label_settings = SubResource("LabelSettings_s3c3m")
+script = ExtResource("3_3decn")

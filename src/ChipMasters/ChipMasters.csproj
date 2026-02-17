@@ -1,0 +1,31 @@
+﻿<Project Sdk="Godot.NET.Sdk/4.3.0">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(BuildingInsideVisualStudio)' == 'true'">
+    <DefineConstants>$(DefineConstants);TESTING</DefineConstants>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Reference Include="GSR.EnDecic">
+      <HintPath>dependencies\GSR.EnDecic.dll</HintPath>
+    </Reference>
+    <Reference Include="GSR.EnDecic.Jsonic">
+      <HintPath>dependencies\GSR.EnDecic.Jsonic.dll</HintPath>
+    </Reference>
+    <Reference Include="GSR.Jsonic">
+      <HintPath>dependencies\GSR.Jsonic.dll</HintPath>
+    </Reference>
+    <Reference Include="GSR.Utilic">
+      <HintPath>dependencies\GSR.Utilic.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  
+</Project>

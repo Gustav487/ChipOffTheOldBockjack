@@ -1,0 +1,291 @@
+[gd_scene load_steps=19 format=3 uid="uid://ddf8nudwvkly7"]
+
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Textures/NTextureDisplay.cs" id="1_p2ff0"]
+[ext_resource type="Script" path="res://Menu/NChangeSceneButton.cs" id="1_tfptn"]
+[ext_resource type="Script" path="res://Menu/Interactables/Buttons/Sessions/NResumeSessionButton.cs" id="3_65hy4"]
+[ext_resource type="PackedScene" uid="uid://bjb06mpd303d7" path="res://scenes/decks/standard.tscn" id="3_kiich"]
+[ext_resource type="Script" path="res://Menu/Interactables/Buttons/Sessions/NCreateSessionButton.cs" id="4_cl2yk"]
+[ext_resource type="PackedScene" uid="uid://djm8uadqsvkom" path="res://scenes/bet_selection_menu.tscn" id="4_qqqvo"]
+[ext_resource type="Script" path="res://Games/Sessions/Providers/NStandardSessionProvider.cs" id="5_3ajxe"]
+[ext_resource type="Script" path="res://Games/Matches/Providers/NStandardMatchProvider.cs" id="6_weqvo"]
+[ext_resource type="Script" path="res://Games/BetHandlers/NStandardBetHandler.cs" id="8_uqu5w"]
+[ext_resource type="Script" path="res://Games/Matches/Providers/NTurnedMatchProvider.cs" id="9_ng754"]
+[ext_resource type="Script" path="res://Games/Appraisers/NTotalValueAppraiser.cs" id="11_bi2dt"]
+[ext_resource type="Script" path="res://Audio/NMusicChangeDirective.cs" id="12_ntlf6"]
+[ext_resource type="AudioStream" uid="uid://7tb8lyf5vf82" path="res://assets/audio/chip_masters.wav" id="13_57q0t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bj8jv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pmqu"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hffrr"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdnhi"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8pefa"]
+
+[node name="MatchSelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p2ff0")
+_assetPath = "textures/guis/menu_bg"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0190972
+anchor_top = 0.0231482
+anchor_right = 0.124132
+anchor_bottom = 0.112654
+offset_top = -3.05176e-05
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bj8jv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7pmqu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hffrr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdnhi")
+text = "Back"
+script = ExtResource("1_tfptn")
+_scenePath = "res://scenes/main_menu.tscn"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.333
+anchor_top = 0.404
+anchor_right = 0.666667
+anchor_bottom = 0.596
+offset_left = 0.384003
+offset_top = -110.792
+offset_right = -0.000366211
+offset_bottom = 0.791992
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ResumeMatchButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8pefa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7pmqu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hffrr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdnhi")
+text = "Resume Match
+"
+script = ExtResource("3_65hy4")
+_scenePath = "res://scenes/gameplay_screen.tscn"
+
+[node name="NewStandardSessionButton(Easy))" type="Button" parent="VBoxContainer" node_paths=PackedStringArray("_betSelectionMenu", "_sessionProvider")]
+layout_mode = 2
+size_flags_vertical = 10
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8pefa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7pmqu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hffrr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdnhi")
+text = "New Standard Game (Easy)"
+script = ExtResource("4_cl2yk")
+_gameScreenPath = "res://scenes/gameplay_screen.tscn"
+_maxBet = 2147000000
+_betSelectionMenu = NodePath("../../BetSelectionMenu")
+_sessionProvider = NodePath("SessionProvider")
+metadata/_edit_use_anchors_ = true
+
+[node name="SessionProvider" type="Node" parent="VBoxContainer/NewStandardSessionButton(Easy))" node_paths=PackedStringArray("_matchProvider", "_betHandler")]
+script = ExtResource("5_3ajxe")
+_matchProvider = NodePath("MatchProvider")
+_betHandler = NodePath("BetHandler")
+
+[node name="MatchProvider" type="Node" parent="VBoxContainer/NewStandardSessionButton(Easy))/SessionProvider" node_paths=PackedStringArray("_playerDeck", "_DealerDeck")]
+script = ExtResource("6_weqvo")
+_playerDeck = NodePath("EasyDeck")
+_DealerDeck = NodePath("DefaultDeck")
+
+[node name="EasyDeck" parent="VBoxContainer/NewStandardSessionButton(Easy))/SessionProvider/MatchProvider" instance=ExtResource("3_kiich")]
+_cardsByType = Array[String](["ace_of_clubs", "ace_of_diamonds", "ace_of_hearts", "ace_of_spades", "two_of_clubs", "two_of_diamonds", "two_of_hearts", "two_of_spades", "three_of_clubs", "three_of_diamonds", "three_of_hearts", "three_of_spades", "four_of_clubs", "four_of_diamonds", "four_of_hearts", "four_of_spades", "five_of_clubs", "five_of_diamonds", "five_of_hearts", "five_of_spades", "six_of_clubs", "six_of_diamonds", "six_of_hearts", "six_of_spades", "ace_of_clubs", "ace_of_diamonds", "ace_of_hearts", "ace_of_spades", "ace_of_clubs", "ace_of_diamonds", "ace_of_hearts", "ace_of_spades", "two_of_clubs", "two_of_diamonds", "two_of_hearts", "two_of_spades", "three_of_clubs", "three_of_diamonds", "three_of_hearts", "three_of_spades", "four_of_clubs", "four_of_diamonds", "four_of_hearts", "four_of_spades", "five_of_clubs", "five_of_diamonds", "five_of_hearts", "five_of_spades", "six_of_clubs", "six_of_diamonds", "six_of_hearts", "six_of_spades"])
+
+[node name="DefaultDeck" parent="VBoxContainer/NewStandardSessionButton(Easy))/SessionProvider/MatchProvider" instance=ExtResource("3_kiich")]
+
+[node name="BetHandler" type="Node" parent="VBoxContainer/NewStandardSessionButton(Easy))/SessionProvider"]
+script = ExtResource("8_uqu5w")
+
+[node name="NewStandardSessionButton(Med))" type="Button" parent="VBoxContainer" node_paths=PackedStringArray("_betSelectionMenu", "_sessionProvider")]
+layout_mode = 2
+size_flags_vertical = 10
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8pefa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7pmqu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hffrr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdnhi")
+text = "New Standard Game (Med)"
+script = ExtResource("4_cl2yk")
+_gameScreenPath = "res://scenes/gameplay_screen.tscn"
+_maxBet = 2147000000
+_betSelectionMenu = NodePath("../../BetSelectionMenu")
+_sessionProvider = NodePath("SessionProvider")
+metadata/_edit_use_anchors_ = true
+
+[node name="SessionProvider" type="Node" parent="VBoxContainer/NewStandardSessionButton(Med))" node_paths=PackedStringArray("_matchProvider", "_betHandler")]
+script = ExtResource("5_3ajxe")
+_matchProvider = NodePath("MatchProvider")
+_betHandler = NodePath("BetHandler")
+
+[node name="MatchProvider" type="Node" parent="VBoxContainer/NewStandardSessionButton(Med))/SessionProvider" node_paths=PackedStringArray("_playerDeck", "_DealerDeck")]
+script = ExtResource("6_weqvo")
+_playerDeck = NodePath("MedDeck")
+_DealerDeck = NodePath("DefaultDeck")
+
+[node name="DefaultDeck" parent="VBoxContainer/NewStandardSessionButton(Med))/SessionProvider/MatchProvider" instance=ExtResource("3_kiich")]
+
+[node name="MedDeck" parent="VBoxContainer/NewStandardSessionButton(Med))/SessionProvider/MatchProvider" instance=ExtResource("3_kiich")]
+_cardsByType = Array[String](["ace_of_clubs", "ace_of_diamonds", "ace_of_hearts", "ace_of_spades", "two_of_clubs", "two_of_diamonds", "two_of_hearts", "two_of_spades", "three_of_clubs", "three_of_diamonds", "three_of_hearts", "three_of_spades", "four_of_clubs", "four_of_diamonds", "four_of_hearts", "four_of_spades", "five_of_clubs", "five_of_diamonds", "five_of_hearts", "five_of_spades", "six_of_clubs", "six_of_diamonds", "six_of_hearts", "six_of_spades", "seven_of_clubs", "seven_of_diamonds", "seven_of_hearts", "seven_of_spades", "eight_of_clubs", "eight_of_diamonds", "eight_of_hearts", "eight_of_spades", "nine_of_clubs", "nine_of_diamonds", "nine_of_hearts", "nine_of_spades", "ace_of_clubs", "ace_of_diamonds", "ace_of_hearts", "ace_of_spades", "two_of_clubs", "two_of_diamonds", "two_of_hearts", "two_of_spades", "three_of_clubs", "three_of_diamonds", "three_of_hearts", "three_of_spades", "four_of_clubs", "four_of_diamonds", "four_of_hearts", "four_of_spades"])
+
+[node name="BetHandler" type="Node" parent="VBoxContainer/NewStandardSessionButton(Med))/SessionProvider"]
+script = ExtResource("8_uqu5w")
+
+[node name="NewStandardSessionButton(Hard)" type="Button" parent="VBoxContainer" node_paths=PackedStringArray("_betSelectionMenu", "_sessionProvider")]
+layout_mode = 2
+size_flags_vertical = 10
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8pefa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7pmqu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hffrr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdnhi")
+text = "New Standard Game (Hard)"
+script = ExtResource("4_cl2yk")
+_gameScreenPath = "res://scenes/gameplay_screen.tscn"
+_maxBet = 2147000000
+_betSelectionMenu = NodePath("../../BetSelectionMenu")
+_sessionProvider = NodePath("SessionProvider")
+metadata/_edit_use_anchors_ = true
+
+[node name="SessionProvider" type="Node" parent="VBoxContainer/NewStandardSessionButton(Hard)" node_paths=PackedStringArray("_matchProvider", "_betHandler")]
+script = ExtResource("5_3ajxe")
+_matchProvider = NodePath("MatchProvider")
+_betHandler = NodePath("BetHandler")
+
+[node name="MatchProvider" type="Node" parent="VBoxContainer/NewStandardSessionButton(Hard)/SessionProvider" node_paths=PackedStringArray("_playerDeck", "_DealerDeck")]
+script = ExtResource("6_weqvo")
+_playerDeck = NodePath("DefaultDeck")
+_DealerDeck = NodePath("DefaultDeck")
+
+[node name="DefaultDeck" parent="VBoxContainer/NewStandardSessionButton(Hard)/SessionProvider/MatchProvider" instance=ExtResource("3_kiich")]
+
+[node name="BetHandler" type="Node" parent="VBoxContainer/NewStandardSessionButton(Hard)/SessionProvider"]
+script = ExtResource("8_uqu5w")
+
+[node name="NewGenerousSessionButton" type="Button" parent="VBoxContainer" node_paths=PackedStringArray("_betSelectionMenu", "_sessionProvider")]
+layout_mode = 2
+size_flags_vertical = 10
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8pefa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7pmqu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hffrr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdnhi")
+text = "New Turned 31 Game"
+script = ExtResource("4_cl2yk")
+_gameScreenPath = "res://scenes/gameplay_screen.tscn"
+_maxBet = 2147000000
+_betSelectionMenu = NodePath("../../BetSelectionMenu")
+_sessionProvider = NodePath("SessionProvider")
+metadata/_edit_use_anchors_ = true
+
+[node name="SessionProvider" type="Node" parent="VBoxContainer/NewGenerousSessionButton" node_paths=PackedStringArray("_matchProvider", "_betHandler")]
+script = ExtResource("5_3ajxe")
+_matchProvider = NodePath("MatchProvider")
+_betHandler = NodePath("BetHandler")
+
+[node name="MatchProvider" type="Node" parent="VBoxContainer/NewGenerousSessionButton/SessionProvider" node_paths=PackedStringArray("_playerDeck", "_dealerDeck", "_appraiser")]
+script = ExtResource("9_ng754")
+_playerDeck = NodePath("Deck")
+_dealerDeck = NodePath("Deck")
+_appraiser = NodePath("Appraiser")
+_dealerGoal = 28
+
+[node name="Appraiser" type="Node" parent="VBoxContainer/NewGenerousSessionButton/SessionProvider/MatchProvider"]
+script = ExtResource("11_bi2dt")
+_maxValue = 31
+
+[node name="Deck" parent="VBoxContainer/NewGenerousSessionButton/SessionProvider/MatchProvider" instance=ExtResource("3_kiich")]
+
+[node name="BetHandler" type="Node" parent="VBoxContainer/NewGenerousSessionButton/SessionProvider"]
+script = ExtResource("8_uqu5w")
+
+[node name="BetSelectionMenu" parent="." instance=ExtResource("4_qqqvo")]
+visible = false
+layout_mode = 1
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="MusicChangeDirective" type="Node" parent="."]
+script = ExtResource("12_ntlf6")
+_musicToPlay = ExtResource("13_57q0t")

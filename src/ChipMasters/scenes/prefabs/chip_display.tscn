@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgkfkkc2gkqov"]
+
+[ext_resource type="Script" path="res://Menu/Displays/Wallets/NWalletDisplay.cs" id="1_f3yjw"]
+[ext_resource type="Script" path="res://Menu/Displays/Chips/NAbbreviatedChipDisplay.cs" id="3_tkku6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sp63i"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_km35y"]
+font_size = 24
+
+[node name="UserWaletDisplay" type="ColorRect" node_paths=PackedStringArray("_chipDisplay")]
+anchors_preset = -1
+anchor_right = 0.141
+anchor_bottom = 0.063
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.682353, 0.301961, 1)
+script = ExtResource("1_f3yjw")
+_chipDisplay = NodePath("ChipDisplay/Abbreviated")
+metadata/_edit_use_anchors_ = true
+
+[node name="Desc" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.125
+anchor_bottom = 1.0
+text = "$"
+label_settings = SubResource("LabelSettings_sp63i")
+metadata/_edit_use_anchors_ = true
+
+[node name="ChipDisplay" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_right = -0.432007
+offset_bottom = 0.175999
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Abbreviated" type="Label" parent="ChipDisplay"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 56.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "214b"
+label_settings = SubResource("LabelSettings_km35y")
+script = ExtResource("3_tkku6")

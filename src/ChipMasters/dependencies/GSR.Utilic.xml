@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GSR.Utilic</name>
+    </assembly>
+    <members>
+        <member name="T:GSR.Utilic.Event.Event`1">
+            <summary>
+            Simple <see cref="T:GSR.Utilic.Event.IEvent`1"/> implementation.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GSR.Utilic.Event.Event`1.#ctor(System.Collections.Generic.IList{`0}@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Event.Event`1.Subscribe(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Event.Event`1.Unsubscribe(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Event.Event`1.op_Addition(GSR.Utilic.Event.Event{`0},`0)">
+            <summary>
+            Subscribe an event handler to the event.
+            </summary>
+        </member>
+        <member name="M:GSR.Utilic.Event.Event`1.op_Subtraction(GSR.Utilic.Event.Event{`0},`0)">
+            <summary>
+            Unsubscribe an event handler from the event.
+            </summary>
+        </member>
+        <member name="T:GSR.Utilic.Event.FixedKeysKeyedEvent`2">
+            <summary>
+            Simple <see cref="T:GSR.Utilic.Event.IKeyedEvent`2"/> implemenation.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TDelegate"></typeparam>
+        </member>
+        <member name="M:GSR.Utilic.Event.FixedKeysKeyedEvent`2.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IDictionary{`0,System.Collections.Generic.IList{`1}}@)">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Event.FixedKeysKeyedEvent`2.Item(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.Utilic.Event.IEvent`1">
+            <summary>
+            Contract for a generic event
+            </summary>
+            <typeparam name="T">The handler type.</typeparam>
+        </member>
+        <member name="M:GSR.Utilic.Event.IEvent`1.Subscribe(`0)">
+            <summary>
+            Subscribe an event handler to the event.
+            </summary>
+            <param name="handler"></param>
+            <returns>Self.</returns>
+        </member>
+        <member name="M:GSR.Utilic.Event.IEvent`1.Unsubscribe(`0)">
+            <summary>
+            Unsubscribe an event handler to the event.
+            </summary>
+            <param name="handler"></param>
+            <returns>Self.</returns>
+        </member>
+        <member name="M:GSR.Utilic.Event.IEvent`1.op_Addition(GSR.Utilic.Event.IEvent{`0},`0)">
+            <summary>
+            Subscribe an event handler to the event.
+            </summary>
+        </member>
+        <member name="M:GSR.Utilic.Event.IEvent`1.op_Subtraction(GSR.Utilic.Event.IEvent{`0},`0)">
+            <summary>
+            Unsubscribe an event handler from the event.
+            </summary>
+        </member>
+        <member name="T:GSR.Utilic.Event.IKeyedEvent`2">
+            <summary>
+            Contract for an event that fires at different times based on a key.
+            </summary>
+        </member>
+        <member name="P:GSR.Utilic.Event.IKeyedEvent`2.Item(`0)">
+            <summary>
+            Get the event for the given key. Set for convenience, has no obligation to perform any behavior.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.Utilic.Event.KeyedEvent`2">
+            <summary>
+            Simple <see cref="T:GSR.Utilic.Event.IKeyedEvent`2"/> implemenation.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TDelegate"></typeparam>
+        </member>
+        <member name="M:GSR.Utilic.Event.KeyedEvent`2.#ctor(System.Collections.Generic.IDictionary{`0,System.Collections.Generic.IList{`1}}@)">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Event.KeyedEvent`2.Item(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.Utilic.Event.MappedKeyKeyedEvent`3">
+            <summary>
+            Implementation of <see cref="T:GSR.Utilic.Event.IKeyedEvent`2"/> that maps it's key to a key in another internal <see cref="T:System.Linq.ILookup`2"/>.
+            </summary>
+            <typeparam name="TOuterKey"></typeparam>
+            <typeparam name="TInnerKey"></typeparam>
+            <typeparam name="THandler"></typeparam>
+        </member>
+        <member name="P:GSR.Utilic.Event.MappedKeyKeyedEvent`3.Item(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Event.MappedKeyKeyedEvent`3.#ctor(System.Func{`0,`1},GSR.Utilic.Event.IKeyedEvent{`1,`2})">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.Utilic.Generic.ABijectiveDictionary`2">
+            <summary>
+            <see cref="T:GSR.Utilic.Generic.IBijectiveDictionary`2"/> implementation for wrapping a <see cref="T:System.Collections.Generic.IDictionary`2"/> implementation, intended as a base class.
+            </summary>
+            <typeparam name="TKey1"></typeparam>
+            <typeparam name="TKey2"></typeparam>
+        </member>
+        <member name="P:GSR.Utilic.Generic.ABijectiveDictionary`2.Item(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Generic.ABijectiveDictionary`2.I">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Generic.ABijectiveDictionary`2.Keys">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Generic.ABijectiveDictionary`2.Values">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Generic.ABijectiveDictionary`2.Count">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Generic.ABijectiveDictionary`2.IsReadOnly">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+            <summary>
+            Construct as wrapping inner dict.
+            </summary>
+            <param name="inner"></param>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.Add(`0,`1)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.ContainsKey(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.Remove(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.TryGetValue(`0,`1@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ABijectiveDictionary`2.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.Utilic.Generic.BijectiveDictionary`2">
+            <summary>
+            Mutable <see cref="T:GSR.Utilic.Generic.IBijectiveDictionary`2"/> implementation.
+            </summary>
+            <typeparam name="TKey1"></typeparam>
+            <typeparam name="TKey2"></typeparam>
+        </member>
+        <member name="M:GSR.Utilic.Generic.BijectiveDictionary`2.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.BijectiveDictionary`2.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.Utilic.Generic.IBijectiveDictionary`2">
+            <summary>
+            Contract for a bijective <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <typeparam name="TKey1"></typeparam>
+            <typeparam name="TKey2"></typeparam>
+        </member>
+        <member name="P:GSR.Utilic.Generic.IBijectiveDictionary`2.I">
+            <summary>
+            Get an <see cref="T:GSR.Utilic.Generic.IBijectiveDictionary`2"/> with it's key/value access mirrored.
+            </summary>
+        </member>
+        <member name="T:GSR.Utilic.Generic.IBijectiveDictionaryExtensions">
+            <summary>
+            Extension methods related to <see cref="T:GSR.Utilic.Generic.IBijectiveDictionary`2"/>s.
+            </summary>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IBijectiveDictionaryExtensions.ToBijectiveDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            Create a mutable <see cref="T:GSR.Utilic.Generic.IBijectiveDictionary`2"/> containg the <see cref="T:System.Collections.Generic.KeyValuePair"/>s.
+            </summary>
+            <typeparam name="TKey1"></typeparam>
+            <typeparam name="TKey2"></typeparam>
+            <param name="kvps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IBijectiveDictionaryExtensions.ToImmutableBijectiveDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            Create an immutable <see cref="T:GSR.Utilic.Generic.IBijectiveDictionary`2"/> containg the <see cref="T:System.Collections.Generic.KeyValuePair"/>s.
+            </summary>
+            <typeparam name="TKey1"></typeparam>
+            <typeparam name="TKey2"></typeparam>
+            <param name="kvps"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.Utilic.Generic.ImmutableBijectiveDictionary`2">
+            <summary>
+            Immutable <see cref="T:GSR.Utilic.Generic.IBijectiveDictionary`2"/> implementation.
+            </summary>
+            <typeparam name="TKey1"></typeparam>
+            <typeparam name="TKey2"></typeparam>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ImmutableBijectiveDictionary`2.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.ImmutableBijectiveDictionary`2.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.Utilic.Generic.InverseBijectiveDictionary`2">
+            <summary>
+            <see cref="T:GSR.Utilic.Generic.IBijectiveDictionary`2"/> that act by inverting an given inner <see cref="T:GSR.Utilic.Generic.IBijectiveDictionary`2"/>.
+            </summary>
+            <typeparam name="TKey1"></typeparam>
+            <typeparam name="TKey2"></typeparam>
+        </member>
+        <member name="P:GSR.Utilic.Generic.InverseBijectiveDictionary`2.Item(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Generic.InverseBijectiveDictionary`2.I">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Generic.InverseBijectiveDictionary`2.Keys">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Generic.InverseBijectiveDictionary`2.Values">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Generic.InverseBijectiveDictionary`2.Count">
+            <inheritdoc/>
+        </member>
+        <member name="P:GSR.Utilic.Generic.InverseBijectiveDictionary`2.IsReadOnly">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.#ctor(GSR.Utilic.Generic.IBijectiveDictionary{`1,`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.Add(`0,`1)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.ContainsKey(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.Remove(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.TryGetValue(`0,`1@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Generic.InverseBijectiveDictionary`2.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.Utilic.Generic.IOrderedDictionary`2">
+            <summary>
+            Dictionary which strictly preserves key insertion order.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="T:GSR.Utilic.Generic.IOrderedDictionaryExtensions">
+            <summary>
+            Extension methods related to <see cref="T:GSR.Utilic.Generic.IOrderedDictionary`2"/>s.
+            </summary>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IOrderedDictionaryExtensions.ToOrderedDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            Create a mutable <see cref="T:GSR.Utilic.Generic.IOrderedDictionary`2"/> containing the <see cref="T:System.Collections.Generic.KeyValuePair"/>s.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="kvps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IOrderedDictionaryExtensions.ToImmutableOrderedDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            Create an immutable <see cref="T:GSR.Utilic.Generic.IOrderedDictionary`2"/> containing the <see cref="T:System.Collections.Generic.KeyValuePair"/>s.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="kvps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IEnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Perform an action on each value in an IEnumerable.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="values"></param>
+            <param name="forEach"></param>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IEnumerableExtensions.ForEvery``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Perform an action on each value in an IEnumerable.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="values"></param>
+            <param name="forEach"></param>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IEnumerableExtensions.ForEvery``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})">
+            <summary>
+            Perform an action on each value in an IEnumerable, providing the index.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="values"></param>
+            <param name="forEach"></param>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IEnumerableExtensions.ForEachS``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Perform an action on each value in an IEnumerable, statefully.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="values"></param>
+            <param name="forEach"></param>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IEnumerableExtensions.ForEachS``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})">
+            <summary>
+            Perform an action on each value in an IEnumerable, providing the index, statefully.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="values"></param>
+            <param name="forEach"></param>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IQueue`1.Enqueue(`0)">
+            <summary>
+            </summary>
+            <param name="item"></param>
+            <returns>*this* for chaining</returns>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IQueue`1.Enqueue(`0[])">
+            <summary>
+            Enqueues a sequence of <paramref name="items"/>.
+            </summary>
+            <param name="items"></param>
+            <returns>*this* for chaining</returns>
+        </member>
+        <member name="M:GSR.Utilic.Generic.IQueue`1.Dequeue(System.Int32)">
+            <summary>
+            Dequeues the next <paramref name="count"/> values.
+            </summary>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.Utilic.Indexer.IIndexer`2">
+            <summary>
+            Contract for an indexer allowing access to some collection.
+            </summary>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+        </member>
+        <member name="P:GSR.Utilic.Indexer.IIndexer`2.Item(`0)">
+            <summary>
+            Access to <typeparamref name="TTo"/> associated with the <typeparamref name="TFrom"/>.
+            </summary>
+            <param name="from"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.Utilic.Indexer.Indexer`2">
+            <summary>
+            Simple <see cref="T:GSR.Utilic.Indexer.IIndexer`2"/> implementation.
+            </summary>
+        </member>
+        <member name="P:GSR.Utilic.Indexer.Indexer`2.Item(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.Utilic.Ranges.Interval`1">
+            <summary>
+            <see cref="T:GSR.Utilic.Ranges.IRange`1"/> implementation for specifying a continuous interval of values between two endpoints. The endpoints may or may not be included in the interval.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GSR.Utilic.Ranges.Interval`1.#ctor(`0,`0,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Ranges.Interval`1.Includes(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.Ranges.Interval`1.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.Utilic.Ranges.IRange`1">
+            <summary>
+            Contract for an object which defines a subset of values that are permissible
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GSR.Utilic.Ranges.IRange`1.Includes(`0)">
+            <summary>
+            Is the value <paramref name="t"/> inside the range.
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GSR.Utilic.TypeMismatchException">
+            <summary>
+            Exception for when the expected type didn't match the received type.
+            </summary>
+        </member>
+        <member name="M:GSR.Utilic.TypeMismatchException.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.TypeMismatchException.#ctor(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.TypeMismatchException.#ctor(System.String,System.Exception)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.TypeMismatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GSR.Utilic.UnexpectedStateException">
+            <summary>
+            Exception that occurs when a predicted as impossible state is reached.
+            </summary>
+        </member>
+        <member name="M:GSR.Utilic.UnexpectedStateException.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.UnexpectedStateException.#ctor(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.UnexpectedStateException.#ctor(System.String,System.Exception)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GSR.Utilic.UnexpectedStateException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

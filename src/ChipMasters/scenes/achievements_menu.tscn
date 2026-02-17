@@ -1,0 +1,125 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnicuh77x3ejs"]
+
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Textures/NTextureDisplay.cs" id="1_6eh31"]
+[ext_resource type="Script" path="res://Menu/NChangeSceneButton.cs" id="1_ffhnv"]
+[ext_resource type="Script" path="res://Menu/NAchievementMenu.cs" id="1_w6plx"]
+[ext_resource type="Script" path="res://Audio/NMusicChangeDirective.cs" id="4_l4023"]
+[ext_resource type="AudioStream" uid="uid://7tb8lyf5vf82" path="res://assets/audio/chip_masters.wav" id="5_gvck3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofu1w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxop8"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m48bp"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5eq2p"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[node name="AchievementsMenu" type="Control" node_paths=PackedStringArray("achievementList", "scrollContainer")]
+layout_mode = 3
+anchor_top = 0.174
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -112.752
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w6plx")
+achievementList = NodePath("ScrollContainer/AchievementList")
+scrollContainer = NodePath("ScrollContainer")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.136
+anchor_top = 0.218
+anchor_right = 0.829
+anchor_bottom = 1.0
+offset_left = -156.672
+offset_top = -141.264
+offset_right = 196.992
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6eh31")
+_assetPath = "textures/guis/menu_bg"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0190972
+anchor_top = 0.0231482
+anchor_right = 0.124132
+anchor_bottom = 0.112654
+offset_top = -3.05176e-05
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ofu1w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nxop8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m48bp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5eq2p")
+text = "Back"
+script = ExtResource("1_ffhnv")
+_scenePath = "res://scenes/profile_menu.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 15.0
+offset_right = 275.0
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Achievements"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.179
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 4.008
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 2
+
+[node name="AchievementList" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MusicChangeDirective" type="Node" parent="."]
+script = ExtResource("4_l4023")
+_musicToPlay = ExtResource("5_gvck3")

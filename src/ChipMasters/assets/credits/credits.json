@@ -1,0 +1,125 @@
+[
+	{
+		"name": "RMSG",
+		"Roles":[
+			"Group lead/project manager",
+			"Software architect",
+			"Visual artist",
+			"Quality assurer"
+		],
+		"Tasks": [
+			"Animated and static texture shaders",
+			"Texture and animation swapping systems",
+			"Serialization logic and data backups",
+			"Gameplay screen gameplay related mechanics",
+			"Autobet, and bet selection",
+			"Metrics screen and metrics system",
+			"Challenge modifier system",
+			"3D flip animation",
+			"Floral gold skin",
+			"Lunar silver skin",
+			"Placeholder skin"
+		]
+	},
+	{
+		"name": "Caleb",
+		"Roles":[
+			"Animator/Visual artist",
+			"Tester",
+			"Coder",
+			"Software Architect"
+		],
+		"Tasks": [
+			"Chip Off The Old Blockjack title logo texture creation",
+			"Breathing Space and Color Shade Cross animated textures",
+			"default style color textures",
+			"Pause Hit Stand buttons with hovered/pressed/both, disabled (for Hit and Stand), and Game Overlay texture with asset placement changes to fit them within said Game Overlay texture.",
+			"Dealer and general match logic code with test files",
+			"Shop modifications, prices and including Color Shade Cross into the shop.",
+			"Drafts for shop design"
+		]
+	},
+	{
+		"name": "Aaron",
+		"Roles": [
+			"Coder",
+			"Tester"
+		],
+		"Tasks": [
+			"Store Menu Layout and Functionality",
+			"Bankruptcy Feature",
+			"Tips Menu in Gameplay Scene",
+			"Rules Menu",
+			"Various Bug Fixes"
+		]
+	},
+	{
+		"name": "GO",
+		"Roles": [
+			"Coder",
+			"Tester",
+			"Audio Engineer"
+		],
+		"Tasks": [
+			"Match History Menu",
+			"Chip Count Record",
+			"Skin Selection and Application",
+			"Music & SFX Implementation",
+			"Music Composition",
+			"Volume Adjustment"
+		]
+	},
+	{
+		"name": "Casee H",
+		"Roles": [
+			"Coder",
+			"Tester"
+		],
+		"Tasks": [
+			"Gameplay screen implementation with assistance",
+			"Store menu screen implementation (initially worked on with Aaron)",
+			"Built purchasable/sellable cosmetics feature",
+			"Partially developed challenges modifier",
+			"Designed and integrated the achievement menu",
+			"Implemented achievement-unlocking logic",
+			"Created an appraiser that treats all 21-point hands as natural blackjacks"
+		]
+	},
+	{
+		"name": "Amir Perkins",
+		"Roles": [
+			"Coder",
+			"Tester",
+			"Visual Artist"
+		],
+		"Tasks":[
+			"Chip Management",
+			"Match pausing/resumption",
+			"Match auto play",
+			"Match auto bet",
+			"bet paying bug fixes",
+			"Win/Tie/Loss Animations",
+			"Hints",
+			"Win/Tie/Loss Sound Effects",
+			"Card Shuffle sound",
+			"Helped separate separate decks",
+			"Easy, Medium, and Hard mode",
+			"Special Thanks to RMSG for additional help"
+		]
+	},
+	{
+		"name": "Gustavo Santos",
+		"Roles":[
+			"Coder",
+			"Visual Artist"
+		],
+		"Tasks":[
+			"Initial deck and card logic",
+			"Assuring the window and menus are consistent in style",
+			"Design main menu button icons",
+			"Brightness setting"
+			"Avatar system"
+		]
+	}
+
+]

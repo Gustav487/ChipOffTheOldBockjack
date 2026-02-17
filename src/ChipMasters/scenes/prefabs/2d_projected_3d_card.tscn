@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ofvcncluq6sd"]
+
+[ext_resource type="Script" path="res://Menu/Displays/Cards/NWrappingCardDisplay.cs" id="1_fj3ro"]
+[ext_resource type="PackedScene" uid="uid://u3o2t7sdv8py" path="res://scenes/prefabs/3d_card.tscn" id="1_tcpan"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u8xon"]
+viewport_path = NodePath("3dCardViewport")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a0bh"]
+resource_local_to_scene = true
+atlas = SubResource("ViewportTexture_u8xon")
+region = Rect2(28, 44.4906, 844.45, 1313.29)
+
+[node name="2dProjected3dCard" type="TextureRect" node_paths=PackedStringArray("_cardDisplay")]
+anchors_preset = -1
+anchor_right = 0.117188
+anchor_bottom = 0.324074
+offset_bottom = 1.52588e-05
+texture = SubResource("AtlasTexture_5a0bh")
+expand_mode = 1
+script = ExtResource("1_fj3ro")
+_cardDisplay = NodePath("3dCardViewport/3dCard")
+metadata/_edit_use_anchors_ = true
+
+[node name="3dCardViewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(900, 1400)
+
+[node name="3dCard" parent="3dCardViewport" instance=ExtResource("1_tcpan")]

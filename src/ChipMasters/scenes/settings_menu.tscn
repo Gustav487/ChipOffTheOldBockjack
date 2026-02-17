@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://cu3n68ghjbusx"]
+
+[ext_resource type="Script" path="res://Menu/NChangeSceneButton.cs" id="1_toawx"]
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Textures/NTextureDisplay.cs" id="2_ia2yb"]
+[ext_resource type="Script" path="res://Menu/NVolumeSlider.cs" id="3_0x5yu"]
+[ext_resource type="Script" path="res://Audio/NMusicChangeDirective.cs" id="4_fobpb"]
+[ext_resource type="AudioStream" uid="uid://7tb8lyf5vf82" path="res://assets/audio/chip_masters.wav" id="5_4smpm"]
+[ext_resource type="Script" path="res://Menu/NBrightnessSlider.cs" id="4_0x5yu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2iaqc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgo18"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cp58"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lw6a6"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_horizontal_guides_ = [250.0]
+metadata/_edit_vertical_guides_ = [1150.0, 575.0]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ia2yb")
+_assetPath = "textures/guis/menu_bg"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0190972
+anchor_top = 0.0231482
+anchor_right = 0.124132
+anchor_bottom = 0.112654
+offset_top = -3.05176e-05
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2iaqc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgo18")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cp58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lw6a6")
+text = "Back"
+script = ExtResource("1_toawx")
+_scenePath = "res://scenes/main_menu.tscn"
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 15.0
+offset_right = 275.0
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 194.0
+offset_right = 859.0
+offset_bottom = 238.0
+step = 5.0
+value = 100.0
+script = ExtResource("3_0x5yu")
+_busName = "Music"
+
+[node name="SFXSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 265.0
+offset_right = 859.0
+offset_bottom = 309.0
+step = 5.0
+value = 100.0
+script = ExtResource("3_0x5yu")
+_busName = "SFX"
+
+[node name="BrightnessSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 336.0
+offset_right = 859.0
+offset_bottom = 380.0
+step = 5.0
+value = 100.0
+script = ExtResource("4_0x5yu")
+
+[node name="MusicLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 194.0
+offset_right = 267.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Music Volume"
+
+[node name="SFXLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 265.0
+offset_right = 268.0
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "SFX Volume"
+
+[node name="MusicChangeDirective" type="Node" parent="."]
+script = ExtResource("4_fobpb")
+_musicToPlay = ExtResource("5_4smpm")
+[node name="BrightnessLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 336.0
+offset_right = 266.0
+offset_bottom = 378.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Brightness"

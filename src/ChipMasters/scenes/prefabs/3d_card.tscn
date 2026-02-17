@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://u3o2t7sdv8py"]
+
+[ext_resource type="PackedScene" uid="uid://d2ohc77kmdn6c" path="res://assets/_/models/card.glb" id="1_5kx6r"]
+[ext_resource type="Script" path="res://Menu/Displays/Cards/NMeshSkinCardDisplay.cs" id="2_0jvyx"]
+[ext_resource type="Script" path="res://Menu/Displays/Cards/NAggregatingCardDisplay.cs" id="2_t005q"]
+[ext_resource type="Script" path="res://GodotWrappers/NAnimationPlayer.cs" id="3_jg4w5"]
+[ext_resource type="Script" path="res://Menu/Displays/Cards/NCardFlipAnimationDisplay.cs" id="4_sbwdx"]
+[ext_resource type="Script" path="res://Menu/Displays/Cards/NCardFlipAudioDisplay.cs" id="5_1rafp"]
+[ext_resource type="AudioStream" uid="uid://gmqryu2x5148" path="res://assets/audio/card_flip.wav" id="6_huh3s"]
+[ext_resource type="Script" path="res://GodotWrappers/NAudioStreamPlayer.cs" id="7_7o6ub"]
+
+[node name="3dCard" node_paths=PackedStringArray("_subDisplays") instance=ExtResource("1_5kx6r")]
+script = ExtResource("2_t005q")
+_subDisplays = [NodePath("Skinner"), NodePath("Flipper"), NodePath("AudioCardDisplay")]
+
+[node name="card" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.001)
+
+[node name="AnimationPlayer" parent="." index="1"]
+script = ExtResource("3_jg4w5")
+
+[node name="Camera3D" type="Camera3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.438, 0.375737)
+keep_aspect = 0
+projection = 1
+fov = 97.7
+size = 0.6
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="3"]
+
+[node name="Skinner" type="Node" parent="." index="4" node_paths=PackedStringArray("_mesh")]
+script = ExtResource("2_0jvyx")
+_mesh = NodePath("../card")
+_backOverrideIndex = 1
+_frontOverrideIndex = 2
+
+[node name="Flipper" type="Node" parent="." index="5" node_paths=PackedStringArray("_animationPlayer")]
+script = ExtResource("4_sbwdx")
+_animationPlayer = NodePath("../AnimationPlayer")
+
+[node name="AudioCardDisplay" type="Node" parent="." index="6" node_paths=PackedStringArray("_flipSound")]
+script = ExtResource("5_1rafp")
+_flipSound = NodePath("FlipSound")
+
+[node name="FlipSound" type="AudioStreamPlayer" parent="AudioCardDisplay" index="0"]
+stream = ExtResource("6_huh3s")
+volume_db = -3.0
+max_polyphony = 10
+script = ExtResource("7_7o6ub")

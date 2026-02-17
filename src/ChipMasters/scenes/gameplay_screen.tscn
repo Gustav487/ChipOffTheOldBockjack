@@ -1,0 +1,1147 @@
+[gd_scene load_steps=174 format=3 uid="uid://bxnt4l83bxng"]
+
+[ext_resource type="Script" path="res://Menu/GameplayScreens/NGameplayScreen.cs" id="1_t3scy"]
+[ext_resource type="PackedScene" uid="uid://dikwsd8i7lw77" path="res://scenes/prefabs/bankruptcy_menu.tscn" id="2_lvbjk"]
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Animations/MatchConclusion/NSessionMatchConclusionAnimTrigger.cs" id="3_0e6g5"]
+[ext_resource type="Script" path="res://Menu/Displays/Matches/NAggregateMatchDisplay.cs" id="4_1pr4h"]
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Animations/MatchConclusion/NMatchConclusionAnimator.cs" id="4_56xq1"]
+[ext_resource type="Texture2D" uid="uid://dwmjr78a2w0pu" path="res://assets/_/textures/match_result/loss/0.png" id="5_5jf5e"]
+[ext_resource type="Script" path="res://Util/NIControlCardDisplayPool.cs" id="5_8864l"]
+[ext_resource type="Script" path="res://Menu/Displays/Matches/NMatchBeginningSoundDisplay.cs" id="5_lq200"]
+[ext_resource type="PackedScene" uid="uid://cgkfkkc2gkqov" path="res://scenes/prefabs/chip_display.tscn" id="6_7uctq"]
+[ext_resource type="Texture2D" uid="uid://cdujt7ev8x1at" path="res://assets/_/textures/match_result/loss/1.png" id="6_dc0fr"]
+[ext_resource type="Script" path="res://Menu/Displays/Wallets/NWalletDeltaDisplay.cs" id="6_dlt75"]
+[ext_resource type="Texture2D" uid="uid://cxlv4gn3gpbvv" path="res://assets/_/textures/match_result/loss/2.png" id="7_6ujek"]
+[ext_resource type="Script" path="res://Menu/Displays/Hands/NAnimatedHandDisplay.cs" id="7_d0lbt"]
+[ext_resource type="PackedScene" uid="uid://ofvcncluq6sd" path="res://scenes/prefabs/2d_projected_3d_card.tscn" id="7_dug4a"]
+[ext_resource type="Script" path="res://Menu/Displays/Arrangers/NHandControlArranger.cs" id="8_ee32b"]
+[ext_resource type="Texture2D" uid="uid://i32ilxgp0bpk" path="res://assets/_/textures/match_result/loss/3.png" id="8_j5jtn"]
+[ext_resource type="Script" path="res://Menu/Displays/Chips/NAbbreviatedChipDisplay.cs" id="8_womvf"]
+[ext_resource type="Texture2D" uid="uid://d4ftecvd01dn7" path="res://assets/_/textures/match_result/loss/4.png" id="9_kdsb1"]
+[ext_resource type="Script" path="res://Menu/Displays/Animations/ControlCardDisplay/NSequentialControlCardAnimator.cs" id="9_x8de0"]
+[ext_resource type="Script" path="res://Menu/NChangeSceneButton.cs" id="9_ygwnr"]
+[ext_resource type="Script" path="res://Menu/Displays/Animations/CardDisplay/NIfVeiledAnimator.cs" id="10_ay4gq"]
+[ext_resource type="Script" path="res://Menu/Displays/Hands/Appraisals/NHandAppraisalDisplay.cs" id="10_fafga"]
+[ext_resource type="Texture2D" uid="uid://utntghx7vqnb" path="res://assets/_/textures/match_result/loss/5.png" id="10_jj3x7"]
+[ext_resource type="Script" path="res://Menu/Displays/Animations/Controls/NVisibilityAnimator.cs" id="10_v5b46"]
+[ext_resource type="Texture2D" uid="uid://bs5vvkciyw32f" path="res://assets/_/textures/match_result/loss/6.png" id="11_bfeuf"]
+[ext_resource type="Script" path="res://Menu/Displays/Animations/NDelayAnimator.cs" id="11_lr68h"]
+[ext_resource type="Script" path="res://GodotWrappers/NLabel.cs" id="11_w0dc7"]
+[ext_resource type="Script" path="res://Menu/Displays/Animations/CardDisplay/NCardFlipAnimator.cs" id="12_46guh"]
+[ext_resource type="Script" path="res://Menu/Displays/Assets/Textures/NTextureDisplay.cs" id="12_teyot"]
+[ext_resource type="Texture2D" uid="uid://bgrqgagfw3w4k" path="res://assets/_/textures/match_result/loss/7.png" id="12_wowv8"]
+[ext_resource type="Texture2D" uid="uid://d4cgckh17ea6q" path="res://assets/_/textures/match_result/loss/8.png" id="13_scn78"]
+[ext_resource type="Texture2D" uid="uid://dnogrsw58vo3" path="res://assets/_/textures/match_result/loss/9.png" id="14_pqvfu"]
+[ext_resource type="Texture2D" uid="uid://b25ybyyr5r8hh" path="res://assets/_/textures/match_result/loss/10.png" id="15_xsc3j"]
+[ext_resource type="Texture2D" uid="uid://cpb1d8mjg8ray" path="res://assets/_/textures/match_result/loss/11.png" id="16_mct3h"]
+[ext_resource type="Texture2D" uid="uid://bdp1gaa4i6gv7" path="res://assets/_/textures/match_result/loss/12.png" id="17_sn7xd"]
+[ext_resource type="Texture2D" uid="uid://bqsn7s3igtj4s" path="res://assets/_/textures/match_result/loss/13.png" id="18_l3c5s"]
+[ext_resource type="Texture2D" uid="uid://b6kwescihq8g6" path="res://assets/_/textures/match_result/loss/14.png" id="19_5rf7x"]
+[ext_resource type="Texture2D" uid="uid://bguuklugqhn40" path="res://assets/_/textures/match_result/loss/15.png" id="20_nowwf"]
+[ext_resource type="Texture2D" uid="uid://dbirs7odid1mf" path="res://assets/_/textures/match_result/loss/16.png" id="21_0p15s"]
+[ext_resource type="Texture2D" uid="uid://cgtixxqqjnsdn" path="res://assets/_/textures/guis/stand_btn.png" id="21_x38f7"]
+[ext_resource type="Texture2D" uid="uid://dy6wxjpd5vchp" path="res://assets/_/textures/match_result/loss/17.png" id="22_8yvn4"]
+[ext_resource type="Texture2D" uid="uid://4k7dk30qj84e" path="res://assets/_/textures/guis/stand_btn_disabled.png" id="22_28qki"]
+[ext_resource type="Script" path="res://Menu/Displays/Matches/NMatchConclusionsSoundDisplay.cs" id="22_hol40"]
+[ext_resource type="Texture2D" uid="uid://dn1rditkkxpb2" path="res://assets/_/textures/match_result/loss/18.png" id="23_ay526"]
+[ext_resource type="Texture2D" uid="uid://82wpb2t1ufbi" path="res://assets/_/textures/guis/stand_btn_hovered.png" id="23_fh8ue"]
+[ext_resource type="Texture2D" uid="uid://sanlgqo85pmc" path="res://assets/_/textures/match_result/loss/19.png" id="24_qs2j4"]
+[ext_resource type="Texture2D" uid="uid://duckiwlbjktx4" path="res://assets/_/textures/guis/hit_btn.png" id="25_dbr2s"]
+[ext_resource type="Texture2D" uid="uid://6g84e2ehkf34" path="res://assets/_/textures/match_result/loss/20.png" id="25_xmyg6"]
+[ext_resource type="Texture2D" uid="uid://csux4f132hmww" path="res://assets/_/textures/guis/hit_btn_disabled.png" id="26_8807s"]
+[ext_resource type="Texture2D" uid="uid://cppahthrpx0hb" path="res://assets/_/textures/match_result/loss/21.png" id="26_mu5mb"]
+[ext_resource type="Texture2D" uid="uid://b7dqik47eyham" path="res://assets/_/textures/guis/hit_btn_hovered.png" id="27_511io"]
+[ext_resource type="Texture2D" uid="uid://cbuygof4ant7e" path="res://assets/_/textures/match_result/loss/22.png" id="27_ep6dl"]
+[ext_resource type="Texture2D" uid="uid://do5a43h8dxxwc" path="res://assets/_/textures/match_result/loss/23.png" id="28_jnrwi"]
+[ext_resource type="AudioStream" uid="uid://yxtif4ufet5e" path="res://assets/_/audio/Card_sounds/card_shuffle.mp3" id="28_o4for"]
+[ext_resource type="AudioStream" uid="uid://g74xoqikd6ni" path="res://assets/_/audio/Card_sounds/card_deal.mp3" id="29_gaagb"]
+[ext_resource type="Texture2D" uid="uid://glyxn8hpa4cg" path="res://assets/_/textures/match_result/loss/24.png" id="29_juc28"]
+[ext_resource type="Texture2D" uid="uid://b75cwxxd44pur" path="res://assets/_/textures/match_result/loss/25.png" id="30_j67cb"]
+[ext_resource type="Texture2D" uid="uid://d1alvprwi431" path="res://assets/_/textures/match_result/loss/26.png" id="31_3kr8c"]
+[ext_resource type="Texture2D" uid="uid://cg2mj47ed15yk" path="res://assets/_/textures/match_result/loss/27.png" id="32_2fr67"]
+[ext_resource type="Texture2D" uid="uid://di1s3v0rh41qm" path="res://assets/_/textures/match_result/loss/28.png" id="33_eahva"]
+[ext_resource type="Texture2D" uid="uid://dwsovos7heqod" path="res://assets/_/textures/match_result/loss/29.png" id="34_b53rj"]
+[ext_resource type="Texture2D" uid="uid://bi4601tialha2" path="res://assets/_/textures/match_result/loss/30.png" id="35_thhve"]
+[ext_resource type="Texture2D" uid="uid://cqfv675qq1q6c" path="res://assets/_/textures/match_result/loss/31.png" id="36_hylwq"]
+[ext_resource type="Texture2D" uid="uid://dxyio3qdjhhmj" path="res://assets/_/textures/match_result/loss/32.png" id="37_3s1gf"]
+[ext_resource type="Texture2D" uid="uid://bvkw5ptfnk5ss" path="res://assets/_/textures/match_result/loss/33.png" id="38_h8tf7"]
+[ext_resource type="Texture2D" uid="uid://dpc1bb5i13spg" path="res://assets/_/textures/match_result/loss/34.png" id="39_fybhb"]
+[ext_resource type="Texture2D" uid="uid://r1a17nngex2r" path="res://assets/_/textures/match_result/loss/35.png" id="40_tdef5"]
+[ext_resource type="Texture2D" uid="uid://05vhyxsbbdxf" path="res://assets/_/textures/match_result/loss/36.png" id="41_j6a38"]
+[ext_resource type="Texture2D" uid="uid://dyeco3qu6hw33" path="res://assets/_/textures/match_result/loss/37.png" id="42_8qt24"]
+[ext_resource type="Texture2D" uid="uid://efnpcf6gr2bm" path="res://assets/_/textures/match_result/loss/38.png" id="43_nt3md"]
+[ext_resource type="Texture2D" uid="uid://d1npj7jdrqpos" path="res://assets/_/textures/match_result/loss/39.png" id="44_mv2ev"]
+[ext_resource type="Texture2D" uid="uid://lxqujunfudi6" path="res://assets/_/textures/match_result/loss/40.png" id="45_uf0ef"]
+[ext_resource type="Texture2D" uid="uid://b15m47ee7vv4d" path="res://assets/_/textures/match_result/loss/41.png" id="46_qm1uc"]
+[ext_resource type="Texture2D" uid="uid://c7prbg2232vgm" path="res://assets/_/textures/match_result/loss/42.png" id="47_8p4jv"]
+[ext_resource type="Texture2D" uid="uid://dvxgyc8jninfq" path="res://assets/_/textures/match_result/loss/43.png" id="48_bs5kp"]
+[ext_resource type="Texture2D" uid="uid://cmas3hko37jhc" path="res://assets/_/textures/match_result/tie/0.png" id="49_qq7m2"]
+[ext_resource type="Texture2D" uid="uid://cujunkdc8c2c5" path="res://assets/_/textures/match_result/tie/1.png" id="50_fl55d"]
+[ext_resource type="Texture2D" uid="uid://dv5pcr0tf257a" path="res://assets/_/textures/match_result/tie/2.png" id="51_3twk3"]
+[ext_resource type="Texture2D" uid="uid://bv52f4jtvixhm" path="res://assets/_/textures/match_result/tie/3.png" id="52_lu1y7"]
+[ext_resource type="Texture2D" uid="uid://d3uwp4lge7kv8" path="res://assets/_/textures/match_result/tie/4.png" id="53_07qsj"]
+[ext_resource type="Texture2D" uid="uid://csr76b1r66m2f" path="res://assets/_/textures/match_result/tie/5.png" id="54_5trp2"]
+[ext_resource type="Texture2D" uid="uid://dcbdnn8wg5tki" path="res://assets/_/textures/match_result/tie/6.png" id="55_lec7y"]
+[ext_resource type="Texture2D" uid="uid://djc0n267hlqlf" path="res://assets/_/textures/match_result/tie/7.png" id="56_mcf71"]
+[ext_resource type="Texture2D" uid="uid://dadttj7ub63t3" path="res://assets/_/textures/match_result/tie/8.png" id="57_xc2ob"]
+[ext_resource type="Texture2D" uid="uid://jqijctsaf0vv" path="res://assets/_/textures/match_result/tie/9.png" id="58_upmpk"]
+[ext_resource type="Texture2D" uid="uid://ccr1hyywitmxg" path="res://assets/_/textures/match_result/tie/10.png" id="59_v3rtt"]
+[ext_resource type="Texture2D" uid="uid://0uuv8f7sq1nv" path="res://assets/_/textures/match_result/tie/11.png" id="60_mjxlq"]
+[ext_resource type="Texture2D" uid="uid://bl3qa35u2nven" path="res://assets/_/textures/match_result/tie/12.png" id="61_1ahel"]
+[ext_resource type="Texture2D" uid="uid://c75qbb740trvy" path="res://assets/_/textures/match_result/tie/13.png" id="62_7wr3f"]
+[ext_resource type="Texture2D" uid="uid://b4yclgkmr0ypx" path="res://assets/_/textures/match_result/tie/14.png" id="63_3spjn"]
+[ext_resource type="Texture2D" uid="uid://bh618gwyt2u3v" path="res://assets/_/textures/match_result/tie/15.png" id="64_5kl1j"]
+[ext_resource type="Texture2D" uid="uid://o2kfduugh4m5" path="res://assets/_/textures/match_result/tie/16.png" id="65_nfrid"]
+[ext_resource type="Texture2D" uid="uid://br6kc5d2j8786" path="res://assets/_/textures/match_result/tie/17.png" id="66_vf1ut"]
+[ext_resource type="Texture2D" uid="uid://467iug0qricm" path="res://assets/_/textures/match_result/you_win/0.png" id="67_1vxk1"]
+[ext_resource type="Texture2D" uid="uid://b7jc5ewcqf7vr" path="res://assets/_/textures/match_result/you_win/1.png" id="68_n1j41"]
+[ext_resource type="Texture2D" uid="uid://5jkqyy2ddaan" path="res://assets/_/textures/match_result/you_win/2.png" id="69_j5ii1"]
+[ext_resource type="Texture2D" uid="uid://ktwlnan1axye" path="res://assets/_/textures/match_result/you_win/3.png" id="70_tmpod"]
+[ext_resource type="Texture2D" uid="uid://bmv6a3hvtyg61" path="res://assets/_/textures/match_result/you_win/4.png" id="71_spwq6"]
+[ext_resource type="Texture2D" uid="uid://bu5rmm2kkivnk" path="res://assets/_/textures/match_result/you_win/5.png" id="72_8aj6x"]
+[ext_resource type="Texture2D" uid="uid://qt4lxk8rjjrr" path="res://assets/_/textures/match_result/you_win/6.png" id="73_h5kps"]
+[ext_resource type="Texture2D" uid="uid://ds2uyg32gxy7y" path="res://assets/_/textures/match_result/you_win/7.png" id="74_4ksuh"]
+[ext_resource type="Texture2D" uid="uid://irtscr8gjd54" path="res://assets/_/textures/match_result/you_win/8.png" id="75_15lbl"]
+[ext_resource type="Texture2D" uid="uid://cik1evic0jpn4" path="res://assets/_/textures/match_result/you_win/9.png" id="76_bf3g0"]
+[ext_resource type="Texture2D" uid="uid://b70emas7nu8jp" path="res://assets/_/textures/match_result/you_win/10.png" id="77_1g344"]
+[ext_resource type="Texture2D" uid="uid://btqc1f26beaw8" path="res://assets/_/textures/match_result/you_win/11.png" id="78_o5emx"]
+[ext_resource type="Texture2D" uid="uid://dt0sec70d8o1c" path="res://assets/_/textures/match_result/you_win/12.png" id="79_kusop"]
+[ext_resource type="Texture2D" uid="uid://behtmidcimqao" path="res://assets/_/textures/match_result/you_win/13.png" id="80_rx3oy"]
+[ext_resource type="Texture2D" uid="uid://bjnnohsgs2djk" path="res://assets/_/textures/match_result/you_win/14.png" id="81_t5232"]
+[ext_resource type="Texture2D" uid="uid://rjn46yd3sr67" path="res://assets/_/textures/match_result/you_win/15.png" id="82_ucnct"]
+[ext_resource type="Texture2D" uid="uid://i2w7hk80aeo1" path="res://assets/_/textures/match_result/you_win/16.png" id="83_y68x6"]
+[ext_resource type="Texture2D" uid="uid://dduowqnhkv07" path="res://assets/_/textures/match_result/you_win/17.png" id="84_fmsyn"]
+[ext_resource type="Texture2D" uid="uid://du0plu6dfmaum" path="res://assets/_/textures/match_result/you_win/18.png" id="85_vmq3q"]
+[ext_resource type="Texture2D" uid="uid://d0rifc60h3x2x" path="res://assets/_/textures/match_result/you_win/19.png" id="86_i7nom"]
+[ext_resource type="Texture2D" uid="uid://u55x4hgopely" path="res://assets/_/textures/match_result/you_win/20.png" id="87_73vww"]
+[ext_resource type="Texture2D" uid="uid://bpht1q10yxojh" path="res://assets/_/textures/match_result/you_win/21.png" id="88_437pa"]
+[ext_resource type="Texture2D" uid="uid://qoo1ju28i6jy" path="res://assets/_/textures/match_result/you_win/22.png" id="89_3vbpa"]
+[ext_resource type="Texture2D" uid="uid://deac8712fc5sx" path="res://assets/_/textures/match_result/you_win/23.png" id="90_aai17"]
+[ext_resource type="Texture2D" uid="uid://rbdcxtarikf0" path="res://assets/_/textures/match_result/you_win/24.png" id="91_svv55"]
+[ext_resource type="Texture2D" uid="uid://387tfv6e5te0" path="res://assets/_/textures/match_result/you_win/25.png" id="92_jg6bk"]
+[ext_resource type="Texture2D" uid="uid://b0tau0gsdl42f" path="res://assets/_/textures/match_result/you_win/26.png" id="93_sm3lb"]
+[ext_resource type="Texture2D" uid="uid://gp03ovhbhf1" path="res://assets/_/textures/match_result/you_win/27.png" id="94_1mp82"]
+[ext_resource type="Texture2D" uid="uid://b6k46261117hw" path="res://assets/_/textures/match_result/you_win/28.png" id="95_1mb37"]
+[ext_resource type="Texture2D" uid="uid://cjs0yxwpka0lw" path="res://assets/_/textures/match_result/you_win/29.png" id="96_6aspe"]
+[ext_resource type="Texture2D" uid="uid://jw5ma4xv8bwg" path="res://assets/_/textures/match_result/you_win/30.png" id="97_nr3tr"]
+[ext_resource type="Texture2D" uid="uid://da1qgx4n4sj0b" path="res://assets/_/textures/match_result/you_win/31.png" id="98_caqer"]
+[ext_resource type="Script" path="res://GodotWrappers/NAnimatedSprite2D.cs" id="99_urjog"]
+[ext_resource type="Script" path="res://Menu/Displays/ISessions/NSessionDisplay.cs" id="100_55cwd"]
+[ext_resource type="Script" path="res://Menu/Displays/Matches/NMatchDisplay.cs" id="101_aee7c"]
+[ext_resource type="Script" path="res://GodotWrappers/NButton.cs" id="103_jd564"]
+[ext_resource type="Script" path="res://Menu/Interactables/Buttons/Bankruptcy/NBankruptcyButton.cs" id="111_uvkle"]
+[ext_resource type="Script" path="res://Menu/BetSelections/NAutobetBetSelectionMenu.cs" id="115_p8g55"]
+[ext_resource type="Script" path="res://GodotWrappers/NCheckBox.cs" id="116_k52wq"]
+[ext_resource type="Script" path="res://Menu/Bankruptcy/NBankruptcyMenuTrigger.cs" id="119_s0y2b"]
+[ext_resource type="AudioStream" uid="uid://cs83mq81mdfpq" path="res://assets/_/audio/match_result/loss.wav" id="121_t522r"]
+[ext_resource type="AudioStream" uid="uid://bi277ahvavyf2" path="res://assets/_/audio/match_result/win sound effect.wav" id="122_ahmtk"]
+[ext_resource type="AudioStream" uid="uid://cmy02qm8cdlk5" path="res://assets/_/audio/match_result/tie2.wav" id="123_0mnj0"]
+[ext_resource type="PackedScene" uid="uid://cw6cj1tk3ot3c" path="res://scenes/bet_selection_menu_uncloseable.tscn" id="123_54anr"]
+[ext_resource type="Script" path="res://GodotWrappers/NAudioStreamPlayer.cs" id="129_os6fd"]
+[ext_resource type="Script" path="res://Menu/TipsMenu/NTipsMenu.cs" id="133_slw8j"]
+[ext_resource type="Script" path="res://GodotWrappers/NControl.cs" id="134_8bmos"]
+[ext_resource type="Texture2D" uid="uid://cx4hilhs3xbnv" path="res://assets/_/textures/guis/pause_btn.png" id="135_a4pl0"]
+[ext_resource type="Script" path="res://GodotWrappers/NBaseButton.cs" id="135_ba6ag"]
+[ext_resource type="Texture2D" uid="uid://buvllnwvjtj8v" path="res://assets/_/textures/guis/pause_btn_hovered.png" id="136_c1yyh"]
+[ext_resource type="Script" path="res://Audio/NMusicChangeDirective.cs" id="147_a2evm"]
+[ext_resource type="AudioStream" uid="uid://dvpome17pj5bx" path="res://assets/audio/gameplay.wav" id="148_s5foy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rwo55"]
+font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_mbhvj"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_yf43s"]
+font_size = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxw7q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fixv4"]
+texture = ExtResource("22_28qki")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j6tge"]
+texture = ExtResource("23_fh8ue")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04shu"]
+texture = ExtResource("23_fh8ue")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tl03r"]
+texture = ExtResource("23_fh8ue")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0nr4q"]
+texture = ExtResource("21_x38f7")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpe5n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wb40t"]
+texture = ExtResource("26_8807s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mnpca"]
+texture = ExtResource("27_511io")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4npp2"]
+texture = ExtResource("27_511io")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3jth"]
+texture = ExtResource("27_511io")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6he8r"]
+texture = ExtResource("25_dbr2s")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2l07n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5jf5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dc0fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6ujek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j5jtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kdsb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jj3x7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bfeuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wowv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_scn78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pqvfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xsc3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mct3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_sn7xd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_l3c5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_5rf7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_nowwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_0p15s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_8yvn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ay526")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_qs2j4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_xmyg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_mu5mb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ep6dl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_jnrwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_juc28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_j67cb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3kr8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_2fr67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_eahva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_b53rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_thhve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_hylwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_3s1gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_h8tf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_fybhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_tdef5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_j6a38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_8qt24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_nt3md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_mv2ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_uf0ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_qm1uc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_8p4jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_bs5kp")
+}],
+"loop": false,
+"name": &"Loss",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("49_qq7m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_fl55d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_3twk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_lu1y7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_07qsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_5trp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_lec7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_mcf71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_xc2ob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_upmpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_v3rtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_mjxlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_1ahel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_7wr3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_3spjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_5kl1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_nfrid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_vf1ut")
+}],
+"loop": false,
+"name": &"Tie",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("67_1vxk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_n1j41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_j5ii1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_tmpod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_spwq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_8aj6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_h5kps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_4ksuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_15lbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_bf3g0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_1g344")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_o5emx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_kusop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_rx3oy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_t5232")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_ucnct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_y68x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_fmsyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_vmq3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_i7nom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_73vww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_437pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_3vbpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_aai17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_svv55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_jg6bk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_sm3lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_1mp82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_1mb37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_6aspe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_nr3tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_caqer")
+}],
+"loop": false,
+"name": &"You_Win",
+"speed": 24.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_omj63"]
+font_size = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_roveh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5i4d"]
+texture = ExtResource("136_c1yyh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1pia6"]
+texture = ExtResource("136_c1yyh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_csqje"]
+texture = ExtResource("136_c1yyh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xwxt7"]
+texture = ExtResource("135_a4pl0")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpnbk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrqia"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elgqe"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y51i"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sxpgt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsddh"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fritx"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my7et"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[node name="GameplayMenu" type="Control" node_paths=PackedStringArray("_sessionDisplay", "_betSelectionMenu", "_bankruptcyButton", "_concludeAnimiation")]
+layout_mode = 3
+anchor_top = -0.00154321
+anchor_right = 1.0
+anchor_bottom = 0.998457
+script = ExtResource("1_t3scy")
+_sessionDisplay = NodePath("SessionDisplay")
+_betSelectionMenu = NodePath("AutobetBetSelectionMenu")
+_bankruptcyButton = NodePath("BankruptcyButton")
+_concludeAnimiation = NodePath("ConclusionAnimTrigger/ConclusionAnimator/Conclusion_Animation")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundTexture" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.00012207
+color = Color(0.423529, 1, 1, 1)
+script = ExtResource("12_teyot")
+_assetPath = "textures/guis/game_bg"
+metadata/_edit_use_anchors_ = true
+
+[node name="OverlayTexture" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.000244141
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("12_teyot")
+_assetPath = "textures/guis/game_overlay"
+metadata/_edit_use_anchors_ = true
+
+[node name="SessionDisplay" type="Node" parent="." node_paths=PackedStringArray("_matchDisplay")]
+script = ExtResource("100_55cwd")
+_matchDisplay = NodePath("MatchDisplays")
+
+[node name="MatchDisplays" type="Node" parent="SessionDisplay" node_paths=PackedStringArray("_subDisplays")]
+script = ExtResource("4_1pr4h")
+_subDisplays = [NodePath("MatchBeginningSoundDisplay"), NodePath("MatchDisplay"), NodePath("MatchConclusionsSoundsDisplay")]
+
+[node name="MatchBeginningSoundDisplay" type="Node" parent="SessionDisplay/MatchDisplays" node_paths=PackedStringArray("_cardShuffle", "_cardDeal")]
+script = ExtResource("5_lq200")
+_cardShuffle = NodePath("card_deal_shuffle")
+_cardDeal = NodePath("card_deal_init")
+
+[node name="card_deal_shuffle" type="AudioStreamPlayer" parent="SessionDisplay/MatchDisplays/MatchBeginningSoundDisplay"]
+stream = ExtResource("28_o4for")
+max_polyphony = 10
+script = ExtResource("129_os6fd")
+
+[node name="card_deal_init" type="AudioStreamPlayer" parent="SessionDisplay/MatchDisplays/MatchBeginningSoundDisplay"]
+stream = ExtResource("29_gaagb")
+max_polyphony = 10
+script = ExtResource("129_os6fd")
+
+[node name="MatchDisplay" type="Node" parent="SessionDisplay/MatchDisplays" node_paths=PackedStringArray("_dealerHandDisplay", "_playerHandDisplay", "_dealerHandAppraisalDisplay", "_playerHandAppraisalDisplay", "_betDisplay", "_standButton", "_hitButton")]
+script = ExtResource("101_aee7c")
+_dealerHandDisplay = NodePath("DealerHandDisplay")
+_playerHandDisplay = NodePath("PlayerHandDisplay")
+_dealerHandAppraisalDisplay = NodePath("DealerAppraisalDisplay")
+_playerHandAppraisalDisplay = NodePath("UserAppraisalDisplay")
+_betDisplay = NodePath("BetContainer/BetDisplay/Abbreviated")
+_standButton = NodePath("StandButton")
+_hitButton = NodePath("HitButton")
+
+[node name="CardDisplayPool" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay"]
+script = ExtResource("5_8864l")
+_prefab = ExtResource("7_dug4a")
+
+[node name="DealerHandDisplay" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay" node_paths=PackedStringArray("_cardDisplayPool", "_arranger", "_revealAnimator")]
+script = ExtResource("7_d0lbt")
+_cardDisplayPool = NodePath("../CardDisplayPool")
+_arranger = NodePath("DHArranger")
+_revealAnimator = NodePath("Animator/IfUnveiled")
+
+[node name="DHArranger" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/DealerHandDisplay"]
+script = ExtResource("8_ee32b")
+_displayOffset = Vector2(0.25, 0.056)
+_displayWidth = 0.5
+_cardSize = Vector2(0.117, 0.324)
+_maximalSpacing = 0.008
+
+[node name="Animator" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/DealerHandDisplay" node_paths=PackedStringArray("_animators")]
+script = ExtResource("9_x8de0")
+_animators = []
+
+[node name="Hide" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/DealerHandDisplay/Animator"]
+script = ExtResource("10_v5b46")
+
+[node name="Translation" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/DealerHandDisplay/Animator"]
+script = ExtResource("11_lr68h")
+_milliDelay = 500
+
+[node name="Show" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/DealerHandDisplay/Animator"]
+script = ExtResource("10_v5b46")
+_setTo = true
+
+[node name="IfUnveiled" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/DealerHandDisplay/Animator" node_paths=PackedStringArray("_animator")]
+script = ExtResource("10_ay4gq")
+_animator = NodePath("Flip")
+_negate = true
+
+[node name="Flip" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/DealerHandDisplay/Animator/IfUnveiled"]
+script = ExtResource("12_46guh")
+
+[node name="PlayerHandDisplay" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay" node_paths=PackedStringArray("_cardDisplayPool", "_arranger", "_revealAnimator")]
+script = ExtResource("7_d0lbt")
+_cardDisplayPool = NodePath("../CardDisplayPool")
+_arranger = NodePath("PHArranger")
+_revealAnimator = NodePath("Animator/IfUnveiled")
+
+[node name="PHArranger" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/PlayerHandDisplay"]
+script = ExtResource("8_ee32b")
+_displayOffset = Vector2(0.25, 0.611)
+_displayWidth = 0.5
+_cardSize = Vector2(0.117, 0.324)
+_maximalSpacing = 0.008
+
+[node name="Animator" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/PlayerHandDisplay" node_paths=PackedStringArray("_animators")]
+script = ExtResource("9_x8de0")
+_animators = []
+
+[node name="Translation" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/PlayerHandDisplay/Animator"]
+script = ExtResource("11_lr68h")
+
+[node name="IfUnveiled" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/PlayerHandDisplay/Animator" node_paths=PackedStringArray("_animator")]
+script = ExtResource("10_ay4gq")
+_animator = NodePath("Flip")
+_negate = true
+
+[node name="Flip" type="Node" parent="SessionDisplay/MatchDisplays/MatchDisplay/PlayerHandDisplay/Animator/IfUnveiled"]
+script = ExtResource("12_46guh")
+
+[node name="DealerAppraisalDisplay" type="Control" parent="SessionDisplay/MatchDisplays/MatchDisplay" node_paths=PackedStringArray("_totalLabel")]
+layout_mode = 3
+anchor_left = 0.815972
+anchor_top = 0.197531
+anchor_right = 0.996528
+anchor_bottom = 0.362654
+offset_top = -1.0
+offset_bottom = -0.999985
+script = ExtResource("10_fafga")
+_totalLabel = NodePath("TotalLabel")
+metadata/_edit_use_anchors_ = true
+
+[node name="TotalLabel" type="Label" parent="SessionDisplay/MatchDisplays/MatchDisplay/DealerAppraisalDisplay"]
+layout_mode = 0
+anchor_left = 0.0702703
+anchor_top = 0.299065
+anchor_right = 0.897297
+anchor_bottom = 0.953271
+offset_left = -6.36626
+offset_top = -26.4999
+offset_right = -16.3883
+offset_bottom = -26.4997
+label_settings = SubResource("LabelSettings_rwo55")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_w0dc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="UserAppraisalDisplay" type="Control" parent="SessionDisplay/MatchDisplays/MatchDisplay" node_paths=PackedStringArray("_totalLabel")]
+layout_mode = 3
+anchor_left = 0.815972
+anchor_top = 0.714506
+anchor_right = 0.996528
+anchor_bottom = 0.879629
+offset_top = -1.0
+offset_bottom = -1.0
+script = ExtResource("10_fafga")
+_totalLabel = NodePath("TotalLabel")
+metadata/_edit_use_anchors_ = true
+
+[node name="TotalLabel" type="Label" parent="SessionDisplay/MatchDisplays/MatchDisplay/UserAppraisalDisplay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0702703
+anchor_top = 0.299065
+anchor_right = 0.897297
+anchor_bottom = 0.953271
+offset_left = -9.11626
+offset_top = -50.4999
+offset_right = -19.1383
+offset_bottom = -50.4997
+label_settings = SubResource("LabelSettings_rwo55")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_w0dc7")
+metadata/_edit_use_anchors_ = true
+
+[node name="BetContainer" type="Control" parent="SessionDisplay/MatchDisplays/MatchDisplay"]
+layout_mode = 3
+anchor_left = 0.813
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BetDisplay" type="ColorRect" parent="SessionDisplay/MatchDisplays/MatchDisplay/BetContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.481481
+anchor_right = 0.875
+anchor_bottom = 0.535493
+offset_left = -31.928
+offset_top = -41.9997
+offset_right = -31.928
+offset_bottom = -41.9997
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="Desc" type="Label" parent="SessionDisplay/MatchDisplays/MatchDisplay/BetContainer/BetDisplay"]
+layout_mode = 0
+anchor_right = 0.209169
+anchor_bottom = 0.942857
+text = "$"
+label_settings = SubResource("LabelSettings_mbhvj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Abbreviated" type="Label" parent="SessionDisplay/MatchDisplays/MatchDisplay/BetContainer/BetDisplay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.1
+offset_right = 54.0
+offset_bottom = 34.0
+text = "000S"
+label_settings = SubResource("LabelSettings_yf43s")
+script = ExtResource("8_womvf")
+metadata/_edit_use_anchors_ = true
+
+[node name="StandButton" type="Button" parent="SessionDisplay/MatchDisplays/MatchDisplay"]
+offset_left = 342.144
+offset_top = 269.216
+offset_right = 557.568
+offset_bottom = 376.784
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(0, 0.494118, 0.494118, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.501961, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.501961, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.501961, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lxw7q")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_fixv4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_j6tge")
+theme_override_styles/hover = SubResource("StyleBoxTexture_04shu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tl03r")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0nr4q")
+text = "Stand"
+script = ExtResource("103_jd564")
+
+[node name="HitButton" type="Button" parent="SessionDisplay/MatchDisplays/MatchDisplay"]
+offset_left = 594.432
+offset_top = 269.216
+offset_right = 809.856
+offset_bottom = 376.784
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(0.494118, 0, 0.494118, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.501961, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.501961, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.501961, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 1, 1)
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vpe5n")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_wb40t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_mnpca")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4npp2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d3jth")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6he8r")
+text = "Hit
+"
+script = ExtResource("103_jd564")
+
+[node name="MatchConclusionsSoundsDisplay" type="Node" parent="SessionDisplay/MatchDisplays" node_paths=PackedStringArray("_win", "_tie", "_loss")]
+script = ExtResource("22_hol40")
+_win = NodePath("Win_Sound")
+_tie = NodePath("Tie")
+_loss = NodePath("Loss_sound")
+
+[node name="Win_Sound" type="AudioStreamPlayer" parent="SessionDisplay/MatchDisplays/MatchConclusionsSoundsDisplay"]
+stream = ExtResource("122_ahmtk")
+bus = &"win"
+script = ExtResource("129_os6fd")
+
+[node name="Tie" type="AudioStreamPlayer" parent="SessionDisplay/MatchDisplays/MatchConclusionsSoundsDisplay"]
+stream = ExtResource("123_0mnj0")
+bus = &"Tie "
+script = ExtResource("129_os6fd")
+
+[node name="Loss_sound" type="AudioStreamPlayer" parent="SessionDisplay/MatchDisplays/MatchConclusionsSoundsDisplay"]
+stream = ExtResource("121_t522r")
+volume_db = 1.0
+bus = &"Loss"
+script = ExtResource("129_os6fd")
+
+[node name="ConclusionAnimTrigger" type="Node" parent="." node_paths=PackedStringArray("_animator")]
+script = ExtResource("3_0e6g5")
+_animator = NodePath("ConclusionAnimator")
+
+[node name="ConclusionAnimator" type="Node" parent="ConclusionAnimTrigger" node_paths=PackedStringArray("_sprite")]
+script = ExtResource("4_56xq1")
+_sprite = NodePath("Conclusion_Animation")
+
+[node name="Conclusion_Animation" type="AnimatedSprite2D" parent="ConclusionAnimTrigger/ConclusionAnimator"]
+visible = false
+z_index = 30
+position = Vector2(578.25, 324.5)
+scale = Vector2(3.60469, 3.59444)
+sprite_frames = SubResource("SpriteFrames_2l07n")
+animation = &"You_Win"
+script = ExtResource("99_urjog")
+
+[node name="WalletDisplay" parent="." instance=ExtResource("6_7uctq")]
+layout_mode = 1
+anchor_left = 0.0260417
+anchor_top = 0.862654
+anchor_right = 0.167042
+anchor_bottom = 0.925654
+grow_horizontal = 1
+grow_vertical = 1
+color = Color(1, 1, 1, 0)
+
+[node name="WalletDelta" type="Control" parent="." node_paths=PackedStringArray("_chipDisplay")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.00012207
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_dlt75")
+_chipDisplay = NodePath("ChipDisplay")
+
+[node name="ChipDisplay" type="Label" parent="WalletDelta"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0329861
+anchor_top = 0.834876
+anchor_right = 0.157118
+anchor_bottom = 0.893518
+offset_left = 57.0
+offset_top = 29.0004
+offset_right = 57.0
+offset_bottom = 29.0005
+text = "777"
+label_settings = SubResource("LabelSettings_omj63")
+horizontal_alignment = 1
+script = ExtResource("8_womvf")
+_explicitSign = true
+metadata/_edit_use_anchors_ = true
+
+[node name="OrderBump" type="Node" parent="."]
+
+[node name="RightMargin" type="Control" parent="OrderBump"]
+layout_mode = 3
+anchor_left = 0.813
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseButton" type="Button" parent="OrderBump/RightMargin"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0190972
+anchor_top = 0.0231482
+anchor_right = 0.124132
+anchor_bottom = 0.112654
+offset_left = 106.31
+offset_top = 15.0
+offset_right = 147.683
+offset_bottom = 21.0002
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_roveh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_j5i4d")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1pia6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_csqje")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xwxt7")
+script = ExtResource("9_ygwnr")
+_scenePath = "res://scenes/pause_menu.tscn"
+
+[node name="DeckIndicator" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_left = 0.0351563
+anchor_top = 0.337963
+anchor_right = 0.152344
+anchor_bottom = 0.662037
+offset_top = -9.15527e-05
+offset_bottom = -0.00012207
+script = ExtResource("12_teyot")
+_assetPath = "textures/cards/card_back"
+metadata/_edit_use_anchors_ = true
+
+[node name="AutobetBetSelectionMenu" type="Node" parent="." node_paths=PackedStringArray("_betSelectionMenu", "_autoBetToggle")]
+script = ExtResource("115_p8g55")
+_betSelectionMenu = NodePath("BetSelectionMenu")
+_autoBetToggle = NodePath("AutoBet")
+
+[node name="Label" type="Label" parent="AutobetBetSelectionMenu"]
+anchors_preset = -1
+anchor_left = 0.835938
+anchor_top = 0.554012
+anchor_right = 0.896702
+anchor_bottom = 0.589506
+offset_left = 72.9992
+offset_top = -34.9998
+offset_right = 72.9993
+offset_bottom = -33.9998
+text = "auto bet:"
+
+[node name="AutoBet" type="CheckBox" parent="AutobetBetSelectionMenu"]
+anchors_preset = -1
+anchor_left = 0.900174
+anchor_top = 0.558642
+anchor_right = 0.921007
+anchor_bottom = 0.595679
+offset_left = 68.9993
+offset_top = -38.0
+offset_right = 68.9998
+offset_bottom = -38.0
+button_pressed = true
+script = ExtResource("116_k52wq")
+metadata/_edit_use_anchors_ = true
+
+[node name="BetSelectionMenu" parent="AutobetBetSelectionMenu" instance=ExtResource("123_54anr")]
+visible = false
+
+[node name="BankruptcyButton" type="Button" parent="." node_paths=PackedStringArray("_bankruptcyMenu")]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1127.0
+offset_top = 176.0
+offset_right = -1037.0
+offset_bottom = 216.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qpnbk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mrqia")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_elgqe")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7y51i")
+text = "File for
+Bankruptcy"
+script = ExtResource("111_uvkle")
+_bankruptcyMenu = NodePath("../BankruptcyMenuTrigger/BankruptMenu")
+
+[node name="BankruptcyMenuTrigger" type="Node" parent="." node_paths=PackedStringArray("_animator", "_bankruptcyMenu")]
+script = ExtResource("119_s0y2b")
+_animator = NodePath("../ConclusionAnimTrigger/ConclusionAnimator")
+_bankruptcyMenu = NodePath("BankruptMenu")
+
+[node name="BankruptMenu" parent="BankruptcyMenuTrigger" node_paths=PackedStringArray("_gameplayScreen") instance=ExtResource("2_lvbjk")]
+visible = false
+offset_top = -1.0
+offset_bottom = -1.0
+_gameplayScreen = NodePath("../..")
+
+[node name="TipsMenu" type="Control" parent="." node_paths=PackedStringArray("_tipsMenu", "_tipsToggle", "_tipsLabel", "_closeButton")]
+layout_mode = 3
+anchors_preset = 0
+rotation = 0.00105189
+script = ExtResource("133_slw8j")
+_tipsMenu = NodePath("TipsMenu")
+_tipsToggle = NodePath("TipsCheckbox")
+_tipsLabel = NodePath("TipsMenu/TipsLabel")
+_closeButton = NodePath("TipsMenu/CancelButton")
+
+[node name="TipsLabel" type="Label" parent="TipsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1028.37
+offset_top = 346.918
+offset_right = 1106.37
+offset_bottom = 370.918
+grow_horizontal = 2
+grow_vertical = 2
+text = "show tips:"
+
+[node name="TipsCheckbox" type="CheckBox" parent="TipsMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.900174
+anchor_top = 0.558642
+anchor_right = 0.921007
+anchor_bottom = 0.595679
+offset_left = 1106.37
+offset_top = 346.836
+offset_right = 1130.37
+offset_bottom = 370.836
+script = ExtResource("116_k52wq")
+
+[node name="TipsMenu" type="ColorRect" parent="TipsMenu"]
+visible = false
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 125.0
+script = ExtResource("134_8bmos")
+
+[node name="TipsLabel" type="Label" parent="TipsMenu/TipsMenu"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Tips Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("11_w0dc7")
+
+[node name="CancelButton" type="Button" parent="TipsMenu/TipsMenu"]
+custom_minimum_size = Vector2(23, 23)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -15.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 15.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sxpgt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nsddh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fritx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_my7et")
+text = "X"
+script = ExtResource("135_ba6ag")
+
+[node name="MusicChangeDirective" type="Node" parent="."]
+script = ExtResource("147_a2evm")
+_musicToPlay = ExtResource("148_s5foy")

@@ -1,0 +1,161 @@
+[gd_scene load_steps=10 format=3 uid="uid://dikwsd8i7lw77"]
+
+[ext_resource type="Script" path="res://Menu/Bankruptcy/NBankruptcyMenu.cs" id="1_8v2b3"]
+[ext_resource type="Script" path="res://GodotWrappers/NButton.cs" id="2_kq5h3"]
+[ext_resource type="Script" path="res://GodotWrappers/NLabel.cs" id="2_wngx8"]
+[ext_resource type="Script" path="res://GodotWrappers/NContainer.cs" id="3_01ykb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmljv"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3hys"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6o7f"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnppi"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76jx2"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[node name="BankruptMenu" type="Control" node_paths=PackedStringArray("_buttonContainer", "_continueButton", "_infoLabel", "_payoutLabel")]
+z_index = 31
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_8v2b3")
+_buttonContainer = NodePath("Panel/MenuPanel/ItemsVBoxContainer")
+_continueButton = NodePath("Panel/MenuPanel/ContinueButton")
+_infoLabel = NodePath("Panel/MenuPanel/InfoLabel")
+_payoutLabel = NodePath("Panel/MenuPanel/PayoutLabel")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuPanel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -160.0
+offset_right = 325.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vmljv")
+
+[node name="InfoLabel" type="Label" parent="Panel/MenuPanel"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 25.0
+offset_right = 300.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+text = "Select any item to sell back to the store for a refund. Don't worry, you will be able to purchase these items again."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_wngx8")
+
+[node name="ItemsVBoxContainer" type="VBoxContainer" parent="Panel/MenuPanel"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -70.0
+offset_right = 300.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_01ykb")
+
+[node name="ContinueButton" type="Button" parent="Panel/MenuPanel"]
+visible = false
+top_level = true
+z_index = 32
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = 91.0
+offset_right = 77.5
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_focus_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_colors/font_color = Color(0.305882, 0.305882, 0.305882, 1)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k3hys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g6o7f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xnppi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_76jx2")
+text = "Continue"
+script = ExtResource("2_kq5h3")
+
+[node name="PayoutLabel" type="Label" parent="Panel/MenuPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.5
+offset_top = -55.0
+offset_right = 382.5
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "A bankruptcy payout of 50 chips has been added to your wallet."
+horizontal_alignment = 1
+script = ExtResource("2_wngx8")

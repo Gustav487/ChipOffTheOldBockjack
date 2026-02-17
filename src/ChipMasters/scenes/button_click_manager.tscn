@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5sgchftb7uxo"]
+
+[ext_resource type="Script" path="res://Audio/NButtonAudioHandler.cs" id="1_iv8p5"]
+[ext_resource type="AudioStream" uid="uid://cqflch5qt7lpr" path="res://assets/audio/button_click.wav" id="2_702wc"]
+
+[node name="ButtonClickManager" type="Node"]
+script = ExtResource("1_iv8p5")
+
+[node name="ClickAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_702wc")
+bus = &"SFX"
