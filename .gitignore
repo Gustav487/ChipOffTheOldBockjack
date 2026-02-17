@@ -1,0 +1,14 @@
+src/.vs
+src/ChipMasters/.vs
+src/Tests.ChipMasters/obj
+src/Tests.ChipMasters/bin
+src/Fakes.ChipMasters/obj
+src/Fakes.ChipMasters/bin
+Thumbs.db
+.DS_Store
+src/.DS_Store
+src/ChipMasters/.DS_Store
+src/.vscode/settings.json 
+/.vs
+/builds
+rcedit-x86.exe
