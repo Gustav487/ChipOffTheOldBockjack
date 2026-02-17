@@ -1,0 +1,1 @@
+This assets folder is only for drawing program files, to store layer data and such. Exported files should go in: \src\ChipMasters\assets

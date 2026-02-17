@@ -1,0 +1,8 @@
+# Made in Blockbench 4.11.2
+newmtl m_c8485b77-27a5-72c1-79d5-e3c8a008a526
+map_Kd indicator_placeholder.png
+newmtl m_cede40d4-459c-258d-4367-85f607bae7c2
+map_Kd card_back_placeholder.png
+newmtl m_fffd1fa6-94fe-4fab-3c0e-b4a45425fba5
+map_Kd card_front_placeholder.png
+newmtl none
